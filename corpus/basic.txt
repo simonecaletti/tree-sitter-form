@@ -1,0 +1,170 @@
+==================
+Basic FORM program
+==================
+
+* comment
+#define N "4"
+Symbols x,y;
+CFunction f;
+Local F = f(x) + y^2;
+id y^2 = x;
+.sort
+Print +s F;
+.end
+
+---
+
+(source_file
+  (comment)
+  (preprocessor
+    name: (identifier)
+    args: (rest_of_line))
+  (declaration
+    keyword: (declaration_keyword)
+    body: (expression_list
+      (identifier)
+      (punctuation)
+      (identifier)))
+  (declaration
+    keyword: (declaration_keyword)
+    body: (expression_list
+      (identifier)))
+  (statement
+    keyword: (statement_keyword)
+    body: (expression_list
+      (identifier)
+      (operator)
+      (function_call
+        function: (identifier)
+        (expression_list
+          (identifier)))
+      (operator)
+      (identifier)
+      (operator)
+      (number)))
+  (statement
+    keyword: (statement_keyword)
+    body: (expression_list
+      (identifier)
+      (operator)
+      (number)
+      (operator)
+      (identifier)))
+  (dot_directive
+    name: (identifier))
+  (statement
+    keyword: (statement_keyword)
+    body: (expression_list
+      (operator)
+      (identifier)
+      (identifier)))
+  (dot_directive
+    name: (identifier)))
+
+==================
+Case-insensitive keywords
+==================
+
+symbols a,b;
+local X = a + b;
+id a = 0;
+endif;
+.sort
+
+---
+
+(source_file
+  (declaration
+    keyword: (declaration_keyword)
+    body: (expression_list
+      (identifier)
+      (punctuation)
+      (identifier)))
+  (statement
+    keyword: (statement_keyword)
+    body: (expression_list
+      (identifier)
+      (operator)
+      (identifier)
+      (operator)
+      (identifier)))
+  (statement
+    keyword: (statement_keyword)
+    body: (expression_list
+      (identifier)
+      (operator)
+      (number)))
+  (statement
+    keyword: (control_keyword))
+  (dot_directive
+    name: (identifier)))
+
+==================
+Dollar variables
+==================
+
+Symbols x;
+$n = 5;
+id x = $n;
+.end
+
+---
+
+(source_file
+  (declaration
+    keyword: (declaration_keyword)
+    body: (expression_list
+      (identifier)))
+  (bare_expression
+    (expression_list
+      (dollar_variable
+        (identifier))
+      (operator)
+      (number)))
+  (statement
+    keyword: (statement_keyword)
+    body: (expression_list
+      (identifier)
+      (operator)
+      (dollar_variable
+        (identifier))))
+  (dot_directive
+    name: (identifier)))
+
+==================
+Control flow
+==================
+
+if (match(x));
+  multiply 2;
+else;
+  multiply 3;
+endif;
+.end
+
+---
+
+(source_file
+  (statement
+    keyword: (control_keyword)
+    body: (expression_list
+      (punctuation)
+      (function_call
+        function: (identifier)
+        (expression_list
+          (identifier)))
+      (punctuation)))
+  (statement
+    keyword: (statement_keyword)
+    body: (expression_list
+      (number)))
+  (statement
+    keyword: (control_keyword))
+  (statement
+    keyword: (statement_keyword)
+    body: (expression_list
+      (number)))
+  (statement
+    keyword: (control_keyword))
+  (dot_directive
+    name: (identifier)))

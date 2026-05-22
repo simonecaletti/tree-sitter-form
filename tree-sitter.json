@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "form",
+    "description": "Tree-sitter grammar for the FORM symbolic manipulation language",
+    "license": "MIT",
+    "version": "0.0.1"
+  },
+  "grammars": [
+    {
+      "name": "form",
+      "camelcase": "Form",
+      "scope": "source.form",
+      "path": ".",
+      "file-types": [
+        "frm",
+        "prc",
+        "inc"
+      ]
+    }
+  ]
+}

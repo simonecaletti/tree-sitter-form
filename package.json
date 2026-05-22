@@ -1,0 +1,30 @@
+{
+  "name": "tree-sitter-form",
+  "version": "0.0.1",
+  "description": "Tree-sitter grammar for the FORM symbolic manipulation language",
+  "main": "bindings/node",
+  "keywords": [
+    "tree-sitter",
+    "form",
+    "symbolic-manipulation"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter test",
+    "parse-example": "tree-sitter parse ../examples/basic.frm"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.25.0"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.form",
+      "file-types": [
+        "frm",
+        "prc",
+        "inc"
+      ]
+    }
+  ]
+}
