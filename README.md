@@ -4,12 +4,15 @@ A Tree-sitter grammar for the [FORM](https://www.nikhef.nl/~form/) symbolic mani
 
 ## Supported constructs
 
-- **Comments** — lines starting with `*`
-- **Preprocessor directives** — `#define`, `#include`, `#procedure`, etc.
+- **Comments** — lines whose first character is `*` (a `*` after whitespace is multiplication)
+- **Preprocessor directives** — `#define`, `#include`, `#procedure`/`#endprocedure`, `#call`, `#if`, etc.
 - **Dot directives** — `.sort`, `.end`, `.global`, etc.
-- **Declarations** — `Symbols`, `Vectors`, `Indices`, `Functions`, `CFunctions`, `Tensors`, `Table`, and their short forms
-- **Statements** — `Local`, `Global`, `Id`, `Multiply`, `Print`, `Bracket`, `Collect`, and many more
-- **Control flow** — `If`/`ElseIf`/`Else`/`EndIf`, `Repeat`/`EndRepeat`, `Do`/`EndDo`, `While`/`EndWhile`, `Switch`/`Case`/`EndSwitch`
+- **Declarations** — `Symbols`, `Vectors`, `Indices`, `Functions`, `CFunctions`, `NFunctions`, `Tensors`, `CTensors`, `Table`, `Set`, `Dimension`, `ExtraSymbols`, and their short forms
+- **Statements** — `Local`, `Global`, `Id`, `IdNew`, `IdOld`, `Multiply`, `Print`, `Bracket`, `Collect`, `Contract`, `Chisholm`, `Symmetrize`, `AntiSymmetrize`, `ToPolynomial`, `FromPolynomial`, `FactArg`, `FactDollar`, `Trace4`, `TraceN`, `UnitTrace`, and many more (case-insensitive)
+- **Control flow** — `If`/`ElseIf`/`Else`/`EndIf`, `Repeat`/`EndRepeat`, `Do`/`EndDo`, `While`/`EndWhile`, `Switch`/`Case`/`EndSwitch`, `Inside`/`EndInside`, `InExpression`/`EndInExpression`, `Term`/`EndTerm`, `GoTo`/`Label`
+- **Built-in functions** — `g_`, `g5_`, `g6_`, `g7_`, `gi_`, `d_`, `e_`, `trace4`, `tracen`, `abs_`, `fac_`, `gcd_`, `sin_`, `cos_`, `sqrt_`, and many more
+- **Built-in constants** — `i_`, `pi_`, `ee_`, `em_`, `coeff_`, `num_`, `den_`
+- **Built-in sets** — `int_`, `pos_`, `neg_`, `symbol_`, `index_`, `vector_`, `number_`, `even_`, `odd_`
 - **Dollar variables** — `$name`
 - **Wildcards** — `?`, `??`, `?name`, `??name`
 - **Function calls** — `f(x, y)`
@@ -25,9 +28,4 @@ All keywords are matched case-insensitively (`if`, `If`, `IF` are all valid).
 npm install          # install tree-sitter-cli
 npm run generate     # regenerate src/parser.c from grammar.js
 npm test             # run corpus tests
-npm run parse-example  # parse examples/basic.frm
 ```
-
-## Known limitations
-
-The `*` character is both the line-comment marker (when it appears at the start of a line) and the multiplication operator. Distinguishing the two correctly requires a stateful external scanner. The current grammar treats `*` as an operator inside expressions, but a bare `*` at the start of a line may be misidentified. An external scanner is the proper fix.
