@@ -1168,573 +1168,602 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
   eof = lexer->eof(lexer);
   switch (state) {
     case 0:
-      if (eof) ADVANCE(11);
+      if (eof) ADVANCE(12);
       ADVANCE_MAP(
-        '\n', 12,
-        '!', 73,
-        '"', 1,
-        '#', 14,
-        '$', 36,
-        '&', 2,
-        '(', 32,
-        ')', 34,
-        '*', 48,
-        '+', 44,
-        ',', 75,
-        '-', 46,
-        '.', 16,
-        '/', 49,
-        ':', 77,
-        ';', 31,
-        '<', 65,
-        '=', 53,
-        '>', 67,
-        '?', 42,
-        '[', 83,
-        ']', 85,
-        '^', 51,
-        '{', 87,
-        '|', 4,
-        '}', 89,
+        '\n', 13,
+        '!', 75,
+        '"', 2,
+        '#', 15,
+        '$', 37,
+        '&', 3,
+        '(', 33,
+        ')', 35,
+        '*', 50,
+        '+', 45,
+        ',', 77,
+        '-', 47,
+        '.', 17,
+        '/', 51,
+        ':', 79,
+        ';', 32,
+        '<', 67,
+        '=', 55,
+        '>', 69,
+        '?', 43,
+        '[', 85,
+        ']', 87,
+        '^', 53,
+        '{', 89,
+        '|', 6,
+        '}', 91,
       );
       if (lookahead == '\t' ||
           lookahead == '\f' ||
           lookahead == '\r' ||
           lookahead == ' ') SKIP(0);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(92);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(94);
       if (('A' <= lookahead && lookahead <= 'Z') ||
           lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(91);
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(93);
       END_STATE();
     case 1:
-      if (lookahead == '"') ADVANCE(95);
-      if (lookahead == '\\') ADVANCE(8);
-      if (lookahead != 0) ADVANCE(1);
-      END_STATE();
-    case 2:
-      if (lookahead == '&') ADVANCE(69);
-      END_STATE();
-    case 3:
-      if (lookahead == '.') ADVANCE(81);
-      END_STATE();
-    case 4:
-      if (lookahead == '|') ADVANCE(71);
-      END_STATE();
-    case 5:
-      if (lookahead == '+' ||
-          lookahead == '-') ADVANCE(7);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(94);
-      END_STATE();
-    case 6:
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(93);
-      END_STATE();
-    case 7:
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(94);
-      END_STATE();
-    case 8:
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(1);
-      END_STATE();
-    case 9:
-      if (eof) ADVANCE(11);
       ADVANCE_MAP(
-        '\n', 12,
-        '!', 74,
-        '"', 18,
-        '#', 15,
+        '!', 75,
+        '"', 2,
         '$', 37,
-        '&', 20,
+        '&', 3,
         '(', 33,
         ')', 35,
-        '*', 48,
+        '*', 49,
         '+', 45,
-        ',', 76,
+        ',', 77,
         '-', 47,
-        '.', 17,
-        '/', 50,
-        ':', 78,
-        '<', 66,
-        '=', 54,
-        '>', 68,
+        '.', 4,
+        '/', 51,
+        ':', 79,
+        ';', 32,
+        '<', 67,
+        '=', 55,
+        '>', 69,
         '?', 43,
-        '[', 84,
-        ']', 86,
-        '^', 52,
-        '{', 88,
-        '|', 23,
-        '}', 90,
-        '\t', 19,
-        '\f', 19,
-        '\r', 19,
-        ' ', 19,
+        '[', 85,
+        ']', 87,
+        '^', 53,
+        '{', 89,
+        '|', 6,
+        '}', 91,
       );
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(21);
-      if (('A' <= lookahead && lookahead <= 'Z') ||
-          lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(28);
-      if (lookahead != 0) ADVANCE(30);
-      END_STATE();
-    case 10:
-      if (eof) ADVANCE(11);
-      if (lookahead == ')') ADVANCE(34);
-      if (lookahead == '*') ADVANCE(13);
-      if (lookahead == ';') ADVANCE(31);
       if (lookahead == '\t' ||
           lookahead == '\f' ||
           lookahead == '\r' ||
-          lookahead == ' ') SKIP(10);
+          lookahead == ' ') SKIP(1);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(94);
       if (('A' <= lookahead && lookahead <= 'Z') ||
           lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(91);
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(93);
+      END_STATE();
+    case 2:
+      if (lookahead == '"') ADVANCE(97);
+      if (lookahead == '\\') ADVANCE(10);
+      if (lookahead != 0) ADVANCE(2);
+      END_STATE();
+    case 3:
+      if (lookahead == '&') ADVANCE(71);
+      END_STATE();
+    case 4:
+      if (lookahead == '.') ADVANCE(5);
+      END_STATE();
+    case 5:
+      if (lookahead == '.') ADVANCE(83);
+      END_STATE();
+    case 6:
+      if (lookahead == '|') ADVANCE(73);
+      END_STATE();
+    case 7:
+      if (lookahead == '+' ||
+          lookahead == '-') ADVANCE(9);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(96);
+      END_STATE();
+    case 8:
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(95);
+      END_STATE();
+    case 9:
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(96);
+      END_STATE();
+    case 10:
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(2);
       END_STATE();
     case 11:
-      ACCEPT_TOKEN(ts_builtin_sym_end);
+      if (eof) ADVANCE(12);
+      ADVANCE_MAP(
+        '\n', 13,
+        '!', 76,
+        '"', 19,
+        '#', 16,
+        '$', 38,
+        '&', 21,
+        '(', 34,
+        ')', 36,
+        '*', 50,
+        '+', 46,
+        ',', 78,
+        '-', 48,
+        '.', 18,
+        '/', 52,
+        ':', 80,
+        '<', 68,
+        '=', 56,
+        '>', 70,
+        '?', 44,
+        '[', 86,
+        ']', 88,
+        '^', 54,
+        '{', 90,
+        '|', 24,
+        '}', 92,
+        '\t', 20,
+        '\f', 20,
+        '\r', 20,
+        ' ', 20,
+      );
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(22);
+      if (('A' <= lookahead && lookahead <= 'Z') ||
+          lookahead == '_' ||
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(29);
+      if (lookahead != 0) ADVANCE(31);
       END_STATE();
     case 12:
-      ACCEPT_TOKEN(aux_sym__item_token1);
-      if (lookahead == '\n') ADVANCE(12);
+      ACCEPT_TOKEN(ts_builtin_sym_end);
       END_STATE();
     case 13:
-      ACCEPT_TOKEN(sym_comment);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(13);
+      ACCEPT_TOKEN(aux_sym__item_token1);
+      if (lookahead == '\n') ADVANCE(13);
       END_STATE();
     case 14:
-      ACCEPT_TOKEN(anon_sym_POUND);
+      ACCEPT_TOKEN(sym_comment);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(14);
       END_STATE();
     case 15:
       ACCEPT_TOKEN(anon_sym_POUND);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
       END_STATE();
     case 16:
-      ACCEPT_TOKEN(anon_sym_DOT);
-      if (lookahead == '.') ADVANCE(3);
+      ACCEPT_TOKEN(anon_sym_POUND);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 17:
       ACCEPT_TOKEN(anon_sym_DOT);
-      if (lookahead == '.') ADVANCE(22);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+      if (lookahead == '.') ADVANCE(5);
       END_STATE();
     case 18:
-      ACCEPT_TOKEN(sym_rest_of_line);
-      if (lookahead == '\n') ADVANCE(1);
-      if (lookahead == '"') ADVANCE(30);
-      if (lookahead == '\\') ADVANCE(29);
-      if (lookahead != 0) ADVANCE(18);
+      ACCEPT_TOKEN(anon_sym_DOT);
+      if (lookahead == '.') ADVANCE(23);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 19:
       ACCEPT_TOKEN(sym_rest_of_line);
-      ADVANCE_MAP(
-        '!', 74,
-        '"', 18,
-        '#', 15,
-        '$', 37,
-        '&', 20,
-        '(', 33,
-        ')', 35,
-        '*', 48,
-        '+', 45,
-        ',', 76,
-        '-', 47,
-        '.', 17,
-        '/', 50,
-        ':', 78,
-        '<', 66,
-        '=', 54,
-        '>', 68,
-        '?', 43,
-        '[', 84,
-        ']', 86,
-        '^', 52,
-        '{', 88,
-        '|', 23,
-        '}', 90,
-        '\t', 19,
-        '\f', 19,
-        '\r', 19,
-        ' ', 19,
-      );
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(21);
-      if (('A' <= lookahead && lookahead <= 'Z') ||
-          lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(28);
-      if (lookahead != 0 &&
-          lookahead != '\t' &&
-          lookahead != '\n') ADVANCE(30);
+      if (lookahead == '\n') ADVANCE(2);
+      if (lookahead == '"') ADVANCE(31);
+      if (lookahead == '\\') ADVANCE(30);
+      if (lookahead != 0) ADVANCE(19);
       END_STATE();
     case 20:
       ACCEPT_TOKEN(sym_rest_of_line);
-      if (lookahead == '&') ADVANCE(70);
+      ADVANCE_MAP(
+        '!', 76,
+        '"', 19,
+        '#', 16,
+        '$', 38,
+        '&', 21,
+        '(', 34,
+        ')', 36,
+        '*', 50,
+        '+', 46,
+        ',', 78,
+        '-', 48,
+        '.', 18,
+        '/', 52,
+        ':', 80,
+        '<', 68,
+        '=', 56,
+        '>', 70,
+        '?', 44,
+        '[', 86,
+        ']', 88,
+        '^', 54,
+        '{', 90,
+        '|', 24,
+        '}', 92,
+        '\t', 20,
+        '\f', 20,
+        '\r', 20,
+        ' ', 20,
+      );
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(22);
+      if (('A' <= lookahead && lookahead <= 'Z') ||
+          lookahead == '_' ||
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(29);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\t' &&
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 21:
       ACCEPT_TOKEN(sym_rest_of_line);
-      if (lookahead == '.') ADVANCE(26);
-      if (lookahead == 'E' ||
-          lookahead == 'e') ADVANCE(24);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(21);
+      if (lookahead == '&') ADVANCE(72);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 22:
       ACCEPT_TOKEN(sym_rest_of_line);
-      if (lookahead == '.') ADVANCE(82);
+      if (lookahead == '.') ADVANCE(27);
+      if (lookahead == 'E' ||
+          lookahead == 'e') ADVANCE(25);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(22);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 23:
       ACCEPT_TOKEN(sym_rest_of_line);
-      if (lookahead == '|') ADVANCE(72);
+      if (lookahead == '.') ADVANCE(84);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 24:
       ACCEPT_TOKEN(sym_rest_of_line);
-      if (lookahead == '+' ||
-          lookahead == '-') ADVANCE(27);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(27);
+      if (lookahead == '|') ADVANCE(74);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 25:
       ACCEPT_TOKEN(sym_rest_of_line);
-      if (lookahead == 'E' ||
-          lookahead == 'e') ADVANCE(24);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(25);
+      if (lookahead == '+' ||
+          lookahead == '-') ADVANCE(28);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(28);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 26:
       ACCEPT_TOKEN(sym_rest_of_line);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(25);
+      if (lookahead == 'E' ||
+          lookahead == 'e') ADVANCE(25);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(26);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 27:
       ACCEPT_TOKEN(sym_rest_of_line);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(27);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(26);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 28:
+      ACCEPT_TOKEN(sym_rest_of_line);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(28);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
+      END_STATE();
+    case 29:
       ACCEPT_TOKEN(sym_rest_of_line);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
           lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(28);
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(29);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
-      END_STATE();
-    case 29:
-      ACCEPT_TOKEN(sym_rest_of_line);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(18);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 30:
       ACCEPT_TOKEN(sym_rest_of_line);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(19);
       END_STATE();
     case 31:
-      ACCEPT_TOKEN(anon_sym_SEMI);
+      ACCEPT_TOKEN(sym_rest_of_line);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 32:
-      ACCEPT_TOKEN(anon_sym_LPAREN);
+      ACCEPT_TOKEN(anon_sym_SEMI);
       END_STATE();
     case 33:
       ACCEPT_TOKEN(anon_sym_LPAREN);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
       END_STATE();
     case 34:
-      ACCEPT_TOKEN(anon_sym_RPAREN);
+      ACCEPT_TOKEN(anon_sym_LPAREN);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 35:
       ACCEPT_TOKEN(anon_sym_RPAREN);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
       END_STATE();
     case 36:
-      ACCEPT_TOKEN(anon_sym_DOLLAR);
+      ACCEPT_TOKEN(anon_sym_RPAREN);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 37:
       ACCEPT_TOKEN(anon_sym_DOLLAR);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
       END_STATE();
     case 38:
-      ACCEPT_TOKEN(aux_sym_wildcard_token1);
-      if (('0' <= lookahead && lookahead <= '9') ||
-          ('A' <= lookahead && lookahead <= 'Z') ||
-          lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(38);
+      ACCEPT_TOKEN(anon_sym_DOLLAR);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 39:
-      ACCEPT_TOKEN(aux_sym_wildcard_token2);
+      ACCEPT_TOKEN(aux_sym_wildcard_token1);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
           lookahead == '_' ||
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(39);
       END_STATE();
     case 40:
-      ACCEPT_TOKEN(anon_sym_QMARK_QMARK);
-      if (('A' <= lookahead && lookahead <= 'Z') ||
+      ACCEPT_TOKEN(aux_sym_wildcard_token2);
+      if (('0' <= lookahead && lookahead <= '9') ||
+          ('A' <= lookahead && lookahead <= 'Z') ||
           lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(38);
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(40);
       END_STATE();
     case 41:
       ACCEPT_TOKEN(anon_sym_QMARK_QMARK);
       if (('A' <= lookahead && lookahead <= 'Z') ||
           lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(28);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(39);
       END_STATE();
     case 42:
-      ACCEPT_TOKEN(anon_sym_QMARK);
-      if (lookahead == '?') ADVANCE(40);
+      ACCEPT_TOKEN(anon_sym_QMARK_QMARK);
       if (('A' <= lookahead && lookahead <= 'Z') ||
           lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(39);
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(29);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 43:
       ACCEPT_TOKEN(anon_sym_QMARK);
       if (lookahead == '?') ADVANCE(41);
       if (('A' <= lookahead && lookahead <= 'Z') ||
           lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(28);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(40);
       END_STATE();
     case 44:
-      ACCEPT_TOKEN(anon_sym_PLUS);
+      ACCEPT_TOKEN(anon_sym_QMARK);
+      if (lookahead == '?') ADVANCE(42);
+      if (('A' <= lookahead && lookahead <= 'Z') ||
+          lookahead == '_' ||
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(29);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 45:
       ACCEPT_TOKEN(anon_sym_PLUS);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
       END_STATE();
     case 46:
-      ACCEPT_TOKEN(anon_sym_DASH);
+      ACCEPT_TOKEN(anon_sym_PLUS);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 47:
       ACCEPT_TOKEN(anon_sym_DASH);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
       END_STATE();
     case 48:
-      ACCEPT_TOKEN(anon_sym_STAR);
+      ACCEPT_TOKEN(anon_sym_DASH);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(13);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 49:
-      ACCEPT_TOKEN(anon_sym_SLASH);
+      ACCEPT_TOKEN(anon_sym_STAR);
       END_STATE();
     case 50:
-      ACCEPT_TOKEN(anon_sym_SLASH);
+      ACCEPT_TOKEN(anon_sym_STAR);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(14);
       END_STATE();
     case 51:
-      ACCEPT_TOKEN(anon_sym_CARET);
+      ACCEPT_TOKEN(anon_sym_SLASH);
       END_STATE();
     case 52:
-      ACCEPT_TOKEN(anon_sym_CARET);
+      ACCEPT_TOKEN(anon_sym_SLASH);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 53:
-      ACCEPT_TOKEN(anon_sym_EQ);
-      if (lookahead == '=') ADVANCE(55);
+      ACCEPT_TOKEN(anon_sym_CARET);
       END_STATE();
     case 54:
-      ACCEPT_TOKEN(anon_sym_EQ);
-      if (lookahead == '=') ADVANCE(56);
+      ACCEPT_TOKEN(anon_sym_CARET);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 55:
-      ACCEPT_TOKEN(anon_sym_EQ_EQ);
-      END_STATE();
-    case 56:
-      ACCEPT_TOKEN(anon_sym_EQ_EQ);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
-      END_STATE();
-    case 57:
-      ACCEPT_TOKEN(anon_sym_BANG_EQ);
-      END_STATE();
-    case 58:
-      ACCEPT_TOKEN(anon_sym_BANG_EQ);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
-      END_STATE();
-    case 59:
-      ACCEPT_TOKEN(anon_sym_LT_GT);
-      END_STATE();
-    case 60:
-      ACCEPT_TOKEN(anon_sym_LT_GT);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
-      END_STATE();
-    case 61:
-      ACCEPT_TOKEN(anon_sym_LT_EQ);
-      END_STATE();
-    case 62:
-      ACCEPT_TOKEN(anon_sym_LT_EQ);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
-      END_STATE();
-    case 63:
-      ACCEPT_TOKEN(anon_sym_GT_EQ);
-      END_STATE();
-    case 64:
-      ACCEPT_TOKEN(anon_sym_GT_EQ);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
-      END_STATE();
-    case 65:
-      ACCEPT_TOKEN(anon_sym_LT);
-      if (lookahead == '=') ADVANCE(61);
-      if (lookahead == '>') ADVANCE(59);
-      END_STATE();
-    case 66:
-      ACCEPT_TOKEN(anon_sym_LT);
-      if (lookahead == '=') ADVANCE(62);
-      if (lookahead == '>') ADVANCE(60);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
-      END_STATE();
-    case 67:
-      ACCEPT_TOKEN(anon_sym_GT);
-      if (lookahead == '=') ADVANCE(63);
-      END_STATE();
-    case 68:
-      ACCEPT_TOKEN(anon_sym_GT);
-      if (lookahead == '=') ADVANCE(64);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
-      END_STATE();
-    case 69:
-      ACCEPT_TOKEN(anon_sym_AMP_AMP);
-      END_STATE();
-    case 70:
-      ACCEPT_TOKEN(anon_sym_AMP_AMP);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
-      END_STATE();
-    case 71:
-      ACCEPT_TOKEN(anon_sym_PIPE_PIPE);
-      END_STATE();
-    case 72:
-      ACCEPT_TOKEN(anon_sym_PIPE_PIPE);
-      if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
-      END_STATE();
-    case 73:
-      ACCEPT_TOKEN(anon_sym_BANG);
+      ACCEPT_TOKEN(anon_sym_EQ);
       if (lookahead == '=') ADVANCE(57);
       END_STATE();
-    case 74:
-      ACCEPT_TOKEN(anon_sym_BANG);
+    case 56:
+      ACCEPT_TOKEN(anon_sym_EQ);
       if (lookahead == '=') ADVANCE(58);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
+      END_STATE();
+    case 57:
+      ACCEPT_TOKEN(anon_sym_EQ_EQ);
+      END_STATE();
+    case 58:
+      ACCEPT_TOKEN(anon_sym_EQ_EQ);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
+      END_STATE();
+    case 59:
+      ACCEPT_TOKEN(anon_sym_BANG_EQ);
+      END_STATE();
+    case 60:
+      ACCEPT_TOKEN(anon_sym_BANG_EQ);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
+      END_STATE();
+    case 61:
+      ACCEPT_TOKEN(anon_sym_LT_GT);
+      END_STATE();
+    case 62:
+      ACCEPT_TOKEN(anon_sym_LT_GT);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
+      END_STATE();
+    case 63:
+      ACCEPT_TOKEN(anon_sym_LT_EQ);
+      END_STATE();
+    case 64:
+      ACCEPT_TOKEN(anon_sym_LT_EQ);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
+      END_STATE();
+    case 65:
+      ACCEPT_TOKEN(anon_sym_GT_EQ);
+      END_STATE();
+    case 66:
+      ACCEPT_TOKEN(anon_sym_GT_EQ);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
+      END_STATE();
+    case 67:
+      ACCEPT_TOKEN(anon_sym_LT);
+      if (lookahead == '=') ADVANCE(63);
+      if (lookahead == '>') ADVANCE(61);
+      END_STATE();
+    case 68:
+      ACCEPT_TOKEN(anon_sym_LT);
+      if (lookahead == '=') ADVANCE(64);
+      if (lookahead == '>') ADVANCE(62);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
+      END_STATE();
+    case 69:
+      ACCEPT_TOKEN(anon_sym_GT);
+      if (lookahead == '=') ADVANCE(65);
+      END_STATE();
+    case 70:
+      ACCEPT_TOKEN(anon_sym_GT);
+      if (lookahead == '=') ADVANCE(66);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
+      END_STATE();
+    case 71:
+      ACCEPT_TOKEN(anon_sym_AMP_AMP);
+      END_STATE();
+    case 72:
+      ACCEPT_TOKEN(anon_sym_AMP_AMP);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
+      END_STATE();
+    case 73:
+      ACCEPT_TOKEN(anon_sym_PIPE_PIPE);
+      END_STATE();
+    case 74:
+      ACCEPT_TOKEN(anon_sym_PIPE_PIPE);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 75:
-      ACCEPT_TOKEN(anon_sym_COMMA);
+      ACCEPT_TOKEN(anon_sym_BANG);
+      if (lookahead == '=') ADVANCE(59);
       END_STATE();
     case 76:
-      ACCEPT_TOKEN(anon_sym_COMMA);
+      ACCEPT_TOKEN(anon_sym_BANG);
+      if (lookahead == '=') ADVANCE(60);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 77:
-      ACCEPT_TOKEN(anon_sym_COLON);
-      if (lookahead == ':') ADVANCE(79);
+      ACCEPT_TOKEN(anon_sym_COMMA);
       END_STATE();
     case 78:
-      ACCEPT_TOKEN(anon_sym_COLON);
-      if (lookahead == ':') ADVANCE(80);
+      ACCEPT_TOKEN(anon_sym_COMMA);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 79:
-      ACCEPT_TOKEN(anon_sym_COLON_COLON);
+      ACCEPT_TOKEN(anon_sym_COLON);
+      if (lookahead == ':') ADVANCE(81);
       END_STATE();
     case 80:
-      ACCEPT_TOKEN(anon_sym_COLON_COLON);
+      ACCEPT_TOKEN(anon_sym_COLON);
+      if (lookahead == ':') ADVANCE(82);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 81:
-      ACCEPT_TOKEN(anon_sym_DOT_DOT_DOT);
+      ACCEPT_TOKEN(anon_sym_COLON_COLON);
       END_STATE();
     case 82:
-      ACCEPT_TOKEN(anon_sym_DOT_DOT_DOT);
+      ACCEPT_TOKEN(anon_sym_COLON_COLON);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 83:
-      ACCEPT_TOKEN(anon_sym_LBRACK);
+      ACCEPT_TOKEN(anon_sym_DOT_DOT_DOT);
       END_STATE();
     case 84:
-      ACCEPT_TOKEN(anon_sym_LBRACK);
+      ACCEPT_TOKEN(anon_sym_DOT_DOT_DOT);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 85:
-      ACCEPT_TOKEN(anon_sym_RBRACK);
+      ACCEPT_TOKEN(anon_sym_LBRACK);
       END_STATE();
     case 86:
-      ACCEPT_TOKEN(anon_sym_RBRACK);
+      ACCEPT_TOKEN(anon_sym_LBRACK);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 87:
-      ACCEPT_TOKEN(anon_sym_LBRACE);
+      ACCEPT_TOKEN(anon_sym_RBRACK);
       END_STATE();
     case 88:
-      ACCEPT_TOKEN(anon_sym_LBRACE);
+      ACCEPT_TOKEN(anon_sym_RBRACK);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 89:
-      ACCEPT_TOKEN(anon_sym_RBRACE);
+      ACCEPT_TOKEN(anon_sym_LBRACE);
       END_STATE();
     case 90:
-      ACCEPT_TOKEN(anon_sym_RBRACE);
+      ACCEPT_TOKEN(anon_sym_LBRACE);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(30);
+          lookahead != '\n') ADVANCE(31);
       END_STATE();
     case 91:
+      ACCEPT_TOKEN(anon_sym_RBRACE);
+      END_STATE();
+    case 92:
+      ACCEPT_TOKEN(anon_sym_RBRACE);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(31);
+      END_STATE();
+    case 93:
       ACCEPT_TOKEN(sym_identifier);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
           lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(91);
-      END_STATE();
-    case 92:
-      ACCEPT_TOKEN(sym_number);
-      if (lookahead == '.') ADVANCE(6);
-      if (lookahead == 'E' ||
-          lookahead == 'e') ADVANCE(5);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(92);
-      END_STATE();
-    case 93:
-      ACCEPT_TOKEN(sym_number);
-      if (lookahead == 'E' ||
-          lookahead == 'e') ADVANCE(5);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(93);
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(93);
       END_STATE();
     case 94:
       ACCEPT_TOKEN(sym_number);
+      if (lookahead == '.') ADVANCE(8);
+      if (lookahead == 'E' ||
+          lookahead == 'e') ADVANCE(7);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(94);
       END_STATE();
     case 95:
+      ACCEPT_TOKEN(sym_number);
+      if (lookahead == 'E' ||
+          lookahead == 'e') ADVANCE(7);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(95);
+      END_STATE();
+    case 96:
+      ACCEPT_TOKEN(sym_number);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(96);
+      END_STATE();
+    case 97:
       ACCEPT_TOKEN(sym_string);
       END_STATE();
     default:
@@ -1845,7 +1874,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'x') ADVANCE(37);
       END_STATE();
     case 6:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token10);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token18);
       ADVANCE_MAP(
         'A', 38,
         'a', 38,
@@ -1869,7 +1898,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'i') ADVANCE(44);
       END_STATE();
     case 9:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token7);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token9);
       if (lookahead == 'D' ||
           lookahead == 'd') ADVANCE(45);
       if (lookahead == 'F' ||
@@ -1915,7 +1944,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'e') ADVANCE(59);
       END_STATE();
     case 16:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token1);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token3);
       ADVANCE_MAP(
         'E', 60,
         'e', 60,
@@ -1948,7 +1977,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'n') ADVANCE(70);
       END_STATE();
     case 19:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token4);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token6);
       if (lookahead == 'E' ||
           lookahead == 'e') ADVANCE(71);
       END_STATE();
@@ -1981,7 +2010,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 's') ADVANCE(78);
       END_STATE();
     case 27:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token13);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token12);
       if (lookahead == 'U' ||
           lookahead == 'u') ADVANCE(79);
       END_STATE();
@@ -2006,7 +2035,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'm') ADVANCE(84);
       END_STATE();
     case 33:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token7);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token8);
       END_STATE();
     case 34:
       if (lookahead == 'O' ||
@@ -2055,12 +2084,12 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'd') ADVANCE(96);
       END_STATE();
     case 45:
-      ACCEPT_TOKEN(aux_sym_statement_keyword_token5);
+      ACCEPT_TOKEN(aux_sym_statement_keyword_token6);
       if (lookahead == 'E' ||
           lookahead == 'e') ADVANCE(97);
       END_STATE();
     case 46:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token1);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token4);
       END_STATE();
     case 47:
       if (lookahead == 'D' ||
@@ -2097,7 +2126,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'l') ADVANCE(107);
       END_STATE();
     case 54:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token16);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token15);
       if (lookahead == 'U' ||
           lookahead == 'u') ADVANCE(108);
       END_STATE();
@@ -2434,7 +2463,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'k') ADVANCE(192);
       END_STATE();
     case 134:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token10);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token11);
       END_STATE();
     case 135:
       if (lookahead == 'C' ||
@@ -2464,7 +2493,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(aux_sym_statement_keyword_token14);
       END_STATE();
     case 142:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token3);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token2);
       if (lookahead == 'I' ||
           lookahead == 'i') ADVANCE(199);
       END_STATE();
@@ -2525,7 +2554,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(aux_sym_control_keyword_token19);
       END_STATE();
     case 157:
-      ACCEPT_TOKEN(aux_sym_statement_keyword_token20);
+      ACCEPT_TOKEN(aux_sym_statement_keyword_token21);
       END_STATE();
     case 158:
       if (lookahead == 'T' ||
@@ -2609,7 +2638,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'c') ADVANCE(232);
       END_STATE();
     case 178:
-      ACCEPT_TOKEN(aux_sym_statement_keyword_token22);
+      ACCEPT_TOKEN(aux_sym_statement_keyword_token23);
       if (lookahead == 'S' ||
           lookahead == 's') ADVANCE(233);
       END_STATE();
@@ -2704,10 +2733,10 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'g') ADVANCE(256);
       END_STATE();
     case 201:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token8);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token7);
       END_STATE();
     case 202:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token4);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token3);
       END_STATE();
     case 203:
       if (lookahead == 'E' ||
@@ -2813,7 +2842,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'a') ADVANCE(280);
       END_STATE();
     case 229:
-      ACCEPT_TOKEN(aux_sym_statement_keyword_token17);
+      ACCEPT_TOKEN(aux_sym_statement_keyword_token18);
       if (lookahead == 'T' ||
           lookahead == 't') ADVANCE(281);
       END_STATE();
@@ -2846,7 +2875,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'l') ADVANCE(288);
       END_STATE();
     case 237:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token24);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token26);
       END_STATE();
     case 238:
       if (lookahead == 'R' ||
@@ -2874,7 +2903,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'r') ADVANCE(295);
       END_STATE();
     case 244:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token13);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token14);
       END_STATE();
     case 245:
       if (lookahead == 'A' ||
@@ -2917,7 +2946,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'i') ADVANCE(305);
       END_STATE();
     case 255:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token2);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token1);
       END_STATE();
     case 256:
       if (lookahead == 'U' ||
@@ -2955,7 +2984,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(aux_sym_statement_keyword_token19);
       END_STATE();
     case 265:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token26);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token25);
       END_STATE();
     case 266:
       if (lookahead == 'O' ||
@@ -2977,7 +3006,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'e') ADVANCE(317);
       END_STATE();
     case 271:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token15);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token16);
       END_STATE();
     case 272:
       if (lookahead == 'R' ||
@@ -3003,7 +3032,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'i') ADVANCE(322);
       END_STATE();
     case 278:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token25);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token24);
       END_STATE();
     case 279:
       if (lookahead == 'N' ||
@@ -3018,7 +3047,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'a') ADVANCE(325);
       END_STATE();
     case 282:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token5);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token6);
       END_STATE();
     case 283:
       if (lookahead == 'E' ||
@@ -3036,7 +3065,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'r') ADVANCE(328);
       END_STATE();
     case 287:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token9);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token10);
       END_STATE();
     case 288:
       ACCEPT_TOKEN(aux_sym_declaration_keyword_token2);
@@ -3044,7 +3073,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 's') ADVANCE(329);
       END_STATE();
     case 289:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token21);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token22);
       if (lookahead == 'S' ||
           lookahead == 's') ADVANCE(330);
       END_STATE();
@@ -3063,7 +3092,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'k') ADVANCE(332);
       END_STATE();
     case 294:
-      ACCEPT_TOKEN(aux_sym_statement_keyword_token21);
+      ACCEPT_TOKEN(aux_sym_statement_keyword_token20);
       END_STATE();
     case 295:
       ACCEPT_TOKEN(aux_sym_declaration_keyword_token5);
@@ -3079,7 +3108,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 't') ADVANCE(335);
       END_STATE();
     case 298:
-      ACCEPT_TOKEN(aux_sym_statement_keyword_token11);
+      ACCEPT_TOKEN(aux_sym_statement_keyword_token12);
       END_STATE();
     case 299:
       if (lookahead == 'O' ||
@@ -3096,12 +3125,12 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(aux_sym_statement_keyword_token13);
       END_STATE();
     case 303:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token19);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token20);
       if (lookahead == 'S' ||
           lookahead == 's') ADVANCE(338);
       END_STATE();
     case 304:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token11);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token12);
       END_STATE();
     case 305:
       if (lookahead == 'O' ||
@@ -3147,7 +3176,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'y') ADVANCE(348);
       END_STATE();
     case 316:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token9);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token7);
       END_STATE();
     case 317:
       if (lookahead == 'S' ||
@@ -3188,17 +3217,17 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(aux_sym_statement_keyword_token31);
       END_STATE();
     case 327:
-      ACCEPT_TOKEN(aux_sym_statement_keyword_token23);
+      ACCEPT_TOKEN(aux_sym_statement_keyword_token22);
       END_STATE();
     case 328:
       if (lookahead == 'G' ||
           lookahead == 'g') ADVANCE(357);
       END_STATE();
     case 329:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token3);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token1);
       END_STATE();
     case 330:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token22);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token21);
       END_STATE();
     case 331:
       if (lookahead == 'O' ||
@@ -3209,14 +3238,14 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'e') ADVANCE(359);
       END_STATE();
     case 333:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token6);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token4);
       END_STATE();
     case 334:
       if (lookahead == 'K' ||
           lookahead == 'k') ADVANCE(360);
       END_STATE();
     case 335:
-      ACCEPT_TOKEN(aux_sym_statement_keyword_token9);
+      ACCEPT_TOKEN(aux_sym_statement_keyword_token10);
       END_STATE();
     case 336:
       if (lookahead == 'N' ||
@@ -3226,7 +3255,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(aux_sym_statement_keyword_token36);
       END_STATE();
     case 338:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token20);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token19);
       END_STATE();
     case 339:
       if (lookahead == 'N' ||
@@ -3253,19 +3282,19 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'h') ADVANCE(367);
       END_STATE();
     case 345:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token14);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token13);
       END_STATE();
     case 346:
       if (lookahead == 'B' ||
           lookahead == 'b') ADVANCE(368);
       END_STATE();
     case 347:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token11);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token17);
       if (lookahead == 'S' ||
           lookahead == 's') ADVANCE(369);
       END_STATE();
     case 348:
-      ACCEPT_TOKEN(aux_sym_statement_keyword_token6);
+      ACCEPT_TOKEN(aux_sym_statement_keyword_token5);
       END_STATE();
     case 349:
       if (lookahead == 'S' ||
@@ -3313,7 +3342,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'e') ADVANCE(378);
       END_STATE();
     case 361:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token14);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token11);
       if (lookahead == 'S' ||
           lookahead == 's') ADVANCE(379);
       END_STATE();
@@ -3329,20 +3358,20 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'e') ADVANCE(381);
       END_STATE();
     case 365:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token16);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token15);
       END_STATE();
     case 366:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token6);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token5);
       END_STATE();
     case 367:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token12);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token9);
       END_STATE();
     case 368:
       if (lookahead == 'O' ||
           lookahead == 'o') ADVANCE(382);
       END_STATE();
     case 369:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token12);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token16);
       END_STATE();
     case 370:
       if (lookahead == 'I' ||
@@ -3353,7 +3382,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'i') ADVANCE(384);
       END_STATE();
     case 372:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token17);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token14);
       if (lookahead == 'S' ||
           lookahead == 's') ADVANCE(385);
       END_STATE();
@@ -3373,14 +3402,14 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'i') ADVANCE(388);
       END_STATE();
     case 377:
-      ACCEPT_TOKEN(aux_sym_statement_keyword_token12);
+      ACCEPT_TOKEN(aux_sym_statement_keyword_token11);
       END_STATE();
     case 378:
       if (lookahead == 'T' ||
           lookahead == 't') ADVANCE(389);
       END_STATE();
     case 379:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token15);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token10);
       END_STATE();
     case 380:
       if (lookahead == 'T' ||
@@ -3403,13 +3432,13 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'o') ADVANCE(394);
       END_STATE();
     case 385:
-      ACCEPT_TOKEN(aux_sym_declaration_keyword_token18);
+      ACCEPT_TOKEN(aux_sym_declaration_keyword_token13);
       END_STATE();
     case 386:
       ACCEPT_TOKEN(aux_sym_statement_keyword_token25);
       END_STATE();
     case 387:
-      ACCEPT_TOKEN(aux_sym_statement_keyword_token18);
+      ACCEPT_TOKEN(aux_sym_statement_keyword_token17);
       END_STATE();
     case 388:
       if (lookahead == 'A' ||
@@ -3419,7 +3448,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(aux_sym_statement_keyword_token8);
       END_STATE();
     case 390:
-      ACCEPT_TOKEN(aux_sym_statement_keyword_token10);
+      ACCEPT_TOKEN(aux_sym_statement_keyword_token9);
       END_STATE();
     case 391:
       if (lookahead == 'S' ||
@@ -3449,7 +3478,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(aux_sym_declaration_keyword_token29);
       END_STATE();
     case 398:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token17);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token18);
       END_STATE();
     case 399:
       ACCEPT_TOKEN(aux_sym_statement_keyword_token24);
@@ -3466,7 +3495,7 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
           lookahead == 'n') ADVANCE(403);
       END_STATE();
     case 403:
-      ACCEPT_TOKEN(aux_sym_control_keyword_token18);
+      ACCEPT_TOKEN(aux_sym_control_keyword_token17);
       END_STATE();
     default:
       return false;
@@ -3478,8 +3507,8 @@ static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
   [1] = {.lex_state = 0},
   [2] = {.lex_state = 0},
   [3] = {.lex_state = 0},
-  [4] = {.lex_state = 9},
-  [5] = {.lex_state = 9},
+  [4] = {.lex_state = 11},
+  [5] = {.lex_state = 11},
   [6] = {.lex_state = 0},
   [7] = {.lex_state = 0},
   [8] = {.lex_state = 0},
@@ -3487,32 +3516,32 @@ static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
   [10] = {.lex_state = 0},
   [11] = {.lex_state = 0},
   [12] = {.lex_state = 0},
-  [13] = {.lex_state = 0},
-  [14] = {.lex_state = 0},
-  [15] = {.lex_state = 0},
-  [16] = {.lex_state = 0},
-  [17] = {.lex_state = 0},
-  [18] = {.lex_state = 0},
-  [19] = {.lex_state = 0},
-  [20] = {.lex_state = 0},
-  [21] = {.lex_state = 0},
-  [22] = {.lex_state = 0},
-  [23] = {.lex_state = 0},
-  [24] = {.lex_state = 0},
-  [25] = {.lex_state = 0},
-  [26] = {.lex_state = 0},
-  [27] = {.lex_state = 0},
-  [28] = {.lex_state = 0},
-  [29] = {.lex_state = 0},
-  [30] = {.lex_state = 0},
-  [31] = {.lex_state = 10},
-  [32] = {.lex_state = 10},
-  [33] = {.lex_state = 10},
-  [34] = {.lex_state = 10},
-  [35] = {.lex_state = 10},
-  [36] = {.lex_state = 10},
-  [37] = {.lex_state = 10},
-  [38] = {.lex_state = 10},
+  [13] = {.lex_state = 1},
+  [14] = {.lex_state = 1},
+  [15] = {.lex_state = 1},
+  [16] = {.lex_state = 1},
+  [17] = {.lex_state = 1},
+  [18] = {.lex_state = 1},
+  [19] = {.lex_state = 1},
+  [20] = {.lex_state = 1},
+  [21] = {.lex_state = 1},
+  [22] = {.lex_state = 1},
+  [23] = {.lex_state = 1},
+  [24] = {.lex_state = 1},
+  [25] = {.lex_state = 1},
+  [26] = {.lex_state = 1},
+  [27] = {.lex_state = 1},
+  [28] = {.lex_state = 1},
+  [29] = {.lex_state = 1},
+  [30] = {.lex_state = 1},
+  [31] = {.lex_state = 0},
+  [32] = {.lex_state = 0},
+  [33] = {.lex_state = 0},
+  [34] = {.lex_state = 0},
+  [35] = {.lex_state = 0},
+  [36] = {.lex_state = 0},
+  [37] = {.lex_state = 0},
+  [38] = {.lex_state = 0},
 };
 
 static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
@@ -3520,7 +3549,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [ts_builtin_sym_end] = ACTIONS(1),
     [sym_identifier] = ACTIONS(1),
     [aux_sym__item_token1] = ACTIONS(1),
-    [sym_comment] = ACTIONS(3),
+    [sym_comment] = ACTIONS(1),
     [anon_sym_POUND] = ACTIONS(1),
     [anon_sym_DOT] = ACTIONS(1),
     [anon_sym_SEMI] = ACTIONS(1),
@@ -3667,49 +3696,49 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_punctuation] = STATE(17),
     [aux_sym_source_file_repeat1] = STATE(3),
     [aux_sym_expression_list_repeat1] = STATE(17),
-    [ts_builtin_sym_end] = ACTIONS(5),
-    [sym_identifier] = ACTIONS(7),
-    [aux_sym__item_token1] = ACTIONS(9),
-    [sym_comment] = ACTIONS(11),
-    [anon_sym_POUND] = ACTIONS(13),
-    [anon_sym_DOT] = ACTIONS(15),
-    [anon_sym_LPAREN] = ACTIONS(17),
-    [anon_sym_RPAREN] = ACTIONS(17),
-    [aux_sym_declaration_keyword_token1] = ACTIONS(19),
+    [ts_builtin_sym_end] = ACTIONS(3),
+    [sym_identifier] = ACTIONS(5),
+    [aux_sym__item_token1] = ACTIONS(7),
+    [sym_comment] = ACTIONS(9),
+    [anon_sym_POUND] = ACTIONS(11),
+    [anon_sym_DOT] = ACTIONS(13),
+    [anon_sym_LPAREN] = ACTIONS(15),
+    [anon_sym_RPAREN] = ACTIONS(15),
+    [aux_sym_declaration_keyword_token1] = ACTIONS(17),
     [aux_sym_declaration_keyword_token2] = ACTIONS(19),
     [aux_sym_declaration_keyword_token3] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token4] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token4] = ACTIONS(17),
     [aux_sym_declaration_keyword_token5] = ACTIONS(19),
     [aux_sym_declaration_keyword_token6] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token7] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token8] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token7] = ACTIONS(17),
+    [aux_sym_declaration_keyword_token8] = ACTIONS(17),
     [aux_sym_declaration_keyword_token9] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token10] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token10] = ACTIONS(17),
     [aux_sym_declaration_keyword_token11] = ACTIONS(19),
     [aux_sym_declaration_keyword_token12] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token13] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token13] = ACTIONS(17),
     [aux_sym_declaration_keyword_token14] = ACTIONS(19),
     [aux_sym_declaration_keyword_token15] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token16] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token16] = ACTIONS(17),
     [aux_sym_declaration_keyword_token17] = ACTIONS(19),
     [aux_sym_declaration_keyword_token18] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token19] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token19] = ACTIONS(17),
     [aux_sym_declaration_keyword_token20] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token21] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token21] = ACTIONS(17),
     [aux_sym_declaration_keyword_token22] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token23] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token24] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token25] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token26] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token27] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token28] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token29] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token23] = ACTIONS(17),
+    [aux_sym_declaration_keyword_token24] = ACTIONS(17),
+    [aux_sym_declaration_keyword_token25] = ACTIONS(17),
+    [aux_sym_declaration_keyword_token26] = ACTIONS(17),
+    [aux_sym_declaration_keyword_token27] = ACTIONS(17),
+    [aux_sym_declaration_keyword_token28] = ACTIONS(17),
+    [aux_sym_declaration_keyword_token29] = ACTIONS(17),
     [aux_sym_statement_keyword_token1] = ACTIONS(21),
     [aux_sym_statement_keyword_token2] = ACTIONS(21),
-    [aux_sym_statement_keyword_token3] = ACTIONS(21),
-    [aux_sym_statement_keyword_token4] = ACTIONS(21),
+    [aux_sym_statement_keyword_token3] = ACTIONS(23),
+    [aux_sym_statement_keyword_token4] = ACTIONS(23),
     [aux_sym_statement_keyword_token5] = ACTIONS(21),
-    [aux_sym_statement_keyword_token6] = ACTIONS(21),
+    [aux_sym_statement_keyword_token6] = ACTIONS(23),
     [aux_sym_statement_keyword_token7] = ACTIONS(21),
     [aux_sym_statement_keyword_token8] = ACTIONS(21),
     [aux_sym_statement_keyword_token9] = ACTIONS(21),
@@ -3721,12 +3750,12 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [aux_sym_statement_keyword_token15] = ACTIONS(21),
     [aux_sym_statement_keyword_token16] = ACTIONS(21),
     [aux_sym_statement_keyword_token17] = ACTIONS(21),
-    [aux_sym_statement_keyword_token18] = ACTIONS(21),
+    [aux_sym_statement_keyword_token18] = ACTIONS(23),
     [aux_sym_statement_keyword_token19] = ACTIONS(21),
     [aux_sym_statement_keyword_token20] = ACTIONS(21),
     [aux_sym_statement_keyword_token21] = ACTIONS(21),
     [aux_sym_statement_keyword_token22] = ACTIONS(21),
-    [aux_sym_statement_keyword_token23] = ACTIONS(21),
+    [aux_sym_statement_keyword_token23] = ACTIONS(23),
     [aux_sym_statement_keyword_token24] = ACTIONS(21),
     [aux_sym_statement_keyword_token25] = ACTIONS(21),
     [aux_sym_statement_keyword_token26] = ACTIONS(21),
@@ -3743,58 +3772,58 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [aux_sym_statement_keyword_token37] = ACTIONS(21),
     [aux_sym_statement_keyword_token38] = ACTIONS(21),
     [aux_sym_statement_keyword_token39] = ACTIONS(21),
-    [aux_sym_control_keyword_token1] = ACTIONS(23),
-    [aux_sym_control_keyword_token2] = ACTIONS(23),
-    [aux_sym_control_keyword_token3] = ACTIONS(23),
-    [aux_sym_control_keyword_token4] = ACTIONS(23),
-    [aux_sym_control_keyword_token5] = ACTIONS(23),
-    [aux_sym_control_keyword_token6] = ACTIONS(23),
-    [aux_sym_control_keyword_token7] = ACTIONS(23),
-    [aux_sym_control_keyword_token8] = ACTIONS(23),
-    [aux_sym_control_keyword_token9] = ACTIONS(23),
-    [aux_sym_control_keyword_token10] = ACTIONS(23),
-    [aux_sym_control_keyword_token11] = ACTIONS(23),
-    [aux_sym_control_keyword_token12] = ACTIONS(23),
-    [aux_sym_control_keyword_token13] = ACTIONS(23),
-    [aux_sym_control_keyword_token14] = ACTIONS(23),
-    [aux_sym_control_keyword_token15] = ACTIONS(23),
-    [aux_sym_control_keyword_token16] = ACTIONS(23),
-    [aux_sym_control_keyword_token17] = ACTIONS(23),
-    [aux_sym_control_keyword_token18] = ACTIONS(23),
-    [aux_sym_control_keyword_token19] = ACTIONS(23),
-    [aux_sym_control_keyword_token20] = ACTIONS(23),
-    [aux_sym_control_keyword_token21] = ACTIONS(23),
-    [anon_sym_DOLLAR] = ACTIONS(25),
-    [aux_sym_wildcard_token1] = ACTIONS(27),
-    [aux_sym_wildcard_token2] = ACTIONS(27),
-    [anon_sym_QMARK_QMARK] = ACTIONS(29),
-    [anon_sym_QMARK] = ACTIONS(29),
-    [anon_sym_PLUS] = ACTIONS(31),
-    [anon_sym_DASH] = ACTIONS(31),
-    [anon_sym_STAR] = ACTIONS(33),
-    [anon_sym_SLASH] = ACTIONS(31),
-    [anon_sym_CARET] = ACTIONS(31),
-    [anon_sym_EQ] = ACTIONS(33),
-    [anon_sym_EQ_EQ] = ACTIONS(31),
-    [anon_sym_BANG_EQ] = ACTIONS(31),
-    [anon_sym_LT_GT] = ACTIONS(31),
-    [anon_sym_LT_EQ] = ACTIONS(31),
-    [anon_sym_GT_EQ] = ACTIONS(31),
-    [anon_sym_LT] = ACTIONS(33),
-    [anon_sym_GT] = ACTIONS(33),
-    [anon_sym_AMP_AMP] = ACTIONS(31),
-    [anon_sym_PIPE_PIPE] = ACTIONS(31),
-    [anon_sym_BANG] = ACTIONS(33),
-    [anon_sym_COMMA] = ACTIONS(17),
-    [anon_sym_COLON] = ACTIONS(35),
-    [anon_sym_COLON_COLON] = ACTIONS(17),
-    [anon_sym_DOT_DOT_DOT] = ACTIONS(17),
-    [anon_sym_LBRACK] = ACTIONS(17),
-    [anon_sym_RBRACK] = ACTIONS(17),
-    [anon_sym_LBRACE] = ACTIONS(17),
-    [anon_sym_RBRACE] = ACTIONS(17),
-    [sym_number] = ACTIONS(37),
-    [sym_string] = ACTIONS(37),
+    [aux_sym_control_keyword_token1] = ACTIONS(25),
+    [aux_sym_control_keyword_token2] = ACTIONS(27),
+    [aux_sym_control_keyword_token3] = ACTIONS(25),
+    [aux_sym_control_keyword_token4] = ACTIONS(25),
+    [aux_sym_control_keyword_token5] = ACTIONS(25),
+    [aux_sym_control_keyword_token6] = ACTIONS(25),
+    [aux_sym_control_keyword_token7] = ACTIONS(25),
+    [aux_sym_control_keyword_token8] = ACTIONS(25),
+    [aux_sym_control_keyword_token9] = ACTIONS(25),
+    [aux_sym_control_keyword_token10] = ACTIONS(25),
+    [aux_sym_control_keyword_token11] = ACTIONS(25),
+    [aux_sym_control_keyword_token12] = ACTIONS(25),
+    [aux_sym_control_keyword_token13] = ACTIONS(25),
+    [aux_sym_control_keyword_token14] = ACTIONS(25),
+    [aux_sym_control_keyword_token15] = ACTIONS(25),
+    [aux_sym_control_keyword_token16] = ACTIONS(25),
+    [aux_sym_control_keyword_token17] = ACTIONS(25),
+    [aux_sym_control_keyword_token18] = ACTIONS(25),
+    [aux_sym_control_keyword_token19] = ACTIONS(25),
+    [aux_sym_control_keyword_token20] = ACTIONS(25),
+    [aux_sym_control_keyword_token21] = ACTIONS(25),
+    [anon_sym_DOLLAR] = ACTIONS(29),
+    [aux_sym_wildcard_token1] = ACTIONS(31),
+    [aux_sym_wildcard_token2] = ACTIONS(31),
+    [anon_sym_QMARK_QMARK] = ACTIONS(33),
+    [anon_sym_QMARK] = ACTIONS(33),
+    [anon_sym_PLUS] = ACTIONS(35),
+    [anon_sym_DASH] = ACTIONS(35),
+    [anon_sym_STAR] = ACTIONS(37),
+    [anon_sym_SLASH] = ACTIONS(35),
+    [anon_sym_CARET] = ACTIONS(35),
+    [anon_sym_EQ] = ACTIONS(37),
+    [anon_sym_EQ_EQ] = ACTIONS(35),
+    [anon_sym_BANG_EQ] = ACTIONS(35),
+    [anon_sym_LT_GT] = ACTIONS(35),
+    [anon_sym_LT_EQ] = ACTIONS(35),
+    [anon_sym_GT_EQ] = ACTIONS(35),
+    [anon_sym_LT] = ACTIONS(37),
+    [anon_sym_GT] = ACTIONS(37),
+    [anon_sym_AMP_AMP] = ACTIONS(35),
+    [anon_sym_PIPE_PIPE] = ACTIONS(35),
+    [anon_sym_BANG] = ACTIONS(37),
+    [anon_sym_COMMA] = ACTIONS(15),
+    [anon_sym_COLON] = ACTIONS(39),
+    [anon_sym_COLON_COLON] = ACTIONS(15),
+    [anon_sym_DOT_DOT_DOT] = ACTIONS(15),
+    [anon_sym_LBRACK] = ACTIONS(15),
+    [anon_sym_RBRACK] = ACTIONS(15),
+    [anon_sym_LBRACE] = ACTIONS(15),
+    [anon_sym_RBRACE] = ACTIONS(15),
+    [sym_number] = ACTIONS(41),
+    [sym_string] = ACTIONS(41),
   },
   [STATE(2)] = {
     [sym__item] = STATE(2),
@@ -3815,134 +3844,134 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_punctuation] = STATE(17),
     [aux_sym_source_file_repeat1] = STATE(2),
     [aux_sym_expression_list_repeat1] = STATE(17),
-    [ts_builtin_sym_end] = ACTIONS(39),
-    [sym_identifier] = ACTIONS(41),
-    [aux_sym__item_token1] = ACTIONS(44),
-    [sym_comment] = ACTIONS(47),
-    [anon_sym_POUND] = ACTIONS(50),
-    [anon_sym_DOT] = ACTIONS(53),
-    [anon_sym_LPAREN] = ACTIONS(56),
-    [anon_sym_RPAREN] = ACTIONS(56),
-    [aux_sym_declaration_keyword_token1] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token2] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token3] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token4] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token5] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token6] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token7] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token8] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token9] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token10] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token11] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token12] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token13] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token14] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token15] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token16] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token17] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token18] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token19] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token20] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token21] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token22] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token23] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token24] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token25] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token26] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token27] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token28] = ACTIONS(59),
-    [aux_sym_declaration_keyword_token29] = ACTIONS(59),
-    [aux_sym_statement_keyword_token1] = ACTIONS(62),
-    [aux_sym_statement_keyword_token2] = ACTIONS(62),
-    [aux_sym_statement_keyword_token3] = ACTIONS(62),
-    [aux_sym_statement_keyword_token4] = ACTIONS(62),
-    [aux_sym_statement_keyword_token5] = ACTIONS(62),
-    [aux_sym_statement_keyword_token6] = ACTIONS(62),
-    [aux_sym_statement_keyword_token7] = ACTIONS(62),
-    [aux_sym_statement_keyword_token8] = ACTIONS(62),
-    [aux_sym_statement_keyword_token9] = ACTIONS(62),
-    [aux_sym_statement_keyword_token10] = ACTIONS(62),
-    [aux_sym_statement_keyword_token11] = ACTIONS(62),
-    [aux_sym_statement_keyword_token12] = ACTIONS(62),
-    [aux_sym_statement_keyword_token13] = ACTIONS(62),
-    [aux_sym_statement_keyword_token14] = ACTIONS(62),
-    [aux_sym_statement_keyword_token15] = ACTIONS(62),
-    [aux_sym_statement_keyword_token16] = ACTIONS(62),
-    [aux_sym_statement_keyword_token17] = ACTIONS(62),
-    [aux_sym_statement_keyword_token18] = ACTIONS(62),
-    [aux_sym_statement_keyword_token19] = ACTIONS(62),
-    [aux_sym_statement_keyword_token20] = ACTIONS(62),
-    [aux_sym_statement_keyword_token21] = ACTIONS(62),
-    [aux_sym_statement_keyword_token22] = ACTIONS(62),
-    [aux_sym_statement_keyword_token23] = ACTIONS(62),
-    [aux_sym_statement_keyword_token24] = ACTIONS(62),
-    [aux_sym_statement_keyword_token25] = ACTIONS(62),
-    [aux_sym_statement_keyword_token26] = ACTIONS(62),
-    [aux_sym_statement_keyword_token27] = ACTIONS(62),
-    [aux_sym_statement_keyword_token28] = ACTIONS(62),
-    [aux_sym_statement_keyword_token29] = ACTIONS(62),
-    [aux_sym_statement_keyword_token30] = ACTIONS(62),
-    [aux_sym_statement_keyword_token31] = ACTIONS(62),
-    [aux_sym_statement_keyword_token32] = ACTIONS(62),
-    [aux_sym_statement_keyword_token33] = ACTIONS(62),
-    [aux_sym_statement_keyword_token34] = ACTIONS(62),
-    [aux_sym_statement_keyword_token35] = ACTIONS(62),
-    [aux_sym_statement_keyword_token36] = ACTIONS(62),
-    [aux_sym_statement_keyword_token37] = ACTIONS(62),
-    [aux_sym_statement_keyword_token38] = ACTIONS(62),
-    [aux_sym_statement_keyword_token39] = ACTIONS(62),
-    [aux_sym_control_keyword_token1] = ACTIONS(65),
-    [aux_sym_control_keyword_token2] = ACTIONS(65),
-    [aux_sym_control_keyword_token3] = ACTIONS(65),
-    [aux_sym_control_keyword_token4] = ACTIONS(65),
-    [aux_sym_control_keyword_token5] = ACTIONS(65),
-    [aux_sym_control_keyword_token6] = ACTIONS(65),
-    [aux_sym_control_keyword_token7] = ACTIONS(65),
-    [aux_sym_control_keyword_token8] = ACTIONS(65),
-    [aux_sym_control_keyword_token9] = ACTIONS(65),
-    [aux_sym_control_keyword_token10] = ACTIONS(65),
-    [aux_sym_control_keyword_token11] = ACTIONS(65),
-    [aux_sym_control_keyword_token12] = ACTIONS(65),
-    [aux_sym_control_keyword_token13] = ACTIONS(65),
-    [aux_sym_control_keyword_token14] = ACTIONS(65),
-    [aux_sym_control_keyword_token15] = ACTIONS(65),
-    [aux_sym_control_keyword_token16] = ACTIONS(65),
-    [aux_sym_control_keyword_token17] = ACTIONS(65),
-    [aux_sym_control_keyword_token18] = ACTIONS(65),
-    [aux_sym_control_keyword_token19] = ACTIONS(65),
-    [aux_sym_control_keyword_token20] = ACTIONS(65),
-    [aux_sym_control_keyword_token21] = ACTIONS(65),
-    [anon_sym_DOLLAR] = ACTIONS(68),
-    [aux_sym_wildcard_token1] = ACTIONS(71),
-    [aux_sym_wildcard_token2] = ACTIONS(71),
-    [anon_sym_QMARK_QMARK] = ACTIONS(74),
-    [anon_sym_QMARK] = ACTIONS(74),
-    [anon_sym_PLUS] = ACTIONS(77),
-    [anon_sym_DASH] = ACTIONS(77),
-    [anon_sym_STAR] = ACTIONS(80),
-    [anon_sym_SLASH] = ACTIONS(77),
-    [anon_sym_CARET] = ACTIONS(77),
-    [anon_sym_EQ] = ACTIONS(80),
-    [anon_sym_EQ_EQ] = ACTIONS(77),
-    [anon_sym_BANG_EQ] = ACTIONS(77),
-    [anon_sym_LT_GT] = ACTIONS(77),
-    [anon_sym_LT_EQ] = ACTIONS(77),
-    [anon_sym_GT_EQ] = ACTIONS(77),
-    [anon_sym_LT] = ACTIONS(80),
-    [anon_sym_GT] = ACTIONS(80),
-    [anon_sym_AMP_AMP] = ACTIONS(77),
-    [anon_sym_PIPE_PIPE] = ACTIONS(77),
-    [anon_sym_BANG] = ACTIONS(80),
-    [anon_sym_COMMA] = ACTIONS(56),
-    [anon_sym_COLON] = ACTIONS(83),
-    [anon_sym_COLON_COLON] = ACTIONS(56),
-    [anon_sym_DOT_DOT_DOT] = ACTIONS(56),
-    [anon_sym_LBRACK] = ACTIONS(56),
-    [anon_sym_RBRACK] = ACTIONS(56),
-    [anon_sym_LBRACE] = ACTIONS(56),
-    [anon_sym_RBRACE] = ACTIONS(56),
-    [sym_number] = ACTIONS(86),
-    [sym_string] = ACTIONS(86),
+    [ts_builtin_sym_end] = ACTIONS(43),
+    [sym_identifier] = ACTIONS(45),
+    [aux_sym__item_token1] = ACTIONS(48),
+    [sym_comment] = ACTIONS(51),
+    [anon_sym_POUND] = ACTIONS(54),
+    [anon_sym_DOT] = ACTIONS(57),
+    [anon_sym_LPAREN] = ACTIONS(60),
+    [anon_sym_RPAREN] = ACTIONS(60),
+    [aux_sym_declaration_keyword_token1] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token2] = ACTIONS(66),
+    [aux_sym_declaration_keyword_token3] = ACTIONS(66),
+    [aux_sym_declaration_keyword_token4] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token5] = ACTIONS(66),
+    [aux_sym_declaration_keyword_token6] = ACTIONS(66),
+    [aux_sym_declaration_keyword_token7] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token8] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token9] = ACTIONS(66),
+    [aux_sym_declaration_keyword_token10] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token11] = ACTIONS(66),
+    [aux_sym_declaration_keyword_token12] = ACTIONS(66),
+    [aux_sym_declaration_keyword_token13] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token14] = ACTIONS(66),
+    [aux_sym_declaration_keyword_token15] = ACTIONS(66),
+    [aux_sym_declaration_keyword_token16] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token17] = ACTIONS(66),
+    [aux_sym_declaration_keyword_token18] = ACTIONS(66),
+    [aux_sym_declaration_keyword_token19] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token20] = ACTIONS(66),
+    [aux_sym_declaration_keyword_token21] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token22] = ACTIONS(66),
+    [aux_sym_declaration_keyword_token23] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token24] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token25] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token26] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token27] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token28] = ACTIONS(63),
+    [aux_sym_declaration_keyword_token29] = ACTIONS(63),
+    [aux_sym_statement_keyword_token1] = ACTIONS(69),
+    [aux_sym_statement_keyword_token2] = ACTIONS(69),
+    [aux_sym_statement_keyword_token3] = ACTIONS(72),
+    [aux_sym_statement_keyword_token4] = ACTIONS(72),
+    [aux_sym_statement_keyword_token5] = ACTIONS(69),
+    [aux_sym_statement_keyword_token6] = ACTIONS(72),
+    [aux_sym_statement_keyword_token7] = ACTIONS(69),
+    [aux_sym_statement_keyword_token8] = ACTIONS(69),
+    [aux_sym_statement_keyword_token9] = ACTIONS(69),
+    [aux_sym_statement_keyword_token10] = ACTIONS(69),
+    [aux_sym_statement_keyword_token11] = ACTIONS(69),
+    [aux_sym_statement_keyword_token12] = ACTIONS(69),
+    [aux_sym_statement_keyword_token13] = ACTIONS(69),
+    [aux_sym_statement_keyword_token14] = ACTIONS(69),
+    [aux_sym_statement_keyword_token15] = ACTIONS(69),
+    [aux_sym_statement_keyword_token16] = ACTIONS(69),
+    [aux_sym_statement_keyword_token17] = ACTIONS(69),
+    [aux_sym_statement_keyword_token18] = ACTIONS(72),
+    [aux_sym_statement_keyword_token19] = ACTIONS(69),
+    [aux_sym_statement_keyword_token20] = ACTIONS(69),
+    [aux_sym_statement_keyword_token21] = ACTIONS(69),
+    [aux_sym_statement_keyword_token22] = ACTIONS(69),
+    [aux_sym_statement_keyword_token23] = ACTIONS(72),
+    [aux_sym_statement_keyword_token24] = ACTIONS(69),
+    [aux_sym_statement_keyword_token25] = ACTIONS(69),
+    [aux_sym_statement_keyword_token26] = ACTIONS(69),
+    [aux_sym_statement_keyword_token27] = ACTIONS(69),
+    [aux_sym_statement_keyword_token28] = ACTIONS(69),
+    [aux_sym_statement_keyword_token29] = ACTIONS(69),
+    [aux_sym_statement_keyword_token30] = ACTIONS(69),
+    [aux_sym_statement_keyword_token31] = ACTIONS(69),
+    [aux_sym_statement_keyword_token32] = ACTIONS(69),
+    [aux_sym_statement_keyword_token33] = ACTIONS(69),
+    [aux_sym_statement_keyword_token34] = ACTIONS(69),
+    [aux_sym_statement_keyword_token35] = ACTIONS(69),
+    [aux_sym_statement_keyword_token36] = ACTIONS(69),
+    [aux_sym_statement_keyword_token37] = ACTIONS(69),
+    [aux_sym_statement_keyword_token38] = ACTIONS(69),
+    [aux_sym_statement_keyword_token39] = ACTIONS(69),
+    [aux_sym_control_keyword_token1] = ACTIONS(75),
+    [aux_sym_control_keyword_token2] = ACTIONS(78),
+    [aux_sym_control_keyword_token3] = ACTIONS(75),
+    [aux_sym_control_keyword_token4] = ACTIONS(75),
+    [aux_sym_control_keyword_token5] = ACTIONS(75),
+    [aux_sym_control_keyword_token6] = ACTIONS(75),
+    [aux_sym_control_keyword_token7] = ACTIONS(75),
+    [aux_sym_control_keyword_token8] = ACTIONS(75),
+    [aux_sym_control_keyword_token9] = ACTIONS(75),
+    [aux_sym_control_keyword_token10] = ACTIONS(75),
+    [aux_sym_control_keyword_token11] = ACTIONS(75),
+    [aux_sym_control_keyword_token12] = ACTIONS(75),
+    [aux_sym_control_keyword_token13] = ACTIONS(75),
+    [aux_sym_control_keyword_token14] = ACTIONS(75),
+    [aux_sym_control_keyword_token15] = ACTIONS(75),
+    [aux_sym_control_keyword_token16] = ACTIONS(75),
+    [aux_sym_control_keyword_token17] = ACTIONS(75),
+    [aux_sym_control_keyword_token18] = ACTIONS(75),
+    [aux_sym_control_keyword_token19] = ACTIONS(75),
+    [aux_sym_control_keyword_token20] = ACTIONS(75),
+    [aux_sym_control_keyword_token21] = ACTIONS(75),
+    [anon_sym_DOLLAR] = ACTIONS(81),
+    [aux_sym_wildcard_token1] = ACTIONS(84),
+    [aux_sym_wildcard_token2] = ACTIONS(84),
+    [anon_sym_QMARK_QMARK] = ACTIONS(87),
+    [anon_sym_QMARK] = ACTIONS(87),
+    [anon_sym_PLUS] = ACTIONS(90),
+    [anon_sym_DASH] = ACTIONS(90),
+    [anon_sym_STAR] = ACTIONS(93),
+    [anon_sym_SLASH] = ACTIONS(90),
+    [anon_sym_CARET] = ACTIONS(90),
+    [anon_sym_EQ] = ACTIONS(93),
+    [anon_sym_EQ_EQ] = ACTIONS(90),
+    [anon_sym_BANG_EQ] = ACTIONS(90),
+    [anon_sym_LT_GT] = ACTIONS(90),
+    [anon_sym_LT_EQ] = ACTIONS(90),
+    [anon_sym_GT_EQ] = ACTIONS(90),
+    [anon_sym_LT] = ACTIONS(93),
+    [anon_sym_GT] = ACTIONS(93),
+    [anon_sym_AMP_AMP] = ACTIONS(90),
+    [anon_sym_PIPE_PIPE] = ACTIONS(90),
+    [anon_sym_BANG] = ACTIONS(93),
+    [anon_sym_COMMA] = ACTIONS(60),
+    [anon_sym_COLON] = ACTIONS(96),
+    [anon_sym_COLON_COLON] = ACTIONS(60),
+    [anon_sym_DOT_DOT_DOT] = ACTIONS(60),
+    [anon_sym_LBRACK] = ACTIONS(60),
+    [anon_sym_RBRACK] = ACTIONS(60),
+    [anon_sym_LBRACE] = ACTIONS(60),
+    [anon_sym_RBRACE] = ACTIONS(60),
+    [sym_number] = ACTIONS(99),
+    [sym_string] = ACTIONS(99),
   },
   [STATE(3)] = {
     [sym__item] = STATE(2),
@@ -3963,49 +3992,49 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_punctuation] = STATE(17),
     [aux_sym_source_file_repeat1] = STATE(2),
     [aux_sym_expression_list_repeat1] = STATE(17),
-    [ts_builtin_sym_end] = ACTIONS(89),
-    [sym_identifier] = ACTIONS(7),
-    [aux_sym__item_token1] = ACTIONS(91),
-    [sym_comment] = ACTIONS(93),
-    [anon_sym_POUND] = ACTIONS(13),
-    [anon_sym_DOT] = ACTIONS(15),
-    [anon_sym_LPAREN] = ACTIONS(17),
-    [anon_sym_RPAREN] = ACTIONS(17),
-    [aux_sym_declaration_keyword_token1] = ACTIONS(19),
+    [ts_builtin_sym_end] = ACTIONS(102),
+    [sym_identifier] = ACTIONS(5),
+    [aux_sym__item_token1] = ACTIONS(104),
+    [sym_comment] = ACTIONS(106),
+    [anon_sym_POUND] = ACTIONS(11),
+    [anon_sym_DOT] = ACTIONS(13),
+    [anon_sym_LPAREN] = ACTIONS(15),
+    [anon_sym_RPAREN] = ACTIONS(15),
+    [aux_sym_declaration_keyword_token1] = ACTIONS(17),
     [aux_sym_declaration_keyword_token2] = ACTIONS(19),
     [aux_sym_declaration_keyword_token3] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token4] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token4] = ACTIONS(17),
     [aux_sym_declaration_keyword_token5] = ACTIONS(19),
     [aux_sym_declaration_keyword_token6] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token7] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token8] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token7] = ACTIONS(17),
+    [aux_sym_declaration_keyword_token8] = ACTIONS(17),
     [aux_sym_declaration_keyword_token9] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token10] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token10] = ACTIONS(17),
     [aux_sym_declaration_keyword_token11] = ACTIONS(19),
     [aux_sym_declaration_keyword_token12] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token13] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token13] = ACTIONS(17),
     [aux_sym_declaration_keyword_token14] = ACTIONS(19),
     [aux_sym_declaration_keyword_token15] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token16] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token16] = ACTIONS(17),
     [aux_sym_declaration_keyword_token17] = ACTIONS(19),
     [aux_sym_declaration_keyword_token18] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token19] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token19] = ACTIONS(17),
     [aux_sym_declaration_keyword_token20] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token21] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token21] = ACTIONS(17),
     [aux_sym_declaration_keyword_token22] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token23] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token24] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token25] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token26] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token27] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token28] = ACTIONS(19),
-    [aux_sym_declaration_keyword_token29] = ACTIONS(19),
+    [aux_sym_declaration_keyword_token23] = ACTIONS(17),
+    [aux_sym_declaration_keyword_token24] = ACTIONS(17),
+    [aux_sym_declaration_keyword_token25] = ACTIONS(17),
+    [aux_sym_declaration_keyword_token26] = ACTIONS(17),
+    [aux_sym_declaration_keyword_token27] = ACTIONS(17),
+    [aux_sym_declaration_keyword_token28] = ACTIONS(17),
+    [aux_sym_declaration_keyword_token29] = ACTIONS(17),
     [aux_sym_statement_keyword_token1] = ACTIONS(21),
     [aux_sym_statement_keyword_token2] = ACTIONS(21),
-    [aux_sym_statement_keyword_token3] = ACTIONS(21),
-    [aux_sym_statement_keyword_token4] = ACTIONS(21),
+    [aux_sym_statement_keyword_token3] = ACTIONS(23),
+    [aux_sym_statement_keyword_token4] = ACTIONS(23),
     [aux_sym_statement_keyword_token5] = ACTIONS(21),
-    [aux_sym_statement_keyword_token6] = ACTIONS(21),
+    [aux_sym_statement_keyword_token6] = ACTIONS(23),
     [aux_sym_statement_keyword_token7] = ACTIONS(21),
     [aux_sym_statement_keyword_token8] = ACTIONS(21),
     [aux_sym_statement_keyword_token9] = ACTIONS(21),
@@ -4017,12 +4046,12 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [aux_sym_statement_keyword_token15] = ACTIONS(21),
     [aux_sym_statement_keyword_token16] = ACTIONS(21),
     [aux_sym_statement_keyword_token17] = ACTIONS(21),
-    [aux_sym_statement_keyword_token18] = ACTIONS(21),
+    [aux_sym_statement_keyword_token18] = ACTIONS(23),
     [aux_sym_statement_keyword_token19] = ACTIONS(21),
     [aux_sym_statement_keyword_token20] = ACTIONS(21),
     [aux_sym_statement_keyword_token21] = ACTIONS(21),
     [aux_sym_statement_keyword_token22] = ACTIONS(21),
-    [aux_sym_statement_keyword_token23] = ACTIONS(21),
+    [aux_sym_statement_keyword_token23] = ACTIONS(23),
     [aux_sym_statement_keyword_token24] = ACTIONS(21),
     [aux_sym_statement_keyword_token25] = ACTIONS(21),
     [aux_sym_statement_keyword_token26] = ACTIONS(21),
@@ -4039,1260 +4068,1257 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [aux_sym_statement_keyword_token37] = ACTIONS(21),
     [aux_sym_statement_keyword_token38] = ACTIONS(21),
     [aux_sym_statement_keyword_token39] = ACTIONS(21),
-    [aux_sym_control_keyword_token1] = ACTIONS(23),
-    [aux_sym_control_keyword_token2] = ACTIONS(23),
-    [aux_sym_control_keyword_token3] = ACTIONS(23),
-    [aux_sym_control_keyword_token4] = ACTIONS(23),
-    [aux_sym_control_keyword_token5] = ACTIONS(23),
-    [aux_sym_control_keyword_token6] = ACTIONS(23),
-    [aux_sym_control_keyword_token7] = ACTIONS(23),
-    [aux_sym_control_keyword_token8] = ACTIONS(23),
-    [aux_sym_control_keyword_token9] = ACTIONS(23),
-    [aux_sym_control_keyword_token10] = ACTIONS(23),
-    [aux_sym_control_keyword_token11] = ACTIONS(23),
-    [aux_sym_control_keyword_token12] = ACTIONS(23),
-    [aux_sym_control_keyword_token13] = ACTIONS(23),
-    [aux_sym_control_keyword_token14] = ACTIONS(23),
-    [aux_sym_control_keyword_token15] = ACTIONS(23),
-    [aux_sym_control_keyword_token16] = ACTIONS(23),
-    [aux_sym_control_keyword_token17] = ACTIONS(23),
-    [aux_sym_control_keyword_token18] = ACTIONS(23),
-    [aux_sym_control_keyword_token19] = ACTIONS(23),
-    [aux_sym_control_keyword_token20] = ACTIONS(23),
-    [aux_sym_control_keyword_token21] = ACTIONS(23),
-    [anon_sym_DOLLAR] = ACTIONS(25),
-    [aux_sym_wildcard_token1] = ACTIONS(27),
-    [aux_sym_wildcard_token2] = ACTIONS(27),
-    [anon_sym_QMARK_QMARK] = ACTIONS(29),
-    [anon_sym_QMARK] = ACTIONS(29),
-    [anon_sym_PLUS] = ACTIONS(31),
-    [anon_sym_DASH] = ACTIONS(31),
-    [anon_sym_STAR] = ACTIONS(33),
-    [anon_sym_SLASH] = ACTIONS(31),
-    [anon_sym_CARET] = ACTIONS(31),
-    [anon_sym_EQ] = ACTIONS(33),
-    [anon_sym_EQ_EQ] = ACTIONS(31),
-    [anon_sym_BANG_EQ] = ACTIONS(31),
-    [anon_sym_LT_GT] = ACTIONS(31),
-    [anon_sym_LT_EQ] = ACTIONS(31),
-    [anon_sym_GT_EQ] = ACTIONS(31),
-    [anon_sym_LT] = ACTIONS(33),
-    [anon_sym_GT] = ACTIONS(33),
-    [anon_sym_AMP_AMP] = ACTIONS(31),
-    [anon_sym_PIPE_PIPE] = ACTIONS(31),
-    [anon_sym_BANG] = ACTIONS(33),
-    [anon_sym_COMMA] = ACTIONS(17),
-    [anon_sym_COLON] = ACTIONS(35),
-    [anon_sym_COLON_COLON] = ACTIONS(17),
-    [anon_sym_DOT_DOT_DOT] = ACTIONS(17),
-    [anon_sym_LBRACK] = ACTIONS(17),
-    [anon_sym_RBRACK] = ACTIONS(17),
-    [anon_sym_LBRACE] = ACTIONS(17),
-    [anon_sym_RBRACE] = ACTIONS(17),
-    [sym_number] = ACTIONS(37),
-    [sym_string] = ACTIONS(37),
+    [aux_sym_control_keyword_token1] = ACTIONS(25),
+    [aux_sym_control_keyword_token2] = ACTIONS(27),
+    [aux_sym_control_keyword_token3] = ACTIONS(25),
+    [aux_sym_control_keyword_token4] = ACTIONS(25),
+    [aux_sym_control_keyword_token5] = ACTIONS(25),
+    [aux_sym_control_keyword_token6] = ACTIONS(25),
+    [aux_sym_control_keyword_token7] = ACTIONS(25),
+    [aux_sym_control_keyword_token8] = ACTIONS(25),
+    [aux_sym_control_keyword_token9] = ACTIONS(25),
+    [aux_sym_control_keyword_token10] = ACTIONS(25),
+    [aux_sym_control_keyword_token11] = ACTIONS(25),
+    [aux_sym_control_keyword_token12] = ACTIONS(25),
+    [aux_sym_control_keyword_token13] = ACTIONS(25),
+    [aux_sym_control_keyword_token14] = ACTIONS(25),
+    [aux_sym_control_keyword_token15] = ACTIONS(25),
+    [aux_sym_control_keyword_token16] = ACTIONS(25),
+    [aux_sym_control_keyword_token17] = ACTIONS(25),
+    [aux_sym_control_keyword_token18] = ACTIONS(25),
+    [aux_sym_control_keyword_token19] = ACTIONS(25),
+    [aux_sym_control_keyword_token20] = ACTIONS(25),
+    [aux_sym_control_keyword_token21] = ACTIONS(25),
+    [anon_sym_DOLLAR] = ACTIONS(29),
+    [aux_sym_wildcard_token1] = ACTIONS(31),
+    [aux_sym_wildcard_token2] = ACTIONS(31),
+    [anon_sym_QMARK_QMARK] = ACTIONS(33),
+    [anon_sym_QMARK] = ACTIONS(33),
+    [anon_sym_PLUS] = ACTIONS(35),
+    [anon_sym_DASH] = ACTIONS(35),
+    [anon_sym_STAR] = ACTIONS(37),
+    [anon_sym_SLASH] = ACTIONS(35),
+    [anon_sym_CARET] = ACTIONS(35),
+    [anon_sym_EQ] = ACTIONS(37),
+    [anon_sym_EQ_EQ] = ACTIONS(35),
+    [anon_sym_BANG_EQ] = ACTIONS(35),
+    [anon_sym_LT_GT] = ACTIONS(35),
+    [anon_sym_LT_EQ] = ACTIONS(35),
+    [anon_sym_GT_EQ] = ACTIONS(35),
+    [anon_sym_LT] = ACTIONS(37),
+    [anon_sym_GT] = ACTIONS(37),
+    [anon_sym_AMP_AMP] = ACTIONS(35),
+    [anon_sym_PIPE_PIPE] = ACTIONS(35),
+    [anon_sym_BANG] = ACTIONS(37),
+    [anon_sym_COMMA] = ACTIONS(15),
+    [anon_sym_COLON] = ACTIONS(39),
+    [anon_sym_COLON_COLON] = ACTIONS(15),
+    [anon_sym_DOT_DOT_DOT] = ACTIONS(15),
+    [anon_sym_LBRACK] = ACTIONS(15),
+    [anon_sym_RBRACK] = ACTIONS(15),
+    [anon_sym_LBRACE] = ACTIONS(15),
+    [anon_sym_RBRACE] = ACTIONS(15),
+    [sym_number] = ACTIONS(41),
+    [sym_string] = ACTIONS(41),
   },
   [STATE(4)] = {
-    [ts_builtin_sym_end] = ACTIONS(95),
-    [sym_identifier] = ACTIONS(97),
-    [aux_sym__item_token1] = ACTIONS(97),
-    [sym_comment] = ACTIONS(97),
-    [anon_sym_POUND] = ACTIONS(97),
-    [anon_sym_DOT] = ACTIONS(97),
-    [sym_rest_of_line] = ACTIONS(99),
-    [anon_sym_LPAREN] = ACTIONS(97),
-    [anon_sym_RPAREN] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token1] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token2] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token3] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token4] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token5] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token6] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token7] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token8] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token9] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token10] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token11] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token12] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token13] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token14] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token15] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token16] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token17] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token18] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token19] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token20] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token21] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token22] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token23] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token24] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token25] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token26] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token27] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token28] = ACTIONS(97),
-    [aux_sym_declaration_keyword_token29] = ACTIONS(97),
-    [aux_sym_statement_keyword_token1] = ACTIONS(97),
-    [aux_sym_statement_keyword_token2] = ACTIONS(97),
-    [aux_sym_statement_keyword_token3] = ACTIONS(97),
-    [aux_sym_statement_keyword_token4] = ACTIONS(97),
-    [aux_sym_statement_keyword_token5] = ACTIONS(97),
-    [aux_sym_statement_keyword_token6] = ACTIONS(97),
-    [aux_sym_statement_keyword_token7] = ACTIONS(97),
-    [aux_sym_statement_keyword_token8] = ACTIONS(97),
-    [aux_sym_statement_keyword_token9] = ACTIONS(97),
-    [aux_sym_statement_keyword_token10] = ACTIONS(97),
-    [aux_sym_statement_keyword_token11] = ACTIONS(97),
-    [aux_sym_statement_keyword_token12] = ACTIONS(97),
-    [aux_sym_statement_keyword_token13] = ACTIONS(97),
-    [aux_sym_statement_keyword_token14] = ACTIONS(97),
-    [aux_sym_statement_keyword_token15] = ACTIONS(97),
-    [aux_sym_statement_keyword_token16] = ACTIONS(97),
-    [aux_sym_statement_keyword_token17] = ACTIONS(97),
-    [aux_sym_statement_keyword_token18] = ACTIONS(97),
-    [aux_sym_statement_keyword_token19] = ACTIONS(97),
-    [aux_sym_statement_keyword_token20] = ACTIONS(97),
-    [aux_sym_statement_keyword_token21] = ACTIONS(97),
-    [aux_sym_statement_keyword_token22] = ACTIONS(97),
-    [aux_sym_statement_keyword_token23] = ACTIONS(97),
-    [aux_sym_statement_keyword_token24] = ACTIONS(97),
-    [aux_sym_statement_keyword_token25] = ACTIONS(97),
-    [aux_sym_statement_keyword_token26] = ACTIONS(97),
-    [aux_sym_statement_keyword_token27] = ACTIONS(97),
-    [aux_sym_statement_keyword_token28] = ACTIONS(97),
-    [aux_sym_statement_keyword_token29] = ACTIONS(97),
-    [aux_sym_statement_keyword_token30] = ACTIONS(97),
-    [aux_sym_statement_keyword_token31] = ACTIONS(97),
-    [aux_sym_statement_keyword_token32] = ACTIONS(97),
-    [aux_sym_statement_keyword_token33] = ACTIONS(97),
-    [aux_sym_statement_keyword_token34] = ACTIONS(97),
-    [aux_sym_statement_keyword_token35] = ACTIONS(97),
-    [aux_sym_statement_keyword_token36] = ACTIONS(97),
-    [aux_sym_statement_keyword_token37] = ACTIONS(97),
-    [aux_sym_statement_keyword_token38] = ACTIONS(97),
-    [aux_sym_statement_keyword_token39] = ACTIONS(97),
-    [aux_sym_control_keyword_token1] = ACTIONS(97),
-    [aux_sym_control_keyword_token2] = ACTIONS(97),
-    [aux_sym_control_keyword_token3] = ACTIONS(97),
-    [aux_sym_control_keyword_token4] = ACTIONS(97),
-    [aux_sym_control_keyword_token5] = ACTIONS(97),
-    [aux_sym_control_keyword_token6] = ACTIONS(97),
-    [aux_sym_control_keyword_token7] = ACTIONS(97),
-    [aux_sym_control_keyword_token8] = ACTIONS(97),
-    [aux_sym_control_keyword_token9] = ACTIONS(97),
-    [aux_sym_control_keyword_token10] = ACTIONS(97),
-    [aux_sym_control_keyword_token11] = ACTIONS(97),
-    [aux_sym_control_keyword_token12] = ACTIONS(97),
-    [aux_sym_control_keyword_token13] = ACTIONS(97),
-    [aux_sym_control_keyword_token14] = ACTIONS(97),
-    [aux_sym_control_keyword_token15] = ACTIONS(97),
-    [aux_sym_control_keyword_token16] = ACTIONS(97),
-    [aux_sym_control_keyword_token17] = ACTIONS(97),
-    [aux_sym_control_keyword_token18] = ACTIONS(97),
-    [aux_sym_control_keyword_token19] = ACTIONS(97),
-    [aux_sym_control_keyword_token20] = ACTIONS(97),
-    [aux_sym_control_keyword_token21] = ACTIONS(97),
-    [anon_sym_DOLLAR] = ACTIONS(97),
-    [aux_sym_wildcard_token1] = ACTIONS(97),
-    [aux_sym_wildcard_token2] = ACTIONS(97),
-    [anon_sym_QMARK_QMARK] = ACTIONS(97),
-    [anon_sym_QMARK] = ACTIONS(97),
-    [anon_sym_PLUS] = ACTIONS(97),
-    [anon_sym_DASH] = ACTIONS(97),
-    [anon_sym_STAR] = ACTIONS(97),
-    [anon_sym_SLASH] = ACTIONS(97),
-    [anon_sym_CARET] = ACTIONS(97),
-    [anon_sym_EQ] = ACTIONS(97),
-    [anon_sym_EQ_EQ] = ACTIONS(97),
-    [anon_sym_BANG_EQ] = ACTIONS(97),
-    [anon_sym_LT_GT] = ACTIONS(97),
-    [anon_sym_LT_EQ] = ACTIONS(97),
-    [anon_sym_GT_EQ] = ACTIONS(97),
-    [anon_sym_LT] = ACTIONS(97),
-    [anon_sym_GT] = ACTIONS(97),
-    [anon_sym_AMP_AMP] = ACTIONS(97),
-    [anon_sym_PIPE_PIPE] = ACTIONS(97),
-    [anon_sym_BANG] = ACTIONS(97),
-    [anon_sym_COMMA] = ACTIONS(97),
-    [anon_sym_COLON] = ACTIONS(97),
-    [anon_sym_COLON_COLON] = ACTIONS(97),
-    [anon_sym_DOT_DOT_DOT] = ACTIONS(97),
-    [anon_sym_LBRACK] = ACTIONS(97),
-    [anon_sym_RBRACK] = ACTIONS(97),
-    [anon_sym_LBRACE] = ACTIONS(97),
-    [anon_sym_RBRACE] = ACTIONS(97),
-    [sym_number] = ACTIONS(97),
-    [sym_string] = ACTIONS(97),
+    [ts_builtin_sym_end] = ACTIONS(108),
+    [sym_identifier] = ACTIONS(110),
+    [aux_sym__item_token1] = ACTIONS(110),
+    [sym_comment] = ACTIONS(110),
+    [anon_sym_POUND] = ACTIONS(110),
+    [anon_sym_DOT] = ACTIONS(110),
+    [sym_rest_of_line] = ACTIONS(112),
+    [anon_sym_LPAREN] = ACTIONS(110),
+    [anon_sym_RPAREN] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token1] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token2] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token3] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token4] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token5] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token6] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token7] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token8] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token9] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token10] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token11] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token12] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token13] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token14] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token15] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token16] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token17] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token18] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token19] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token20] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token21] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token22] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token23] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token24] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token25] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token26] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token27] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token28] = ACTIONS(110),
+    [aux_sym_declaration_keyword_token29] = ACTIONS(110),
+    [aux_sym_statement_keyword_token1] = ACTIONS(110),
+    [aux_sym_statement_keyword_token2] = ACTIONS(110),
+    [aux_sym_statement_keyword_token3] = ACTIONS(110),
+    [aux_sym_statement_keyword_token4] = ACTIONS(110),
+    [aux_sym_statement_keyword_token5] = ACTIONS(110),
+    [aux_sym_statement_keyword_token6] = ACTIONS(110),
+    [aux_sym_statement_keyword_token7] = ACTIONS(110),
+    [aux_sym_statement_keyword_token8] = ACTIONS(110),
+    [aux_sym_statement_keyword_token9] = ACTIONS(110),
+    [aux_sym_statement_keyword_token10] = ACTIONS(110),
+    [aux_sym_statement_keyword_token11] = ACTIONS(110),
+    [aux_sym_statement_keyword_token12] = ACTIONS(110),
+    [aux_sym_statement_keyword_token13] = ACTIONS(110),
+    [aux_sym_statement_keyword_token14] = ACTIONS(110),
+    [aux_sym_statement_keyword_token15] = ACTIONS(110),
+    [aux_sym_statement_keyword_token16] = ACTIONS(110),
+    [aux_sym_statement_keyword_token17] = ACTIONS(110),
+    [aux_sym_statement_keyword_token18] = ACTIONS(110),
+    [aux_sym_statement_keyword_token19] = ACTIONS(110),
+    [aux_sym_statement_keyword_token20] = ACTIONS(110),
+    [aux_sym_statement_keyword_token21] = ACTIONS(110),
+    [aux_sym_statement_keyword_token22] = ACTIONS(110),
+    [aux_sym_statement_keyword_token23] = ACTIONS(110),
+    [aux_sym_statement_keyword_token24] = ACTIONS(110),
+    [aux_sym_statement_keyword_token25] = ACTIONS(110),
+    [aux_sym_statement_keyword_token26] = ACTIONS(110),
+    [aux_sym_statement_keyword_token27] = ACTIONS(110),
+    [aux_sym_statement_keyword_token28] = ACTIONS(110),
+    [aux_sym_statement_keyword_token29] = ACTIONS(110),
+    [aux_sym_statement_keyword_token30] = ACTIONS(110),
+    [aux_sym_statement_keyword_token31] = ACTIONS(110),
+    [aux_sym_statement_keyword_token32] = ACTIONS(110),
+    [aux_sym_statement_keyword_token33] = ACTIONS(110),
+    [aux_sym_statement_keyword_token34] = ACTIONS(110),
+    [aux_sym_statement_keyword_token35] = ACTIONS(110),
+    [aux_sym_statement_keyword_token36] = ACTIONS(110),
+    [aux_sym_statement_keyword_token37] = ACTIONS(110),
+    [aux_sym_statement_keyword_token38] = ACTIONS(110),
+    [aux_sym_statement_keyword_token39] = ACTIONS(110),
+    [aux_sym_control_keyword_token1] = ACTIONS(110),
+    [aux_sym_control_keyword_token2] = ACTIONS(110),
+    [aux_sym_control_keyword_token3] = ACTIONS(110),
+    [aux_sym_control_keyword_token4] = ACTIONS(110),
+    [aux_sym_control_keyword_token5] = ACTIONS(110),
+    [aux_sym_control_keyword_token6] = ACTIONS(110),
+    [aux_sym_control_keyword_token7] = ACTIONS(110),
+    [aux_sym_control_keyword_token8] = ACTIONS(110),
+    [aux_sym_control_keyword_token9] = ACTIONS(110),
+    [aux_sym_control_keyword_token10] = ACTIONS(110),
+    [aux_sym_control_keyword_token11] = ACTIONS(110),
+    [aux_sym_control_keyword_token12] = ACTIONS(110),
+    [aux_sym_control_keyword_token13] = ACTIONS(110),
+    [aux_sym_control_keyword_token14] = ACTIONS(110),
+    [aux_sym_control_keyword_token15] = ACTIONS(110),
+    [aux_sym_control_keyword_token16] = ACTIONS(110),
+    [aux_sym_control_keyword_token17] = ACTIONS(110),
+    [aux_sym_control_keyword_token18] = ACTIONS(110),
+    [aux_sym_control_keyword_token19] = ACTIONS(110),
+    [aux_sym_control_keyword_token20] = ACTIONS(110),
+    [aux_sym_control_keyword_token21] = ACTIONS(110),
+    [anon_sym_DOLLAR] = ACTIONS(110),
+    [aux_sym_wildcard_token1] = ACTIONS(110),
+    [aux_sym_wildcard_token2] = ACTIONS(110),
+    [anon_sym_QMARK_QMARK] = ACTIONS(110),
+    [anon_sym_QMARK] = ACTIONS(110),
+    [anon_sym_PLUS] = ACTIONS(110),
+    [anon_sym_DASH] = ACTIONS(110),
+    [anon_sym_STAR] = ACTIONS(110),
+    [anon_sym_SLASH] = ACTIONS(110),
+    [anon_sym_CARET] = ACTIONS(110),
+    [anon_sym_EQ] = ACTIONS(110),
+    [anon_sym_EQ_EQ] = ACTIONS(110),
+    [anon_sym_BANG_EQ] = ACTIONS(110),
+    [anon_sym_LT_GT] = ACTIONS(110),
+    [anon_sym_LT_EQ] = ACTIONS(110),
+    [anon_sym_GT_EQ] = ACTIONS(110),
+    [anon_sym_LT] = ACTIONS(110),
+    [anon_sym_GT] = ACTIONS(110),
+    [anon_sym_AMP_AMP] = ACTIONS(110),
+    [anon_sym_PIPE_PIPE] = ACTIONS(110),
+    [anon_sym_BANG] = ACTIONS(110),
+    [anon_sym_COMMA] = ACTIONS(110),
+    [anon_sym_COLON] = ACTIONS(110),
+    [anon_sym_COLON_COLON] = ACTIONS(110),
+    [anon_sym_DOT_DOT_DOT] = ACTIONS(110),
+    [anon_sym_LBRACK] = ACTIONS(110),
+    [anon_sym_RBRACK] = ACTIONS(110),
+    [anon_sym_LBRACE] = ACTIONS(110),
+    [anon_sym_RBRACE] = ACTIONS(110),
+    [sym_number] = ACTIONS(110),
+    [sym_string] = ACTIONS(110),
   },
   [STATE(5)] = {
-    [ts_builtin_sym_end] = ACTIONS(101),
-    [sym_identifier] = ACTIONS(103),
-    [aux_sym__item_token1] = ACTIONS(103),
-    [sym_comment] = ACTIONS(103),
-    [anon_sym_POUND] = ACTIONS(103),
-    [anon_sym_DOT] = ACTIONS(103),
-    [sym_rest_of_line] = ACTIONS(105),
-    [anon_sym_LPAREN] = ACTIONS(103),
-    [anon_sym_RPAREN] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token1] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token2] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token3] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token4] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token5] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token6] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token7] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token8] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token9] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token10] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token11] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token12] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token13] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token14] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token15] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token16] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token17] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token18] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token19] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token20] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token21] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token22] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token23] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token24] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token25] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token26] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token27] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token28] = ACTIONS(103),
-    [aux_sym_declaration_keyword_token29] = ACTIONS(103),
-    [aux_sym_statement_keyword_token1] = ACTIONS(103),
-    [aux_sym_statement_keyword_token2] = ACTIONS(103),
-    [aux_sym_statement_keyword_token3] = ACTIONS(103),
-    [aux_sym_statement_keyword_token4] = ACTIONS(103),
-    [aux_sym_statement_keyword_token5] = ACTIONS(103),
-    [aux_sym_statement_keyword_token6] = ACTIONS(103),
-    [aux_sym_statement_keyword_token7] = ACTIONS(103),
-    [aux_sym_statement_keyword_token8] = ACTIONS(103),
-    [aux_sym_statement_keyword_token9] = ACTIONS(103),
-    [aux_sym_statement_keyword_token10] = ACTIONS(103),
-    [aux_sym_statement_keyword_token11] = ACTIONS(103),
-    [aux_sym_statement_keyword_token12] = ACTIONS(103),
-    [aux_sym_statement_keyword_token13] = ACTIONS(103),
-    [aux_sym_statement_keyword_token14] = ACTIONS(103),
-    [aux_sym_statement_keyword_token15] = ACTIONS(103),
-    [aux_sym_statement_keyword_token16] = ACTIONS(103),
-    [aux_sym_statement_keyword_token17] = ACTIONS(103),
-    [aux_sym_statement_keyword_token18] = ACTIONS(103),
-    [aux_sym_statement_keyword_token19] = ACTIONS(103),
-    [aux_sym_statement_keyword_token20] = ACTIONS(103),
-    [aux_sym_statement_keyword_token21] = ACTIONS(103),
-    [aux_sym_statement_keyword_token22] = ACTIONS(103),
-    [aux_sym_statement_keyword_token23] = ACTIONS(103),
-    [aux_sym_statement_keyword_token24] = ACTIONS(103),
-    [aux_sym_statement_keyword_token25] = ACTIONS(103),
-    [aux_sym_statement_keyword_token26] = ACTIONS(103),
-    [aux_sym_statement_keyword_token27] = ACTIONS(103),
-    [aux_sym_statement_keyword_token28] = ACTIONS(103),
-    [aux_sym_statement_keyword_token29] = ACTIONS(103),
-    [aux_sym_statement_keyword_token30] = ACTIONS(103),
-    [aux_sym_statement_keyword_token31] = ACTIONS(103),
-    [aux_sym_statement_keyword_token32] = ACTIONS(103),
-    [aux_sym_statement_keyword_token33] = ACTIONS(103),
-    [aux_sym_statement_keyword_token34] = ACTIONS(103),
-    [aux_sym_statement_keyword_token35] = ACTIONS(103),
-    [aux_sym_statement_keyword_token36] = ACTIONS(103),
-    [aux_sym_statement_keyword_token37] = ACTIONS(103),
-    [aux_sym_statement_keyword_token38] = ACTIONS(103),
-    [aux_sym_statement_keyword_token39] = ACTIONS(103),
-    [aux_sym_control_keyword_token1] = ACTIONS(103),
-    [aux_sym_control_keyword_token2] = ACTIONS(103),
-    [aux_sym_control_keyword_token3] = ACTIONS(103),
-    [aux_sym_control_keyword_token4] = ACTIONS(103),
-    [aux_sym_control_keyword_token5] = ACTIONS(103),
-    [aux_sym_control_keyword_token6] = ACTIONS(103),
-    [aux_sym_control_keyword_token7] = ACTIONS(103),
-    [aux_sym_control_keyword_token8] = ACTIONS(103),
-    [aux_sym_control_keyword_token9] = ACTIONS(103),
-    [aux_sym_control_keyword_token10] = ACTIONS(103),
-    [aux_sym_control_keyword_token11] = ACTIONS(103),
-    [aux_sym_control_keyword_token12] = ACTIONS(103),
-    [aux_sym_control_keyword_token13] = ACTIONS(103),
-    [aux_sym_control_keyword_token14] = ACTIONS(103),
-    [aux_sym_control_keyword_token15] = ACTIONS(103),
-    [aux_sym_control_keyword_token16] = ACTIONS(103),
-    [aux_sym_control_keyword_token17] = ACTIONS(103),
-    [aux_sym_control_keyword_token18] = ACTIONS(103),
-    [aux_sym_control_keyword_token19] = ACTIONS(103),
-    [aux_sym_control_keyword_token20] = ACTIONS(103),
-    [aux_sym_control_keyword_token21] = ACTIONS(103),
-    [anon_sym_DOLLAR] = ACTIONS(103),
-    [aux_sym_wildcard_token1] = ACTIONS(103),
-    [aux_sym_wildcard_token2] = ACTIONS(103),
-    [anon_sym_QMARK_QMARK] = ACTIONS(103),
-    [anon_sym_QMARK] = ACTIONS(103),
-    [anon_sym_PLUS] = ACTIONS(103),
-    [anon_sym_DASH] = ACTIONS(103),
-    [anon_sym_STAR] = ACTIONS(103),
-    [anon_sym_SLASH] = ACTIONS(103),
-    [anon_sym_CARET] = ACTIONS(103),
-    [anon_sym_EQ] = ACTIONS(103),
-    [anon_sym_EQ_EQ] = ACTIONS(103),
-    [anon_sym_BANG_EQ] = ACTIONS(103),
-    [anon_sym_LT_GT] = ACTIONS(103),
-    [anon_sym_LT_EQ] = ACTIONS(103),
-    [anon_sym_GT_EQ] = ACTIONS(103),
-    [anon_sym_LT] = ACTIONS(103),
-    [anon_sym_GT] = ACTIONS(103),
-    [anon_sym_AMP_AMP] = ACTIONS(103),
-    [anon_sym_PIPE_PIPE] = ACTIONS(103),
-    [anon_sym_BANG] = ACTIONS(103),
-    [anon_sym_COMMA] = ACTIONS(103),
-    [anon_sym_COLON] = ACTIONS(103),
-    [anon_sym_COLON_COLON] = ACTIONS(103),
-    [anon_sym_DOT_DOT_DOT] = ACTIONS(103),
-    [anon_sym_LBRACK] = ACTIONS(103),
-    [anon_sym_RBRACK] = ACTIONS(103),
-    [anon_sym_LBRACE] = ACTIONS(103),
-    [anon_sym_RBRACE] = ACTIONS(103),
-    [sym_number] = ACTIONS(103),
-    [sym_string] = ACTIONS(103),
+    [ts_builtin_sym_end] = ACTIONS(114),
+    [sym_identifier] = ACTIONS(116),
+    [aux_sym__item_token1] = ACTIONS(116),
+    [sym_comment] = ACTIONS(116),
+    [anon_sym_POUND] = ACTIONS(116),
+    [anon_sym_DOT] = ACTIONS(116),
+    [sym_rest_of_line] = ACTIONS(118),
+    [anon_sym_LPAREN] = ACTIONS(116),
+    [anon_sym_RPAREN] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token1] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token2] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token3] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token4] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token5] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token6] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token7] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token8] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token9] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token10] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token11] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token12] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token13] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token14] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token15] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token16] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token17] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token18] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token19] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token20] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token21] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token22] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token23] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token24] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token25] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token26] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token27] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token28] = ACTIONS(116),
+    [aux_sym_declaration_keyword_token29] = ACTIONS(116),
+    [aux_sym_statement_keyword_token1] = ACTIONS(116),
+    [aux_sym_statement_keyword_token2] = ACTIONS(116),
+    [aux_sym_statement_keyword_token3] = ACTIONS(116),
+    [aux_sym_statement_keyword_token4] = ACTIONS(116),
+    [aux_sym_statement_keyword_token5] = ACTIONS(116),
+    [aux_sym_statement_keyword_token6] = ACTIONS(116),
+    [aux_sym_statement_keyword_token7] = ACTIONS(116),
+    [aux_sym_statement_keyword_token8] = ACTIONS(116),
+    [aux_sym_statement_keyword_token9] = ACTIONS(116),
+    [aux_sym_statement_keyword_token10] = ACTIONS(116),
+    [aux_sym_statement_keyword_token11] = ACTIONS(116),
+    [aux_sym_statement_keyword_token12] = ACTIONS(116),
+    [aux_sym_statement_keyword_token13] = ACTIONS(116),
+    [aux_sym_statement_keyword_token14] = ACTIONS(116),
+    [aux_sym_statement_keyword_token15] = ACTIONS(116),
+    [aux_sym_statement_keyword_token16] = ACTIONS(116),
+    [aux_sym_statement_keyword_token17] = ACTIONS(116),
+    [aux_sym_statement_keyword_token18] = ACTIONS(116),
+    [aux_sym_statement_keyword_token19] = ACTIONS(116),
+    [aux_sym_statement_keyword_token20] = ACTIONS(116),
+    [aux_sym_statement_keyword_token21] = ACTIONS(116),
+    [aux_sym_statement_keyword_token22] = ACTIONS(116),
+    [aux_sym_statement_keyword_token23] = ACTIONS(116),
+    [aux_sym_statement_keyword_token24] = ACTIONS(116),
+    [aux_sym_statement_keyword_token25] = ACTIONS(116),
+    [aux_sym_statement_keyword_token26] = ACTIONS(116),
+    [aux_sym_statement_keyword_token27] = ACTIONS(116),
+    [aux_sym_statement_keyword_token28] = ACTIONS(116),
+    [aux_sym_statement_keyword_token29] = ACTIONS(116),
+    [aux_sym_statement_keyword_token30] = ACTIONS(116),
+    [aux_sym_statement_keyword_token31] = ACTIONS(116),
+    [aux_sym_statement_keyword_token32] = ACTIONS(116),
+    [aux_sym_statement_keyword_token33] = ACTIONS(116),
+    [aux_sym_statement_keyword_token34] = ACTIONS(116),
+    [aux_sym_statement_keyword_token35] = ACTIONS(116),
+    [aux_sym_statement_keyword_token36] = ACTIONS(116),
+    [aux_sym_statement_keyword_token37] = ACTIONS(116),
+    [aux_sym_statement_keyword_token38] = ACTIONS(116),
+    [aux_sym_statement_keyword_token39] = ACTIONS(116),
+    [aux_sym_control_keyword_token1] = ACTIONS(116),
+    [aux_sym_control_keyword_token2] = ACTIONS(116),
+    [aux_sym_control_keyword_token3] = ACTIONS(116),
+    [aux_sym_control_keyword_token4] = ACTIONS(116),
+    [aux_sym_control_keyword_token5] = ACTIONS(116),
+    [aux_sym_control_keyword_token6] = ACTIONS(116),
+    [aux_sym_control_keyword_token7] = ACTIONS(116),
+    [aux_sym_control_keyword_token8] = ACTIONS(116),
+    [aux_sym_control_keyword_token9] = ACTIONS(116),
+    [aux_sym_control_keyword_token10] = ACTIONS(116),
+    [aux_sym_control_keyword_token11] = ACTIONS(116),
+    [aux_sym_control_keyword_token12] = ACTIONS(116),
+    [aux_sym_control_keyword_token13] = ACTIONS(116),
+    [aux_sym_control_keyword_token14] = ACTIONS(116),
+    [aux_sym_control_keyword_token15] = ACTIONS(116),
+    [aux_sym_control_keyword_token16] = ACTIONS(116),
+    [aux_sym_control_keyword_token17] = ACTIONS(116),
+    [aux_sym_control_keyword_token18] = ACTIONS(116),
+    [aux_sym_control_keyword_token19] = ACTIONS(116),
+    [aux_sym_control_keyword_token20] = ACTIONS(116),
+    [aux_sym_control_keyword_token21] = ACTIONS(116),
+    [anon_sym_DOLLAR] = ACTIONS(116),
+    [aux_sym_wildcard_token1] = ACTIONS(116),
+    [aux_sym_wildcard_token2] = ACTIONS(116),
+    [anon_sym_QMARK_QMARK] = ACTIONS(116),
+    [anon_sym_QMARK] = ACTIONS(116),
+    [anon_sym_PLUS] = ACTIONS(116),
+    [anon_sym_DASH] = ACTIONS(116),
+    [anon_sym_STAR] = ACTIONS(116),
+    [anon_sym_SLASH] = ACTIONS(116),
+    [anon_sym_CARET] = ACTIONS(116),
+    [anon_sym_EQ] = ACTIONS(116),
+    [anon_sym_EQ_EQ] = ACTIONS(116),
+    [anon_sym_BANG_EQ] = ACTIONS(116),
+    [anon_sym_LT_GT] = ACTIONS(116),
+    [anon_sym_LT_EQ] = ACTIONS(116),
+    [anon_sym_GT_EQ] = ACTIONS(116),
+    [anon_sym_LT] = ACTIONS(116),
+    [anon_sym_GT] = ACTIONS(116),
+    [anon_sym_AMP_AMP] = ACTIONS(116),
+    [anon_sym_PIPE_PIPE] = ACTIONS(116),
+    [anon_sym_BANG] = ACTIONS(116),
+    [anon_sym_COMMA] = ACTIONS(116),
+    [anon_sym_COLON] = ACTIONS(116),
+    [anon_sym_COLON_COLON] = ACTIONS(116),
+    [anon_sym_DOT_DOT_DOT] = ACTIONS(116),
+    [anon_sym_LBRACK] = ACTIONS(116),
+    [anon_sym_RBRACK] = ACTIONS(116),
+    [anon_sym_LBRACE] = ACTIONS(116),
+    [anon_sym_RBRACE] = ACTIONS(116),
+    [sym_number] = ACTIONS(116),
+    [sym_string] = ACTIONS(116),
   },
   [STATE(6)] = {
-    [ts_builtin_sym_end] = ACTIONS(107),
-    [sym_identifier] = ACTIONS(109),
-    [aux_sym__item_token1] = ACTIONS(107),
-    [sym_comment] = ACTIONS(109),
-    [anon_sym_POUND] = ACTIONS(107),
-    [anon_sym_DOT] = ACTIONS(109),
-    [anon_sym_LPAREN] = ACTIONS(107),
-    [anon_sym_RPAREN] = ACTIONS(107),
-    [aux_sym_declaration_keyword_token1] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token2] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token3] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token4] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token5] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token6] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token7] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token8] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token9] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token10] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token11] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token12] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token13] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token14] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token15] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token16] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token17] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token18] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token19] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token20] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token21] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token22] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token23] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token24] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token25] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token26] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token27] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token28] = ACTIONS(109),
-    [aux_sym_declaration_keyword_token29] = ACTIONS(109),
-    [aux_sym_statement_keyword_token1] = ACTIONS(109),
-    [aux_sym_statement_keyword_token2] = ACTIONS(109),
-    [aux_sym_statement_keyword_token3] = ACTIONS(109),
-    [aux_sym_statement_keyword_token4] = ACTIONS(109),
-    [aux_sym_statement_keyword_token5] = ACTIONS(109),
-    [aux_sym_statement_keyword_token6] = ACTIONS(109),
-    [aux_sym_statement_keyword_token7] = ACTIONS(109),
-    [aux_sym_statement_keyword_token8] = ACTIONS(109),
-    [aux_sym_statement_keyword_token9] = ACTIONS(109),
-    [aux_sym_statement_keyword_token10] = ACTIONS(109),
-    [aux_sym_statement_keyword_token11] = ACTIONS(109),
-    [aux_sym_statement_keyword_token12] = ACTIONS(109),
-    [aux_sym_statement_keyword_token13] = ACTIONS(109),
-    [aux_sym_statement_keyword_token14] = ACTIONS(109),
-    [aux_sym_statement_keyword_token15] = ACTIONS(109),
-    [aux_sym_statement_keyword_token16] = ACTIONS(109),
-    [aux_sym_statement_keyword_token17] = ACTIONS(109),
-    [aux_sym_statement_keyword_token18] = ACTIONS(109),
-    [aux_sym_statement_keyword_token19] = ACTIONS(109),
-    [aux_sym_statement_keyword_token20] = ACTIONS(109),
-    [aux_sym_statement_keyword_token21] = ACTIONS(109),
-    [aux_sym_statement_keyword_token22] = ACTIONS(109),
-    [aux_sym_statement_keyword_token23] = ACTIONS(109),
-    [aux_sym_statement_keyword_token24] = ACTIONS(109),
-    [aux_sym_statement_keyword_token25] = ACTIONS(109),
-    [aux_sym_statement_keyword_token26] = ACTIONS(109),
-    [aux_sym_statement_keyword_token27] = ACTIONS(109),
-    [aux_sym_statement_keyword_token28] = ACTIONS(109),
-    [aux_sym_statement_keyword_token29] = ACTIONS(109),
-    [aux_sym_statement_keyword_token30] = ACTIONS(109),
-    [aux_sym_statement_keyword_token31] = ACTIONS(109),
-    [aux_sym_statement_keyword_token32] = ACTIONS(109),
-    [aux_sym_statement_keyword_token33] = ACTIONS(109),
-    [aux_sym_statement_keyword_token34] = ACTIONS(109),
-    [aux_sym_statement_keyword_token35] = ACTIONS(109),
-    [aux_sym_statement_keyword_token36] = ACTIONS(109),
-    [aux_sym_statement_keyword_token37] = ACTIONS(109),
-    [aux_sym_statement_keyword_token38] = ACTIONS(109),
-    [aux_sym_statement_keyword_token39] = ACTIONS(109),
-    [aux_sym_control_keyword_token1] = ACTIONS(109),
-    [aux_sym_control_keyword_token2] = ACTIONS(109),
-    [aux_sym_control_keyword_token3] = ACTIONS(109),
-    [aux_sym_control_keyword_token4] = ACTIONS(109),
-    [aux_sym_control_keyword_token5] = ACTIONS(109),
-    [aux_sym_control_keyword_token6] = ACTIONS(109),
-    [aux_sym_control_keyword_token7] = ACTIONS(109),
-    [aux_sym_control_keyword_token8] = ACTIONS(109),
-    [aux_sym_control_keyword_token9] = ACTIONS(109),
-    [aux_sym_control_keyword_token10] = ACTIONS(109),
-    [aux_sym_control_keyword_token11] = ACTIONS(109),
-    [aux_sym_control_keyword_token12] = ACTIONS(109),
-    [aux_sym_control_keyword_token13] = ACTIONS(109),
-    [aux_sym_control_keyword_token14] = ACTIONS(109),
-    [aux_sym_control_keyword_token15] = ACTIONS(109),
-    [aux_sym_control_keyword_token16] = ACTIONS(109),
-    [aux_sym_control_keyword_token17] = ACTIONS(109),
-    [aux_sym_control_keyword_token18] = ACTIONS(109),
-    [aux_sym_control_keyword_token19] = ACTIONS(109),
-    [aux_sym_control_keyword_token20] = ACTIONS(109),
-    [aux_sym_control_keyword_token21] = ACTIONS(109),
-    [anon_sym_DOLLAR] = ACTIONS(107),
-    [aux_sym_wildcard_token1] = ACTIONS(107),
-    [aux_sym_wildcard_token2] = ACTIONS(107),
-    [anon_sym_QMARK_QMARK] = ACTIONS(109),
-    [anon_sym_QMARK] = ACTIONS(109),
-    [anon_sym_PLUS] = ACTIONS(107),
-    [anon_sym_DASH] = ACTIONS(107),
-    [anon_sym_STAR] = ACTIONS(109),
-    [anon_sym_SLASH] = ACTIONS(107),
-    [anon_sym_CARET] = ACTIONS(107),
-    [anon_sym_EQ] = ACTIONS(109),
-    [anon_sym_EQ_EQ] = ACTIONS(107),
-    [anon_sym_BANG_EQ] = ACTIONS(107),
-    [anon_sym_LT_GT] = ACTIONS(107),
-    [anon_sym_LT_EQ] = ACTIONS(107),
-    [anon_sym_GT_EQ] = ACTIONS(107),
-    [anon_sym_LT] = ACTIONS(109),
-    [anon_sym_GT] = ACTIONS(109),
-    [anon_sym_AMP_AMP] = ACTIONS(107),
-    [anon_sym_PIPE_PIPE] = ACTIONS(107),
-    [anon_sym_BANG] = ACTIONS(109),
-    [anon_sym_COMMA] = ACTIONS(107),
-    [anon_sym_COLON] = ACTIONS(109),
-    [anon_sym_COLON_COLON] = ACTIONS(107),
-    [anon_sym_DOT_DOT_DOT] = ACTIONS(107),
-    [anon_sym_LBRACK] = ACTIONS(107),
-    [anon_sym_RBRACK] = ACTIONS(107),
-    [anon_sym_LBRACE] = ACTIONS(107),
-    [anon_sym_RBRACE] = ACTIONS(107),
-    [sym_number] = ACTIONS(107),
-    [sym_string] = ACTIONS(107),
+    [ts_builtin_sym_end] = ACTIONS(120),
+    [sym_identifier] = ACTIONS(122),
+    [aux_sym__item_token1] = ACTIONS(120),
+    [sym_comment] = ACTIONS(122),
+    [anon_sym_POUND] = ACTIONS(120),
+    [anon_sym_DOT] = ACTIONS(122),
+    [anon_sym_LPAREN] = ACTIONS(120),
+    [anon_sym_RPAREN] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token1] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token2] = ACTIONS(122),
+    [aux_sym_declaration_keyword_token3] = ACTIONS(122),
+    [aux_sym_declaration_keyword_token4] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token5] = ACTIONS(122),
+    [aux_sym_declaration_keyword_token6] = ACTIONS(122),
+    [aux_sym_declaration_keyword_token7] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token8] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token9] = ACTIONS(122),
+    [aux_sym_declaration_keyword_token10] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token11] = ACTIONS(122),
+    [aux_sym_declaration_keyword_token12] = ACTIONS(122),
+    [aux_sym_declaration_keyword_token13] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token14] = ACTIONS(122),
+    [aux_sym_declaration_keyword_token15] = ACTIONS(122),
+    [aux_sym_declaration_keyword_token16] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token17] = ACTIONS(122),
+    [aux_sym_declaration_keyword_token18] = ACTIONS(122),
+    [aux_sym_declaration_keyword_token19] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token20] = ACTIONS(122),
+    [aux_sym_declaration_keyword_token21] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token22] = ACTIONS(122),
+    [aux_sym_declaration_keyword_token23] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token24] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token25] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token26] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token27] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token28] = ACTIONS(120),
+    [aux_sym_declaration_keyword_token29] = ACTIONS(120),
+    [aux_sym_statement_keyword_token1] = ACTIONS(120),
+    [aux_sym_statement_keyword_token2] = ACTIONS(120),
+    [aux_sym_statement_keyword_token3] = ACTIONS(122),
+    [aux_sym_statement_keyword_token4] = ACTIONS(122),
+    [aux_sym_statement_keyword_token5] = ACTIONS(120),
+    [aux_sym_statement_keyword_token6] = ACTIONS(122),
+    [aux_sym_statement_keyword_token7] = ACTIONS(120),
+    [aux_sym_statement_keyword_token8] = ACTIONS(120),
+    [aux_sym_statement_keyword_token9] = ACTIONS(120),
+    [aux_sym_statement_keyword_token10] = ACTIONS(120),
+    [aux_sym_statement_keyword_token11] = ACTIONS(120),
+    [aux_sym_statement_keyword_token12] = ACTIONS(120),
+    [aux_sym_statement_keyword_token13] = ACTIONS(120),
+    [aux_sym_statement_keyword_token14] = ACTIONS(120),
+    [aux_sym_statement_keyword_token15] = ACTIONS(120),
+    [aux_sym_statement_keyword_token16] = ACTIONS(120),
+    [aux_sym_statement_keyword_token17] = ACTIONS(120),
+    [aux_sym_statement_keyword_token18] = ACTIONS(122),
+    [aux_sym_statement_keyword_token19] = ACTIONS(120),
+    [aux_sym_statement_keyword_token20] = ACTIONS(120),
+    [aux_sym_statement_keyword_token21] = ACTIONS(120),
+    [aux_sym_statement_keyword_token22] = ACTIONS(120),
+    [aux_sym_statement_keyword_token23] = ACTIONS(122),
+    [aux_sym_statement_keyword_token24] = ACTIONS(120),
+    [aux_sym_statement_keyword_token25] = ACTIONS(120),
+    [aux_sym_statement_keyword_token26] = ACTIONS(120),
+    [aux_sym_statement_keyword_token27] = ACTIONS(120),
+    [aux_sym_statement_keyword_token28] = ACTIONS(120),
+    [aux_sym_statement_keyword_token29] = ACTIONS(120),
+    [aux_sym_statement_keyword_token30] = ACTIONS(120),
+    [aux_sym_statement_keyword_token31] = ACTIONS(120),
+    [aux_sym_statement_keyword_token32] = ACTIONS(120),
+    [aux_sym_statement_keyword_token33] = ACTIONS(120),
+    [aux_sym_statement_keyword_token34] = ACTIONS(120),
+    [aux_sym_statement_keyword_token35] = ACTIONS(120),
+    [aux_sym_statement_keyword_token36] = ACTIONS(120),
+    [aux_sym_statement_keyword_token37] = ACTIONS(120),
+    [aux_sym_statement_keyword_token38] = ACTIONS(120),
+    [aux_sym_statement_keyword_token39] = ACTIONS(120),
+    [aux_sym_control_keyword_token1] = ACTIONS(120),
+    [aux_sym_control_keyword_token2] = ACTIONS(122),
+    [aux_sym_control_keyword_token3] = ACTIONS(120),
+    [aux_sym_control_keyword_token4] = ACTIONS(120),
+    [aux_sym_control_keyword_token5] = ACTIONS(120),
+    [aux_sym_control_keyword_token6] = ACTIONS(120),
+    [aux_sym_control_keyword_token7] = ACTIONS(120),
+    [aux_sym_control_keyword_token8] = ACTIONS(120),
+    [aux_sym_control_keyword_token9] = ACTIONS(120),
+    [aux_sym_control_keyword_token10] = ACTIONS(120),
+    [aux_sym_control_keyword_token11] = ACTIONS(120),
+    [aux_sym_control_keyword_token12] = ACTIONS(120),
+    [aux_sym_control_keyword_token13] = ACTIONS(120),
+    [aux_sym_control_keyword_token14] = ACTIONS(120),
+    [aux_sym_control_keyword_token15] = ACTIONS(120),
+    [aux_sym_control_keyword_token16] = ACTIONS(120),
+    [aux_sym_control_keyword_token17] = ACTIONS(120),
+    [aux_sym_control_keyword_token18] = ACTIONS(120),
+    [aux_sym_control_keyword_token19] = ACTIONS(120),
+    [aux_sym_control_keyword_token20] = ACTIONS(120),
+    [aux_sym_control_keyword_token21] = ACTIONS(120),
+    [anon_sym_DOLLAR] = ACTIONS(120),
+    [aux_sym_wildcard_token1] = ACTIONS(120),
+    [aux_sym_wildcard_token2] = ACTIONS(120),
+    [anon_sym_QMARK_QMARK] = ACTIONS(122),
+    [anon_sym_QMARK] = ACTIONS(122),
+    [anon_sym_PLUS] = ACTIONS(120),
+    [anon_sym_DASH] = ACTIONS(120),
+    [anon_sym_STAR] = ACTIONS(122),
+    [anon_sym_SLASH] = ACTIONS(120),
+    [anon_sym_CARET] = ACTIONS(120),
+    [anon_sym_EQ] = ACTIONS(122),
+    [anon_sym_EQ_EQ] = ACTIONS(120),
+    [anon_sym_BANG_EQ] = ACTIONS(120),
+    [anon_sym_LT_GT] = ACTIONS(120),
+    [anon_sym_LT_EQ] = ACTIONS(120),
+    [anon_sym_GT_EQ] = ACTIONS(120),
+    [anon_sym_LT] = ACTIONS(122),
+    [anon_sym_GT] = ACTIONS(122),
+    [anon_sym_AMP_AMP] = ACTIONS(120),
+    [anon_sym_PIPE_PIPE] = ACTIONS(120),
+    [anon_sym_BANG] = ACTIONS(122),
+    [anon_sym_COMMA] = ACTIONS(120),
+    [anon_sym_COLON] = ACTIONS(122),
+    [anon_sym_COLON_COLON] = ACTIONS(120),
+    [anon_sym_DOT_DOT_DOT] = ACTIONS(120),
+    [anon_sym_LBRACK] = ACTIONS(120),
+    [anon_sym_RBRACK] = ACTIONS(120),
+    [anon_sym_LBRACE] = ACTIONS(120),
+    [anon_sym_RBRACE] = ACTIONS(120),
+    [sym_number] = ACTIONS(120),
+    [sym_string] = ACTIONS(120),
   },
   [STATE(7)] = {
-    [ts_builtin_sym_end] = ACTIONS(111),
-    [sym_identifier] = ACTIONS(113),
-    [aux_sym__item_token1] = ACTIONS(111),
-    [sym_comment] = ACTIONS(113),
-    [anon_sym_POUND] = ACTIONS(111),
-    [anon_sym_DOT] = ACTIONS(113),
-    [anon_sym_LPAREN] = ACTIONS(111),
-    [anon_sym_RPAREN] = ACTIONS(111),
-    [aux_sym_declaration_keyword_token1] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token2] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token3] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token4] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token5] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token6] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token7] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token8] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token9] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token10] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token11] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token12] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token13] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token14] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token15] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token16] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token17] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token18] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token19] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token20] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token21] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token22] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token23] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token24] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token25] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token26] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token27] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token28] = ACTIONS(113),
-    [aux_sym_declaration_keyword_token29] = ACTIONS(113),
-    [aux_sym_statement_keyword_token1] = ACTIONS(113),
-    [aux_sym_statement_keyword_token2] = ACTIONS(113),
-    [aux_sym_statement_keyword_token3] = ACTIONS(113),
-    [aux_sym_statement_keyword_token4] = ACTIONS(113),
-    [aux_sym_statement_keyword_token5] = ACTIONS(113),
-    [aux_sym_statement_keyword_token6] = ACTIONS(113),
-    [aux_sym_statement_keyword_token7] = ACTIONS(113),
-    [aux_sym_statement_keyword_token8] = ACTIONS(113),
-    [aux_sym_statement_keyword_token9] = ACTIONS(113),
-    [aux_sym_statement_keyword_token10] = ACTIONS(113),
-    [aux_sym_statement_keyword_token11] = ACTIONS(113),
-    [aux_sym_statement_keyword_token12] = ACTIONS(113),
-    [aux_sym_statement_keyword_token13] = ACTIONS(113),
-    [aux_sym_statement_keyword_token14] = ACTIONS(113),
-    [aux_sym_statement_keyword_token15] = ACTIONS(113),
-    [aux_sym_statement_keyword_token16] = ACTIONS(113),
-    [aux_sym_statement_keyword_token17] = ACTIONS(113),
-    [aux_sym_statement_keyword_token18] = ACTIONS(113),
-    [aux_sym_statement_keyword_token19] = ACTIONS(113),
-    [aux_sym_statement_keyword_token20] = ACTIONS(113),
-    [aux_sym_statement_keyword_token21] = ACTIONS(113),
-    [aux_sym_statement_keyword_token22] = ACTIONS(113),
-    [aux_sym_statement_keyword_token23] = ACTIONS(113),
-    [aux_sym_statement_keyword_token24] = ACTIONS(113),
-    [aux_sym_statement_keyword_token25] = ACTIONS(113),
-    [aux_sym_statement_keyword_token26] = ACTIONS(113),
-    [aux_sym_statement_keyword_token27] = ACTIONS(113),
-    [aux_sym_statement_keyword_token28] = ACTIONS(113),
-    [aux_sym_statement_keyword_token29] = ACTIONS(113),
-    [aux_sym_statement_keyword_token30] = ACTIONS(113),
-    [aux_sym_statement_keyword_token31] = ACTIONS(113),
-    [aux_sym_statement_keyword_token32] = ACTIONS(113),
-    [aux_sym_statement_keyword_token33] = ACTIONS(113),
-    [aux_sym_statement_keyword_token34] = ACTIONS(113),
-    [aux_sym_statement_keyword_token35] = ACTIONS(113),
-    [aux_sym_statement_keyword_token36] = ACTIONS(113),
-    [aux_sym_statement_keyword_token37] = ACTIONS(113),
-    [aux_sym_statement_keyword_token38] = ACTIONS(113),
-    [aux_sym_statement_keyword_token39] = ACTIONS(113),
-    [aux_sym_control_keyword_token1] = ACTIONS(113),
-    [aux_sym_control_keyword_token2] = ACTIONS(113),
-    [aux_sym_control_keyword_token3] = ACTIONS(113),
-    [aux_sym_control_keyword_token4] = ACTIONS(113),
-    [aux_sym_control_keyword_token5] = ACTIONS(113),
-    [aux_sym_control_keyword_token6] = ACTIONS(113),
-    [aux_sym_control_keyword_token7] = ACTIONS(113),
-    [aux_sym_control_keyword_token8] = ACTIONS(113),
-    [aux_sym_control_keyword_token9] = ACTIONS(113),
-    [aux_sym_control_keyword_token10] = ACTIONS(113),
-    [aux_sym_control_keyword_token11] = ACTIONS(113),
-    [aux_sym_control_keyword_token12] = ACTIONS(113),
-    [aux_sym_control_keyword_token13] = ACTIONS(113),
-    [aux_sym_control_keyword_token14] = ACTIONS(113),
-    [aux_sym_control_keyword_token15] = ACTIONS(113),
-    [aux_sym_control_keyword_token16] = ACTIONS(113),
-    [aux_sym_control_keyword_token17] = ACTIONS(113),
-    [aux_sym_control_keyword_token18] = ACTIONS(113),
-    [aux_sym_control_keyword_token19] = ACTIONS(113),
-    [aux_sym_control_keyword_token20] = ACTIONS(113),
-    [aux_sym_control_keyword_token21] = ACTIONS(113),
-    [anon_sym_DOLLAR] = ACTIONS(111),
-    [aux_sym_wildcard_token1] = ACTIONS(111),
-    [aux_sym_wildcard_token2] = ACTIONS(111),
-    [anon_sym_QMARK_QMARK] = ACTIONS(113),
-    [anon_sym_QMARK] = ACTIONS(113),
-    [anon_sym_PLUS] = ACTIONS(111),
-    [anon_sym_DASH] = ACTIONS(111),
-    [anon_sym_STAR] = ACTIONS(113),
-    [anon_sym_SLASH] = ACTIONS(111),
-    [anon_sym_CARET] = ACTIONS(111),
-    [anon_sym_EQ] = ACTIONS(113),
-    [anon_sym_EQ_EQ] = ACTIONS(111),
-    [anon_sym_BANG_EQ] = ACTIONS(111),
-    [anon_sym_LT_GT] = ACTIONS(111),
-    [anon_sym_LT_EQ] = ACTIONS(111),
-    [anon_sym_GT_EQ] = ACTIONS(111),
-    [anon_sym_LT] = ACTIONS(113),
-    [anon_sym_GT] = ACTIONS(113),
-    [anon_sym_AMP_AMP] = ACTIONS(111),
-    [anon_sym_PIPE_PIPE] = ACTIONS(111),
-    [anon_sym_BANG] = ACTIONS(113),
-    [anon_sym_COMMA] = ACTIONS(111),
-    [anon_sym_COLON] = ACTIONS(113),
-    [anon_sym_COLON_COLON] = ACTIONS(111),
-    [anon_sym_DOT_DOT_DOT] = ACTIONS(111),
-    [anon_sym_LBRACK] = ACTIONS(111),
-    [anon_sym_RBRACK] = ACTIONS(111),
-    [anon_sym_LBRACE] = ACTIONS(111),
-    [anon_sym_RBRACE] = ACTIONS(111),
-    [sym_number] = ACTIONS(111),
-    [sym_string] = ACTIONS(111),
+    [ts_builtin_sym_end] = ACTIONS(124),
+    [sym_identifier] = ACTIONS(126),
+    [aux_sym__item_token1] = ACTIONS(124),
+    [sym_comment] = ACTIONS(126),
+    [anon_sym_POUND] = ACTIONS(124),
+    [anon_sym_DOT] = ACTIONS(126),
+    [anon_sym_LPAREN] = ACTIONS(124),
+    [anon_sym_RPAREN] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token1] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token2] = ACTIONS(126),
+    [aux_sym_declaration_keyword_token3] = ACTIONS(126),
+    [aux_sym_declaration_keyword_token4] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token5] = ACTIONS(126),
+    [aux_sym_declaration_keyword_token6] = ACTIONS(126),
+    [aux_sym_declaration_keyword_token7] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token8] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token9] = ACTIONS(126),
+    [aux_sym_declaration_keyword_token10] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token11] = ACTIONS(126),
+    [aux_sym_declaration_keyword_token12] = ACTIONS(126),
+    [aux_sym_declaration_keyword_token13] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token14] = ACTIONS(126),
+    [aux_sym_declaration_keyword_token15] = ACTIONS(126),
+    [aux_sym_declaration_keyword_token16] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token17] = ACTIONS(126),
+    [aux_sym_declaration_keyword_token18] = ACTIONS(126),
+    [aux_sym_declaration_keyword_token19] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token20] = ACTIONS(126),
+    [aux_sym_declaration_keyword_token21] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token22] = ACTIONS(126),
+    [aux_sym_declaration_keyword_token23] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token24] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token25] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token26] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token27] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token28] = ACTIONS(124),
+    [aux_sym_declaration_keyword_token29] = ACTIONS(124),
+    [aux_sym_statement_keyword_token1] = ACTIONS(124),
+    [aux_sym_statement_keyword_token2] = ACTIONS(124),
+    [aux_sym_statement_keyword_token3] = ACTIONS(126),
+    [aux_sym_statement_keyword_token4] = ACTIONS(126),
+    [aux_sym_statement_keyword_token5] = ACTIONS(124),
+    [aux_sym_statement_keyword_token6] = ACTIONS(126),
+    [aux_sym_statement_keyword_token7] = ACTIONS(124),
+    [aux_sym_statement_keyword_token8] = ACTIONS(124),
+    [aux_sym_statement_keyword_token9] = ACTIONS(124),
+    [aux_sym_statement_keyword_token10] = ACTIONS(124),
+    [aux_sym_statement_keyword_token11] = ACTIONS(124),
+    [aux_sym_statement_keyword_token12] = ACTIONS(124),
+    [aux_sym_statement_keyword_token13] = ACTIONS(124),
+    [aux_sym_statement_keyword_token14] = ACTIONS(124),
+    [aux_sym_statement_keyword_token15] = ACTIONS(124),
+    [aux_sym_statement_keyword_token16] = ACTIONS(124),
+    [aux_sym_statement_keyword_token17] = ACTIONS(124),
+    [aux_sym_statement_keyword_token18] = ACTIONS(126),
+    [aux_sym_statement_keyword_token19] = ACTIONS(124),
+    [aux_sym_statement_keyword_token20] = ACTIONS(124),
+    [aux_sym_statement_keyword_token21] = ACTIONS(124),
+    [aux_sym_statement_keyword_token22] = ACTIONS(124),
+    [aux_sym_statement_keyword_token23] = ACTIONS(126),
+    [aux_sym_statement_keyword_token24] = ACTIONS(124),
+    [aux_sym_statement_keyword_token25] = ACTIONS(124),
+    [aux_sym_statement_keyword_token26] = ACTIONS(124),
+    [aux_sym_statement_keyword_token27] = ACTIONS(124),
+    [aux_sym_statement_keyword_token28] = ACTIONS(124),
+    [aux_sym_statement_keyword_token29] = ACTIONS(124),
+    [aux_sym_statement_keyword_token30] = ACTIONS(124),
+    [aux_sym_statement_keyword_token31] = ACTIONS(124),
+    [aux_sym_statement_keyword_token32] = ACTIONS(124),
+    [aux_sym_statement_keyword_token33] = ACTIONS(124),
+    [aux_sym_statement_keyword_token34] = ACTIONS(124),
+    [aux_sym_statement_keyword_token35] = ACTIONS(124),
+    [aux_sym_statement_keyword_token36] = ACTIONS(124),
+    [aux_sym_statement_keyword_token37] = ACTIONS(124),
+    [aux_sym_statement_keyword_token38] = ACTIONS(124),
+    [aux_sym_statement_keyword_token39] = ACTIONS(124),
+    [aux_sym_control_keyword_token1] = ACTIONS(124),
+    [aux_sym_control_keyword_token2] = ACTIONS(126),
+    [aux_sym_control_keyword_token3] = ACTIONS(124),
+    [aux_sym_control_keyword_token4] = ACTIONS(124),
+    [aux_sym_control_keyword_token5] = ACTIONS(124),
+    [aux_sym_control_keyword_token6] = ACTIONS(124),
+    [aux_sym_control_keyword_token7] = ACTIONS(124),
+    [aux_sym_control_keyword_token8] = ACTIONS(124),
+    [aux_sym_control_keyword_token9] = ACTIONS(124),
+    [aux_sym_control_keyword_token10] = ACTIONS(124),
+    [aux_sym_control_keyword_token11] = ACTIONS(124),
+    [aux_sym_control_keyword_token12] = ACTIONS(124),
+    [aux_sym_control_keyword_token13] = ACTIONS(124),
+    [aux_sym_control_keyword_token14] = ACTIONS(124),
+    [aux_sym_control_keyword_token15] = ACTIONS(124),
+    [aux_sym_control_keyword_token16] = ACTIONS(124),
+    [aux_sym_control_keyword_token17] = ACTIONS(124),
+    [aux_sym_control_keyword_token18] = ACTIONS(124),
+    [aux_sym_control_keyword_token19] = ACTIONS(124),
+    [aux_sym_control_keyword_token20] = ACTIONS(124),
+    [aux_sym_control_keyword_token21] = ACTIONS(124),
+    [anon_sym_DOLLAR] = ACTIONS(124),
+    [aux_sym_wildcard_token1] = ACTIONS(124),
+    [aux_sym_wildcard_token2] = ACTIONS(124),
+    [anon_sym_QMARK_QMARK] = ACTIONS(126),
+    [anon_sym_QMARK] = ACTIONS(126),
+    [anon_sym_PLUS] = ACTIONS(124),
+    [anon_sym_DASH] = ACTIONS(124),
+    [anon_sym_STAR] = ACTIONS(126),
+    [anon_sym_SLASH] = ACTIONS(124),
+    [anon_sym_CARET] = ACTIONS(124),
+    [anon_sym_EQ] = ACTIONS(126),
+    [anon_sym_EQ_EQ] = ACTIONS(124),
+    [anon_sym_BANG_EQ] = ACTIONS(124),
+    [anon_sym_LT_GT] = ACTIONS(124),
+    [anon_sym_LT_EQ] = ACTIONS(124),
+    [anon_sym_GT_EQ] = ACTIONS(124),
+    [anon_sym_LT] = ACTIONS(126),
+    [anon_sym_GT] = ACTIONS(126),
+    [anon_sym_AMP_AMP] = ACTIONS(124),
+    [anon_sym_PIPE_PIPE] = ACTIONS(124),
+    [anon_sym_BANG] = ACTIONS(126),
+    [anon_sym_COMMA] = ACTIONS(124),
+    [anon_sym_COLON] = ACTIONS(126),
+    [anon_sym_COLON_COLON] = ACTIONS(124),
+    [anon_sym_DOT_DOT_DOT] = ACTIONS(124),
+    [anon_sym_LBRACK] = ACTIONS(124),
+    [anon_sym_RBRACK] = ACTIONS(124),
+    [anon_sym_LBRACE] = ACTIONS(124),
+    [anon_sym_RBRACE] = ACTIONS(124),
+    [sym_number] = ACTIONS(124),
+    [sym_string] = ACTIONS(124),
   },
   [STATE(8)] = {
-    [ts_builtin_sym_end] = ACTIONS(115),
-    [sym_identifier] = ACTIONS(117),
-    [aux_sym__item_token1] = ACTIONS(115),
-    [sym_comment] = ACTIONS(117),
-    [anon_sym_POUND] = ACTIONS(115),
-    [anon_sym_DOT] = ACTIONS(117),
-    [anon_sym_LPAREN] = ACTIONS(115),
-    [anon_sym_RPAREN] = ACTIONS(115),
-    [aux_sym_declaration_keyword_token1] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token2] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token3] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token4] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token5] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token6] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token7] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token8] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token9] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token10] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token11] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token12] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token13] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token14] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token15] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token16] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token17] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token18] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token19] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token20] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token21] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token22] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token23] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token24] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token25] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token26] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token27] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token28] = ACTIONS(117),
-    [aux_sym_declaration_keyword_token29] = ACTIONS(117),
-    [aux_sym_statement_keyword_token1] = ACTIONS(117),
-    [aux_sym_statement_keyword_token2] = ACTIONS(117),
-    [aux_sym_statement_keyword_token3] = ACTIONS(117),
-    [aux_sym_statement_keyword_token4] = ACTIONS(117),
-    [aux_sym_statement_keyword_token5] = ACTIONS(117),
-    [aux_sym_statement_keyword_token6] = ACTIONS(117),
-    [aux_sym_statement_keyword_token7] = ACTIONS(117),
-    [aux_sym_statement_keyword_token8] = ACTIONS(117),
-    [aux_sym_statement_keyword_token9] = ACTIONS(117),
-    [aux_sym_statement_keyword_token10] = ACTIONS(117),
-    [aux_sym_statement_keyword_token11] = ACTIONS(117),
-    [aux_sym_statement_keyword_token12] = ACTIONS(117),
-    [aux_sym_statement_keyword_token13] = ACTIONS(117),
-    [aux_sym_statement_keyword_token14] = ACTIONS(117),
-    [aux_sym_statement_keyword_token15] = ACTIONS(117),
-    [aux_sym_statement_keyword_token16] = ACTIONS(117),
-    [aux_sym_statement_keyword_token17] = ACTIONS(117),
-    [aux_sym_statement_keyword_token18] = ACTIONS(117),
-    [aux_sym_statement_keyword_token19] = ACTIONS(117),
-    [aux_sym_statement_keyword_token20] = ACTIONS(117),
-    [aux_sym_statement_keyword_token21] = ACTIONS(117),
-    [aux_sym_statement_keyword_token22] = ACTIONS(117),
-    [aux_sym_statement_keyword_token23] = ACTIONS(117),
-    [aux_sym_statement_keyword_token24] = ACTIONS(117),
-    [aux_sym_statement_keyword_token25] = ACTIONS(117),
-    [aux_sym_statement_keyword_token26] = ACTIONS(117),
-    [aux_sym_statement_keyword_token27] = ACTIONS(117),
-    [aux_sym_statement_keyword_token28] = ACTIONS(117),
-    [aux_sym_statement_keyword_token29] = ACTIONS(117),
-    [aux_sym_statement_keyword_token30] = ACTIONS(117),
-    [aux_sym_statement_keyword_token31] = ACTIONS(117),
-    [aux_sym_statement_keyword_token32] = ACTIONS(117),
-    [aux_sym_statement_keyword_token33] = ACTIONS(117),
-    [aux_sym_statement_keyword_token34] = ACTIONS(117),
-    [aux_sym_statement_keyword_token35] = ACTIONS(117),
-    [aux_sym_statement_keyword_token36] = ACTIONS(117),
-    [aux_sym_statement_keyword_token37] = ACTIONS(117),
-    [aux_sym_statement_keyword_token38] = ACTIONS(117),
-    [aux_sym_statement_keyword_token39] = ACTIONS(117),
-    [aux_sym_control_keyword_token1] = ACTIONS(117),
-    [aux_sym_control_keyword_token2] = ACTIONS(117),
-    [aux_sym_control_keyword_token3] = ACTIONS(117),
-    [aux_sym_control_keyword_token4] = ACTIONS(117),
-    [aux_sym_control_keyword_token5] = ACTIONS(117),
-    [aux_sym_control_keyword_token6] = ACTIONS(117),
-    [aux_sym_control_keyword_token7] = ACTIONS(117),
-    [aux_sym_control_keyword_token8] = ACTIONS(117),
-    [aux_sym_control_keyword_token9] = ACTIONS(117),
-    [aux_sym_control_keyword_token10] = ACTIONS(117),
-    [aux_sym_control_keyword_token11] = ACTIONS(117),
-    [aux_sym_control_keyword_token12] = ACTIONS(117),
-    [aux_sym_control_keyword_token13] = ACTIONS(117),
-    [aux_sym_control_keyword_token14] = ACTIONS(117),
-    [aux_sym_control_keyword_token15] = ACTIONS(117),
-    [aux_sym_control_keyword_token16] = ACTIONS(117),
-    [aux_sym_control_keyword_token17] = ACTIONS(117),
-    [aux_sym_control_keyword_token18] = ACTIONS(117),
-    [aux_sym_control_keyword_token19] = ACTIONS(117),
-    [aux_sym_control_keyword_token20] = ACTIONS(117),
-    [aux_sym_control_keyword_token21] = ACTIONS(117),
-    [anon_sym_DOLLAR] = ACTIONS(115),
-    [aux_sym_wildcard_token1] = ACTIONS(115),
-    [aux_sym_wildcard_token2] = ACTIONS(115),
-    [anon_sym_QMARK_QMARK] = ACTIONS(117),
-    [anon_sym_QMARK] = ACTIONS(117),
-    [anon_sym_PLUS] = ACTIONS(115),
-    [anon_sym_DASH] = ACTIONS(115),
-    [anon_sym_STAR] = ACTIONS(117),
-    [anon_sym_SLASH] = ACTIONS(115),
-    [anon_sym_CARET] = ACTIONS(115),
-    [anon_sym_EQ] = ACTIONS(117),
-    [anon_sym_EQ_EQ] = ACTIONS(115),
-    [anon_sym_BANG_EQ] = ACTIONS(115),
-    [anon_sym_LT_GT] = ACTIONS(115),
-    [anon_sym_LT_EQ] = ACTIONS(115),
-    [anon_sym_GT_EQ] = ACTIONS(115),
-    [anon_sym_LT] = ACTIONS(117),
-    [anon_sym_GT] = ACTIONS(117),
-    [anon_sym_AMP_AMP] = ACTIONS(115),
-    [anon_sym_PIPE_PIPE] = ACTIONS(115),
-    [anon_sym_BANG] = ACTIONS(117),
-    [anon_sym_COMMA] = ACTIONS(115),
-    [anon_sym_COLON] = ACTIONS(117),
-    [anon_sym_COLON_COLON] = ACTIONS(115),
-    [anon_sym_DOT_DOT_DOT] = ACTIONS(115),
-    [anon_sym_LBRACK] = ACTIONS(115),
-    [anon_sym_RBRACK] = ACTIONS(115),
-    [anon_sym_LBRACE] = ACTIONS(115),
-    [anon_sym_RBRACE] = ACTIONS(115),
-    [sym_number] = ACTIONS(115),
-    [sym_string] = ACTIONS(115),
+    [ts_builtin_sym_end] = ACTIONS(128),
+    [sym_identifier] = ACTIONS(130),
+    [aux_sym__item_token1] = ACTIONS(128),
+    [sym_comment] = ACTIONS(130),
+    [anon_sym_POUND] = ACTIONS(128),
+    [anon_sym_DOT] = ACTIONS(130),
+    [anon_sym_LPAREN] = ACTIONS(128),
+    [anon_sym_RPAREN] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token1] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token2] = ACTIONS(130),
+    [aux_sym_declaration_keyword_token3] = ACTIONS(130),
+    [aux_sym_declaration_keyword_token4] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token5] = ACTIONS(130),
+    [aux_sym_declaration_keyword_token6] = ACTIONS(130),
+    [aux_sym_declaration_keyword_token7] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token8] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token9] = ACTIONS(130),
+    [aux_sym_declaration_keyword_token10] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token11] = ACTIONS(130),
+    [aux_sym_declaration_keyword_token12] = ACTIONS(130),
+    [aux_sym_declaration_keyword_token13] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token14] = ACTIONS(130),
+    [aux_sym_declaration_keyword_token15] = ACTIONS(130),
+    [aux_sym_declaration_keyword_token16] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token17] = ACTIONS(130),
+    [aux_sym_declaration_keyword_token18] = ACTIONS(130),
+    [aux_sym_declaration_keyword_token19] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token20] = ACTIONS(130),
+    [aux_sym_declaration_keyword_token21] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token22] = ACTIONS(130),
+    [aux_sym_declaration_keyword_token23] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token24] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token25] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token26] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token27] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token28] = ACTIONS(128),
+    [aux_sym_declaration_keyword_token29] = ACTIONS(128),
+    [aux_sym_statement_keyword_token1] = ACTIONS(128),
+    [aux_sym_statement_keyword_token2] = ACTIONS(128),
+    [aux_sym_statement_keyword_token3] = ACTIONS(130),
+    [aux_sym_statement_keyword_token4] = ACTIONS(130),
+    [aux_sym_statement_keyword_token5] = ACTIONS(128),
+    [aux_sym_statement_keyword_token6] = ACTIONS(130),
+    [aux_sym_statement_keyword_token7] = ACTIONS(128),
+    [aux_sym_statement_keyword_token8] = ACTIONS(128),
+    [aux_sym_statement_keyword_token9] = ACTIONS(128),
+    [aux_sym_statement_keyword_token10] = ACTIONS(128),
+    [aux_sym_statement_keyword_token11] = ACTIONS(128),
+    [aux_sym_statement_keyword_token12] = ACTIONS(128),
+    [aux_sym_statement_keyword_token13] = ACTIONS(128),
+    [aux_sym_statement_keyword_token14] = ACTIONS(128),
+    [aux_sym_statement_keyword_token15] = ACTIONS(128),
+    [aux_sym_statement_keyword_token16] = ACTIONS(128),
+    [aux_sym_statement_keyword_token17] = ACTIONS(128),
+    [aux_sym_statement_keyword_token18] = ACTIONS(130),
+    [aux_sym_statement_keyword_token19] = ACTIONS(128),
+    [aux_sym_statement_keyword_token20] = ACTIONS(128),
+    [aux_sym_statement_keyword_token21] = ACTIONS(128),
+    [aux_sym_statement_keyword_token22] = ACTIONS(128),
+    [aux_sym_statement_keyword_token23] = ACTIONS(130),
+    [aux_sym_statement_keyword_token24] = ACTIONS(128),
+    [aux_sym_statement_keyword_token25] = ACTIONS(128),
+    [aux_sym_statement_keyword_token26] = ACTIONS(128),
+    [aux_sym_statement_keyword_token27] = ACTIONS(128),
+    [aux_sym_statement_keyword_token28] = ACTIONS(128),
+    [aux_sym_statement_keyword_token29] = ACTIONS(128),
+    [aux_sym_statement_keyword_token30] = ACTIONS(128),
+    [aux_sym_statement_keyword_token31] = ACTIONS(128),
+    [aux_sym_statement_keyword_token32] = ACTIONS(128),
+    [aux_sym_statement_keyword_token33] = ACTIONS(128),
+    [aux_sym_statement_keyword_token34] = ACTIONS(128),
+    [aux_sym_statement_keyword_token35] = ACTIONS(128),
+    [aux_sym_statement_keyword_token36] = ACTIONS(128),
+    [aux_sym_statement_keyword_token37] = ACTIONS(128),
+    [aux_sym_statement_keyword_token38] = ACTIONS(128),
+    [aux_sym_statement_keyword_token39] = ACTIONS(128),
+    [aux_sym_control_keyword_token1] = ACTIONS(128),
+    [aux_sym_control_keyword_token2] = ACTIONS(130),
+    [aux_sym_control_keyword_token3] = ACTIONS(128),
+    [aux_sym_control_keyword_token4] = ACTIONS(128),
+    [aux_sym_control_keyword_token5] = ACTIONS(128),
+    [aux_sym_control_keyword_token6] = ACTIONS(128),
+    [aux_sym_control_keyword_token7] = ACTIONS(128),
+    [aux_sym_control_keyword_token8] = ACTIONS(128),
+    [aux_sym_control_keyword_token9] = ACTIONS(128),
+    [aux_sym_control_keyword_token10] = ACTIONS(128),
+    [aux_sym_control_keyword_token11] = ACTIONS(128),
+    [aux_sym_control_keyword_token12] = ACTIONS(128),
+    [aux_sym_control_keyword_token13] = ACTIONS(128),
+    [aux_sym_control_keyword_token14] = ACTIONS(128),
+    [aux_sym_control_keyword_token15] = ACTIONS(128),
+    [aux_sym_control_keyword_token16] = ACTIONS(128),
+    [aux_sym_control_keyword_token17] = ACTIONS(128),
+    [aux_sym_control_keyword_token18] = ACTIONS(128),
+    [aux_sym_control_keyword_token19] = ACTIONS(128),
+    [aux_sym_control_keyword_token20] = ACTIONS(128),
+    [aux_sym_control_keyword_token21] = ACTIONS(128),
+    [anon_sym_DOLLAR] = ACTIONS(128),
+    [aux_sym_wildcard_token1] = ACTIONS(128),
+    [aux_sym_wildcard_token2] = ACTIONS(128),
+    [anon_sym_QMARK_QMARK] = ACTIONS(130),
+    [anon_sym_QMARK] = ACTIONS(130),
+    [anon_sym_PLUS] = ACTIONS(128),
+    [anon_sym_DASH] = ACTIONS(128),
+    [anon_sym_STAR] = ACTIONS(130),
+    [anon_sym_SLASH] = ACTIONS(128),
+    [anon_sym_CARET] = ACTIONS(128),
+    [anon_sym_EQ] = ACTIONS(130),
+    [anon_sym_EQ_EQ] = ACTIONS(128),
+    [anon_sym_BANG_EQ] = ACTIONS(128),
+    [anon_sym_LT_GT] = ACTIONS(128),
+    [anon_sym_LT_EQ] = ACTIONS(128),
+    [anon_sym_GT_EQ] = ACTIONS(128),
+    [anon_sym_LT] = ACTIONS(130),
+    [anon_sym_GT] = ACTIONS(130),
+    [anon_sym_AMP_AMP] = ACTIONS(128),
+    [anon_sym_PIPE_PIPE] = ACTIONS(128),
+    [anon_sym_BANG] = ACTIONS(130),
+    [anon_sym_COMMA] = ACTIONS(128),
+    [anon_sym_COLON] = ACTIONS(130),
+    [anon_sym_COLON_COLON] = ACTIONS(128),
+    [anon_sym_DOT_DOT_DOT] = ACTIONS(128),
+    [anon_sym_LBRACK] = ACTIONS(128),
+    [anon_sym_RBRACK] = ACTIONS(128),
+    [anon_sym_LBRACE] = ACTIONS(128),
+    [anon_sym_RBRACE] = ACTIONS(128),
+    [sym_number] = ACTIONS(128),
+    [sym_string] = ACTIONS(128),
   },
   [STATE(9)] = {
-    [ts_builtin_sym_end] = ACTIONS(119),
-    [sym_identifier] = ACTIONS(121),
-    [aux_sym__item_token1] = ACTIONS(119),
-    [sym_comment] = ACTIONS(121),
-    [anon_sym_POUND] = ACTIONS(119),
-    [anon_sym_DOT] = ACTIONS(121),
-    [anon_sym_LPAREN] = ACTIONS(119),
-    [anon_sym_RPAREN] = ACTIONS(119),
-    [aux_sym_declaration_keyword_token1] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token2] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token3] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token4] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token5] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token6] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token7] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token8] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token9] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token10] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token11] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token12] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token13] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token14] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token15] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token16] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token17] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token18] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token19] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token20] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token21] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token22] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token23] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token24] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token25] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token26] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token27] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token28] = ACTIONS(121),
-    [aux_sym_declaration_keyword_token29] = ACTIONS(121),
-    [aux_sym_statement_keyword_token1] = ACTIONS(121),
-    [aux_sym_statement_keyword_token2] = ACTIONS(121),
-    [aux_sym_statement_keyword_token3] = ACTIONS(121),
-    [aux_sym_statement_keyword_token4] = ACTIONS(121),
-    [aux_sym_statement_keyword_token5] = ACTIONS(121),
-    [aux_sym_statement_keyword_token6] = ACTIONS(121),
-    [aux_sym_statement_keyword_token7] = ACTIONS(121),
-    [aux_sym_statement_keyword_token8] = ACTIONS(121),
-    [aux_sym_statement_keyword_token9] = ACTIONS(121),
-    [aux_sym_statement_keyword_token10] = ACTIONS(121),
-    [aux_sym_statement_keyword_token11] = ACTIONS(121),
-    [aux_sym_statement_keyword_token12] = ACTIONS(121),
-    [aux_sym_statement_keyword_token13] = ACTIONS(121),
-    [aux_sym_statement_keyword_token14] = ACTIONS(121),
-    [aux_sym_statement_keyword_token15] = ACTIONS(121),
-    [aux_sym_statement_keyword_token16] = ACTIONS(121),
-    [aux_sym_statement_keyword_token17] = ACTIONS(121),
-    [aux_sym_statement_keyword_token18] = ACTIONS(121),
-    [aux_sym_statement_keyword_token19] = ACTIONS(121),
-    [aux_sym_statement_keyword_token20] = ACTIONS(121),
-    [aux_sym_statement_keyword_token21] = ACTIONS(121),
-    [aux_sym_statement_keyword_token22] = ACTIONS(121),
-    [aux_sym_statement_keyword_token23] = ACTIONS(121),
-    [aux_sym_statement_keyword_token24] = ACTIONS(121),
-    [aux_sym_statement_keyword_token25] = ACTIONS(121),
-    [aux_sym_statement_keyword_token26] = ACTIONS(121),
-    [aux_sym_statement_keyword_token27] = ACTIONS(121),
-    [aux_sym_statement_keyword_token28] = ACTIONS(121),
-    [aux_sym_statement_keyword_token29] = ACTIONS(121),
-    [aux_sym_statement_keyword_token30] = ACTIONS(121),
-    [aux_sym_statement_keyword_token31] = ACTIONS(121),
-    [aux_sym_statement_keyword_token32] = ACTIONS(121),
-    [aux_sym_statement_keyword_token33] = ACTIONS(121),
-    [aux_sym_statement_keyword_token34] = ACTIONS(121),
-    [aux_sym_statement_keyword_token35] = ACTIONS(121),
-    [aux_sym_statement_keyword_token36] = ACTIONS(121),
-    [aux_sym_statement_keyword_token37] = ACTIONS(121),
-    [aux_sym_statement_keyword_token38] = ACTIONS(121),
-    [aux_sym_statement_keyword_token39] = ACTIONS(121),
-    [aux_sym_control_keyword_token1] = ACTIONS(121),
-    [aux_sym_control_keyword_token2] = ACTIONS(121),
-    [aux_sym_control_keyword_token3] = ACTIONS(121),
-    [aux_sym_control_keyword_token4] = ACTIONS(121),
-    [aux_sym_control_keyword_token5] = ACTIONS(121),
-    [aux_sym_control_keyword_token6] = ACTIONS(121),
-    [aux_sym_control_keyword_token7] = ACTIONS(121),
-    [aux_sym_control_keyword_token8] = ACTIONS(121),
-    [aux_sym_control_keyword_token9] = ACTIONS(121),
-    [aux_sym_control_keyword_token10] = ACTIONS(121),
-    [aux_sym_control_keyword_token11] = ACTIONS(121),
-    [aux_sym_control_keyword_token12] = ACTIONS(121),
-    [aux_sym_control_keyword_token13] = ACTIONS(121),
-    [aux_sym_control_keyword_token14] = ACTIONS(121),
-    [aux_sym_control_keyword_token15] = ACTIONS(121),
-    [aux_sym_control_keyword_token16] = ACTIONS(121),
-    [aux_sym_control_keyword_token17] = ACTIONS(121),
-    [aux_sym_control_keyword_token18] = ACTIONS(121),
-    [aux_sym_control_keyword_token19] = ACTIONS(121),
-    [aux_sym_control_keyword_token20] = ACTIONS(121),
-    [aux_sym_control_keyword_token21] = ACTIONS(121),
-    [anon_sym_DOLLAR] = ACTIONS(119),
-    [aux_sym_wildcard_token1] = ACTIONS(119),
-    [aux_sym_wildcard_token2] = ACTIONS(119),
-    [anon_sym_QMARK_QMARK] = ACTIONS(121),
-    [anon_sym_QMARK] = ACTIONS(121),
-    [anon_sym_PLUS] = ACTIONS(119),
-    [anon_sym_DASH] = ACTIONS(119),
-    [anon_sym_STAR] = ACTIONS(121),
-    [anon_sym_SLASH] = ACTIONS(119),
-    [anon_sym_CARET] = ACTIONS(119),
-    [anon_sym_EQ] = ACTIONS(121),
-    [anon_sym_EQ_EQ] = ACTIONS(119),
-    [anon_sym_BANG_EQ] = ACTIONS(119),
-    [anon_sym_LT_GT] = ACTIONS(119),
-    [anon_sym_LT_EQ] = ACTIONS(119),
-    [anon_sym_GT_EQ] = ACTIONS(119),
-    [anon_sym_LT] = ACTIONS(121),
-    [anon_sym_GT] = ACTIONS(121),
-    [anon_sym_AMP_AMP] = ACTIONS(119),
-    [anon_sym_PIPE_PIPE] = ACTIONS(119),
-    [anon_sym_BANG] = ACTIONS(121),
-    [anon_sym_COMMA] = ACTIONS(119),
-    [anon_sym_COLON] = ACTIONS(121),
-    [anon_sym_COLON_COLON] = ACTIONS(119),
-    [anon_sym_DOT_DOT_DOT] = ACTIONS(119),
-    [anon_sym_LBRACK] = ACTIONS(119),
-    [anon_sym_RBRACK] = ACTIONS(119),
-    [anon_sym_LBRACE] = ACTIONS(119),
-    [anon_sym_RBRACE] = ACTIONS(119),
-    [sym_number] = ACTIONS(119),
-    [sym_string] = ACTIONS(119),
+    [ts_builtin_sym_end] = ACTIONS(132),
+    [sym_identifier] = ACTIONS(134),
+    [aux_sym__item_token1] = ACTIONS(132),
+    [sym_comment] = ACTIONS(134),
+    [anon_sym_POUND] = ACTIONS(132),
+    [anon_sym_DOT] = ACTIONS(134),
+    [anon_sym_LPAREN] = ACTIONS(132),
+    [anon_sym_RPAREN] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token1] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token2] = ACTIONS(134),
+    [aux_sym_declaration_keyword_token3] = ACTIONS(134),
+    [aux_sym_declaration_keyword_token4] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token5] = ACTIONS(134),
+    [aux_sym_declaration_keyword_token6] = ACTIONS(134),
+    [aux_sym_declaration_keyword_token7] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token8] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token9] = ACTIONS(134),
+    [aux_sym_declaration_keyword_token10] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token11] = ACTIONS(134),
+    [aux_sym_declaration_keyword_token12] = ACTIONS(134),
+    [aux_sym_declaration_keyword_token13] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token14] = ACTIONS(134),
+    [aux_sym_declaration_keyword_token15] = ACTIONS(134),
+    [aux_sym_declaration_keyword_token16] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token17] = ACTIONS(134),
+    [aux_sym_declaration_keyword_token18] = ACTIONS(134),
+    [aux_sym_declaration_keyword_token19] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token20] = ACTIONS(134),
+    [aux_sym_declaration_keyword_token21] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token22] = ACTIONS(134),
+    [aux_sym_declaration_keyword_token23] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token24] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token25] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token26] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token27] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token28] = ACTIONS(132),
+    [aux_sym_declaration_keyword_token29] = ACTIONS(132),
+    [aux_sym_statement_keyword_token1] = ACTIONS(132),
+    [aux_sym_statement_keyword_token2] = ACTIONS(132),
+    [aux_sym_statement_keyword_token3] = ACTIONS(134),
+    [aux_sym_statement_keyword_token4] = ACTIONS(134),
+    [aux_sym_statement_keyword_token5] = ACTIONS(132),
+    [aux_sym_statement_keyword_token6] = ACTIONS(134),
+    [aux_sym_statement_keyword_token7] = ACTIONS(132),
+    [aux_sym_statement_keyword_token8] = ACTIONS(132),
+    [aux_sym_statement_keyword_token9] = ACTIONS(132),
+    [aux_sym_statement_keyword_token10] = ACTIONS(132),
+    [aux_sym_statement_keyword_token11] = ACTIONS(132),
+    [aux_sym_statement_keyword_token12] = ACTIONS(132),
+    [aux_sym_statement_keyword_token13] = ACTIONS(132),
+    [aux_sym_statement_keyword_token14] = ACTIONS(132),
+    [aux_sym_statement_keyword_token15] = ACTIONS(132),
+    [aux_sym_statement_keyword_token16] = ACTIONS(132),
+    [aux_sym_statement_keyword_token17] = ACTIONS(132),
+    [aux_sym_statement_keyword_token18] = ACTIONS(134),
+    [aux_sym_statement_keyword_token19] = ACTIONS(132),
+    [aux_sym_statement_keyword_token20] = ACTIONS(132),
+    [aux_sym_statement_keyword_token21] = ACTIONS(132),
+    [aux_sym_statement_keyword_token22] = ACTIONS(132),
+    [aux_sym_statement_keyword_token23] = ACTIONS(134),
+    [aux_sym_statement_keyword_token24] = ACTIONS(132),
+    [aux_sym_statement_keyword_token25] = ACTIONS(132),
+    [aux_sym_statement_keyword_token26] = ACTIONS(132),
+    [aux_sym_statement_keyword_token27] = ACTIONS(132),
+    [aux_sym_statement_keyword_token28] = ACTIONS(132),
+    [aux_sym_statement_keyword_token29] = ACTIONS(132),
+    [aux_sym_statement_keyword_token30] = ACTIONS(132),
+    [aux_sym_statement_keyword_token31] = ACTIONS(132),
+    [aux_sym_statement_keyword_token32] = ACTIONS(132),
+    [aux_sym_statement_keyword_token33] = ACTIONS(132),
+    [aux_sym_statement_keyword_token34] = ACTIONS(132),
+    [aux_sym_statement_keyword_token35] = ACTIONS(132),
+    [aux_sym_statement_keyword_token36] = ACTIONS(132),
+    [aux_sym_statement_keyword_token37] = ACTIONS(132),
+    [aux_sym_statement_keyword_token38] = ACTIONS(132),
+    [aux_sym_statement_keyword_token39] = ACTIONS(132),
+    [aux_sym_control_keyword_token1] = ACTIONS(132),
+    [aux_sym_control_keyword_token2] = ACTIONS(134),
+    [aux_sym_control_keyword_token3] = ACTIONS(132),
+    [aux_sym_control_keyword_token4] = ACTIONS(132),
+    [aux_sym_control_keyword_token5] = ACTIONS(132),
+    [aux_sym_control_keyword_token6] = ACTIONS(132),
+    [aux_sym_control_keyword_token7] = ACTIONS(132),
+    [aux_sym_control_keyword_token8] = ACTIONS(132),
+    [aux_sym_control_keyword_token9] = ACTIONS(132),
+    [aux_sym_control_keyword_token10] = ACTIONS(132),
+    [aux_sym_control_keyword_token11] = ACTIONS(132),
+    [aux_sym_control_keyword_token12] = ACTIONS(132),
+    [aux_sym_control_keyword_token13] = ACTIONS(132),
+    [aux_sym_control_keyword_token14] = ACTIONS(132),
+    [aux_sym_control_keyword_token15] = ACTIONS(132),
+    [aux_sym_control_keyword_token16] = ACTIONS(132),
+    [aux_sym_control_keyword_token17] = ACTIONS(132),
+    [aux_sym_control_keyword_token18] = ACTIONS(132),
+    [aux_sym_control_keyword_token19] = ACTIONS(132),
+    [aux_sym_control_keyword_token20] = ACTIONS(132),
+    [aux_sym_control_keyword_token21] = ACTIONS(132),
+    [anon_sym_DOLLAR] = ACTIONS(132),
+    [aux_sym_wildcard_token1] = ACTIONS(132),
+    [aux_sym_wildcard_token2] = ACTIONS(132),
+    [anon_sym_QMARK_QMARK] = ACTIONS(134),
+    [anon_sym_QMARK] = ACTIONS(134),
+    [anon_sym_PLUS] = ACTIONS(132),
+    [anon_sym_DASH] = ACTIONS(132),
+    [anon_sym_STAR] = ACTIONS(134),
+    [anon_sym_SLASH] = ACTIONS(132),
+    [anon_sym_CARET] = ACTIONS(132),
+    [anon_sym_EQ] = ACTIONS(134),
+    [anon_sym_EQ_EQ] = ACTIONS(132),
+    [anon_sym_BANG_EQ] = ACTIONS(132),
+    [anon_sym_LT_GT] = ACTIONS(132),
+    [anon_sym_LT_EQ] = ACTIONS(132),
+    [anon_sym_GT_EQ] = ACTIONS(132),
+    [anon_sym_LT] = ACTIONS(134),
+    [anon_sym_GT] = ACTIONS(134),
+    [anon_sym_AMP_AMP] = ACTIONS(132),
+    [anon_sym_PIPE_PIPE] = ACTIONS(132),
+    [anon_sym_BANG] = ACTIONS(134),
+    [anon_sym_COMMA] = ACTIONS(132),
+    [anon_sym_COLON] = ACTIONS(134),
+    [anon_sym_COLON_COLON] = ACTIONS(132),
+    [anon_sym_DOT_DOT_DOT] = ACTIONS(132),
+    [anon_sym_LBRACK] = ACTIONS(132),
+    [anon_sym_RBRACK] = ACTIONS(132),
+    [anon_sym_LBRACE] = ACTIONS(132),
+    [anon_sym_RBRACE] = ACTIONS(132),
+    [sym_number] = ACTIONS(132),
+    [sym_string] = ACTIONS(132),
   },
   [STATE(10)] = {
-    [ts_builtin_sym_end] = ACTIONS(123),
-    [sym_identifier] = ACTIONS(125),
-    [aux_sym__item_token1] = ACTIONS(123),
-    [sym_comment] = ACTIONS(125),
-    [anon_sym_POUND] = ACTIONS(123),
-    [anon_sym_DOT] = ACTIONS(125),
-    [anon_sym_LPAREN] = ACTIONS(123),
-    [anon_sym_RPAREN] = ACTIONS(123),
-    [aux_sym_declaration_keyword_token1] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token2] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token3] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token4] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token5] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token6] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token7] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token8] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token9] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token10] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token11] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token12] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token13] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token14] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token15] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token16] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token17] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token18] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token19] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token20] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token21] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token22] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token23] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token24] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token25] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token26] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token27] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token28] = ACTIONS(125),
-    [aux_sym_declaration_keyword_token29] = ACTIONS(125),
-    [aux_sym_statement_keyword_token1] = ACTIONS(125),
-    [aux_sym_statement_keyword_token2] = ACTIONS(125),
-    [aux_sym_statement_keyword_token3] = ACTIONS(125),
-    [aux_sym_statement_keyword_token4] = ACTIONS(125),
-    [aux_sym_statement_keyword_token5] = ACTIONS(125),
-    [aux_sym_statement_keyword_token6] = ACTIONS(125),
-    [aux_sym_statement_keyword_token7] = ACTIONS(125),
-    [aux_sym_statement_keyword_token8] = ACTIONS(125),
-    [aux_sym_statement_keyword_token9] = ACTIONS(125),
-    [aux_sym_statement_keyword_token10] = ACTIONS(125),
-    [aux_sym_statement_keyword_token11] = ACTIONS(125),
-    [aux_sym_statement_keyword_token12] = ACTIONS(125),
-    [aux_sym_statement_keyword_token13] = ACTIONS(125),
-    [aux_sym_statement_keyword_token14] = ACTIONS(125),
-    [aux_sym_statement_keyword_token15] = ACTIONS(125),
-    [aux_sym_statement_keyword_token16] = ACTIONS(125),
-    [aux_sym_statement_keyword_token17] = ACTIONS(125),
-    [aux_sym_statement_keyword_token18] = ACTIONS(125),
-    [aux_sym_statement_keyword_token19] = ACTIONS(125),
-    [aux_sym_statement_keyword_token20] = ACTIONS(125),
-    [aux_sym_statement_keyword_token21] = ACTIONS(125),
-    [aux_sym_statement_keyword_token22] = ACTIONS(125),
-    [aux_sym_statement_keyword_token23] = ACTIONS(125),
-    [aux_sym_statement_keyword_token24] = ACTIONS(125),
-    [aux_sym_statement_keyword_token25] = ACTIONS(125),
-    [aux_sym_statement_keyword_token26] = ACTIONS(125),
-    [aux_sym_statement_keyword_token27] = ACTIONS(125),
-    [aux_sym_statement_keyword_token28] = ACTIONS(125),
-    [aux_sym_statement_keyword_token29] = ACTIONS(125),
-    [aux_sym_statement_keyword_token30] = ACTIONS(125),
-    [aux_sym_statement_keyword_token31] = ACTIONS(125),
-    [aux_sym_statement_keyword_token32] = ACTIONS(125),
-    [aux_sym_statement_keyword_token33] = ACTIONS(125),
-    [aux_sym_statement_keyword_token34] = ACTIONS(125),
-    [aux_sym_statement_keyword_token35] = ACTIONS(125),
-    [aux_sym_statement_keyword_token36] = ACTIONS(125),
-    [aux_sym_statement_keyword_token37] = ACTIONS(125),
-    [aux_sym_statement_keyword_token38] = ACTIONS(125),
-    [aux_sym_statement_keyword_token39] = ACTIONS(125),
-    [aux_sym_control_keyword_token1] = ACTIONS(125),
-    [aux_sym_control_keyword_token2] = ACTIONS(125),
-    [aux_sym_control_keyword_token3] = ACTIONS(125),
-    [aux_sym_control_keyword_token4] = ACTIONS(125),
-    [aux_sym_control_keyword_token5] = ACTIONS(125),
-    [aux_sym_control_keyword_token6] = ACTIONS(125),
-    [aux_sym_control_keyword_token7] = ACTIONS(125),
-    [aux_sym_control_keyword_token8] = ACTIONS(125),
-    [aux_sym_control_keyword_token9] = ACTIONS(125),
-    [aux_sym_control_keyword_token10] = ACTIONS(125),
-    [aux_sym_control_keyword_token11] = ACTIONS(125),
-    [aux_sym_control_keyword_token12] = ACTIONS(125),
-    [aux_sym_control_keyword_token13] = ACTIONS(125),
-    [aux_sym_control_keyword_token14] = ACTIONS(125),
-    [aux_sym_control_keyword_token15] = ACTIONS(125),
-    [aux_sym_control_keyword_token16] = ACTIONS(125),
-    [aux_sym_control_keyword_token17] = ACTIONS(125),
-    [aux_sym_control_keyword_token18] = ACTIONS(125),
-    [aux_sym_control_keyword_token19] = ACTIONS(125),
-    [aux_sym_control_keyword_token20] = ACTIONS(125),
-    [aux_sym_control_keyword_token21] = ACTIONS(125),
-    [anon_sym_DOLLAR] = ACTIONS(123),
-    [aux_sym_wildcard_token1] = ACTIONS(123),
-    [aux_sym_wildcard_token2] = ACTIONS(123),
-    [anon_sym_QMARK_QMARK] = ACTIONS(125),
-    [anon_sym_QMARK] = ACTIONS(125),
-    [anon_sym_PLUS] = ACTIONS(123),
-    [anon_sym_DASH] = ACTIONS(123),
-    [anon_sym_STAR] = ACTIONS(125),
-    [anon_sym_SLASH] = ACTIONS(123),
-    [anon_sym_CARET] = ACTIONS(123),
-    [anon_sym_EQ] = ACTIONS(125),
-    [anon_sym_EQ_EQ] = ACTIONS(123),
-    [anon_sym_BANG_EQ] = ACTIONS(123),
-    [anon_sym_LT_GT] = ACTIONS(123),
-    [anon_sym_LT_EQ] = ACTIONS(123),
-    [anon_sym_GT_EQ] = ACTIONS(123),
-    [anon_sym_LT] = ACTIONS(125),
-    [anon_sym_GT] = ACTIONS(125),
-    [anon_sym_AMP_AMP] = ACTIONS(123),
-    [anon_sym_PIPE_PIPE] = ACTIONS(123),
-    [anon_sym_BANG] = ACTIONS(125),
-    [anon_sym_COMMA] = ACTIONS(123),
-    [anon_sym_COLON] = ACTIONS(125),
-    [anon_sym_COLON_COLON] = ACTIONS(123),
-    [anon_sym_DOT_DOT_DOT] = ACTIONS(123),
-    [anon_sym_LBRACK] = ACTIONS(123),
-    [anon_sym_RBRACK] = ACTIONS(123),
-    [anon_sym_LBRACE] = ACTIONS(123),
-    [anon_sym_RBRACE] = ACTIONS(123),
-    [sym_number] = ACTIONS(123),
-    [sym_string] = ACTIONS(123),
+    [ts_builtin_sym_end] = ACTIONS(136),
+    [sym_identifier] = ACTIONS(138),
+    [aux_sym__item_token1] = ACTIONS(136),
+    [sym_comment] = ACTIONS(138),
+    [anon_sym_POUND] = ACTIONS(136),
+    [anon_sym_DOT] = ACTIONS(138),
+    [anon_sym_LPAREN] = ACTIONS(136),
+    [anon_sym_RPAREN] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token1] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token2] = ACTIONS(138),
+    [aux_sym_declaration_keyword_token3] = ACTIONS(138),
+    [aux_sym_declaration_keyword_token4] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token5] = ACTIONS(138),
+    [aux_sym_declaration_keyword_token6] = ACTIONS(138),
+    [aux_sym_declaration_keyword_token7] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token8] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token9] = ACTIONS(138),
+    [aux_sym_declaration_keyword_token10] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token11] = ACTIONS(138),
+    [aux_sym_declaration_keyword_token12] = ACTIONS(138),
+    [aux_sym_declaration_keyword_token13] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token14] = ACTIONS(138),
+    [aux_sym_declaration_keyword_token15] = ACTIONS(138),
+    [aux_sym_declaration_keyword_token16] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token17] = ACTIONS(138),
+    [aux_sym_declaration_keyword_token18] = ACTIONS(138),
+    [aux_sym_declaration_keyword_token19] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token20] = ACTIONS(138),
+    [aux_sym_declaration_keyword_token21] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token22] = ACTIONS(138),
+    [aux_sym_declaration_keyword_token23] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token24] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token25] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token26] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token27] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token28] = ACTIONS(136),
+    [aux_sym_declaration_keyword_token29] = ACTIONS(136),
+    [aux_sym_statement_keyword_token1] = ACTIONS(136),
+    [aux_sym_statement_keyword_token2] = ACTIONS(136),
+    [aux_sym_statement_keyword_token3] = ACTIONS(138),
+    [aux_sym_statement_keyword_token4] = ACTIONS(138),
+    [aux_sym_statement_keyword_token5] = ACTIONS(136),
+    [aux_sym_statement_keyword_token6] = ACTIONS(138),
+    [aux_sym_statement_keyword_token7] = ACTIONS(136),
+    [aux_sym_statement_keyword_token8] = ACTIONS(136),
+    [aux_sym_statement_keyword_token9] = ACTIONS(136),
+    [aux_sym_statement_keyword_token10] = ACTIONS(136),
+    [aux_sym_statement_keyword_token11] = ACTIONS(136),
+    [aux_sym_statement_keyword_token12] = ACTIONS(136),
+    [aux_sym_statement_keyword_token13] = ACTIONS(136),
+    [aux_sym_statement_keyword_token14] = ACTIONS(136),
+    [aux_sym_statement_keyword_token15] = ACTIONS(136),
+    [aux_sym_statement_keyword_token16] = ACTIONS(136),
+    [aux_sym_statement_keyword_token17] = ACTIONS(136),
+    [aux_sym_statement_keyword_token18] = ACTIONS(138),
+    [aux_sym_statement_keyword_token19] = ACTIONS(136),
+    [aux_sym_statement_keyword_token20] = ACTIONS(136),
+    [aux_sym_statement_keyword_token21] = ACTIONS(136),
+    [aux_sym_statement_keyword_token22] = ACTIONS(136),
+    [aux_sym_statement_keyword_token23] = ACTIONS(138),
+    [aux_sym_statement_keyword_token24] = ACTIONS(136),
+    [aux_sym_statement_keyword_token25] = ACTIONS(136),
+    [aux_sym_statement_keyword_token26] = ACTIONS(136),
+    [aux_sym_statement_keyword_token27] = ACTIONS(136),
+    [aux_sym_statement_keyword_token28] = ACTIONS(136),
+    [aux_sym_statement_keyword_token29] = ACTIONS(136),
+    [aux_sym_statement_keyword_token30] = ACTIONS(136),
+    [aux_sym_statement_keyword_token31] = ACTIONS(136),
+    [aux_sym_statement_keyword_token32] = ACTIONS(136),
+    [aux_sym_statement_keyword_token33] = ACTIONS(136),
+    [aux_sym_statement_keyword_token34] = ACTIONS(136),
+    [aux_sym_statement_keyword_token35] = ACTIONS(136),
+    [aux_sym_statement_keyword_token36] = ACTIONS(136),
+    [aux_sym_statement_keyword_token37] = ACTIONS(136),
+    [aux_sym_statement_keyword_token38] = ACTIONS(136),
+    [aux_sym_statement_keyword_token39] = ACTIONS(136),
+    [aux_sym_control_keyword_token1] = ACTIONS(136),
+    [aux_sym_control_keyword_token2] = ACTIONS(138),
+    [aux_sym_control_keyword_token3] = ACTIONS(136),
+    [aux_sym_control_keyword_token4] = ACTIONS(136),
+    [aux_sym_control_keyword_token5] = ACTIONS(136),
+    [aux_sym_control_keyword_token6] = ACTIONS(136),
+    [aux_sym_control_keyword_token7] = ACTIONS(136),
+    [aux_sym_control_keyword_token8] = ACTIONS(136),
+    [aux_sym_control_keyword_token9] = ACTIONS(136),
+    [aux_sym_control_keyword_token10] = ACTIONS(136),
+    [aux_sym_control_keyword_token11] = ACTIONS(136),
+    [aux_sym_control_keyword_token12] = ACTIONS(136),
+    [aux_sym_control_keyword_token13] = ACTIONS(136),
+    [aux_sym_control_keyword_token14] = ACTIONS(136),
+    [aux_sym_control_keyword_token15] = ACTIONS(136),
+    [aux_sym_control_keyword_token16] = ACTIONS(136),
+    [aux_sym_control_keyword_token17] = ACTIONS(136),
+    [aux_sym_control_keyword_token18] = ACTIONS(136),
+    [aux_sym_control_keyword_token19] = ACTIONS(136),
+    [aux_sym_control_keyword_token20] = ACTIONS(136),
+    [aux_sym_control_keyword_token21] = ACTIONS(136),
+    [anon_sym_DOLLAR] = ACTIONS(136),
+    [aux_sym_wildcard_token1] = ACTIONS(136),
+    [aux_sym_wildcard_token2] = ACTIONS(136),
+    [anon_sym_QMARK_QMARK] = ACTIONS(138),
+    [anon_sym_QMARK] = ACTIONS(138),
+    [anon_sym_PLUS] = ACTIONS(136),
+    [anon_sym_DASH] = ACTIONS(136),
+    [anon_sym_STAR] = ACTIONS(138),
+    [anon_sym_SLASH] = ACTIONS(136),
+    [anon_sym_CARET] = ACTIONS(136),
+    [anon_sym_EQ] = ACTIONS(138),
+    [anon_sym_EQ_EQ] = ACTIONS(136),
+    [anon_sym_BANG_EQ] = ACTIONS(136),
+    [anon_sym_LT_GT] = ACTIONS(136),
+    [anon_sym_LT_EQ] = ACTIONS(136),
+    [anon_sym_GT_EQ] = ACTIONS(136),
+    [anon_sym_LT] = ACTIONS(138),
+    [anon_sym_GT] = ACTIONS(138),
+    [anon_sym_AMP_AMP] = ACTIONS(136),
+    [anon_sym_PIPE_PIPE] = ACTIONS(136),
+    [anon_sym_BANG] = ACTIONS(138),
+    [anon_sym_COMMA] = ACTIONS(136),
+    [anon_sym_COLON] = ACTIONS(138),
+    [anon_sym_COLON_COLON] = ACTIONS(136),
+    [anon_sym_DOT_DOT_DOT] = ACTIONS(136),
+    [anon_sym_LBRACK] = ACTIONS(136),
+    [anon_sym_RBRACK] = ACTIONS(136),
+    [anon_sym_LBRACE] = ACTIONS(136),
+    [anon_sym_RBRACE] = ACTIONS(136),
+    [sym_number] = ACTIONS(136),
+    [sym_string] = ACTIONS(136),
   },
   [STATE(11)] = {
-    [ts_builtin_sym_end] = ACTIONS(127),
-    [sym_identifier] = ACTIONS(129),
-    [aux_sym__item_token1] = ACTIONS(127),
-    [sym_comment] = ACTIONS(129),
-    [anon_sym_POUND] = ACTIONS(127),
-    [anon_sym_DOT] = ACTIONS(129),
-    [anon_sym_LPAREN] = ACTIONS(127),
-    [anon_sym_RPAREN] = ACTIONS(127),
-    [aux_sym_declaration_keyword_token1] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token2] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token3] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token4] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token5] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token6] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token7] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token8] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token9] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token10] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token11] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token12] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token13] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token14] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token15] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token16] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token17] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token18] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token19] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token20] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token21] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token22] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token23] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token24] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token25] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token26] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token27] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token28] = ACTIONS(129),
-    [aux_sym_declaration_keyword_token29] = ACTIONS(129),
-    [aux_sym_statement_keyword_token1] = ACTIONS(129),
-    [aux_sym_statement_keyword_token2] = ACTIONS(129),
-    [aux_sym_statement_keyword_token3] = ACTIONS(129),
-    [aux_sym_statement_keyword_token4] = ACTIONS(129),
-    [aux_sym_statement_keyword_token5] = ACTIONS(129),
-    [aux_sym_statement_keyword_token6] = ACTIONS(129),
-    [aux_sym_statement_keyword_token7] = ACTIONS(129),
-    [aux_sym_statement_keyword_token8] = ACTIONS(129),
-    [aux_sym_statement_keyword_token9] = ACTIONS(129),
-    [aux_sym_statement_keyword_token10] = ACTIONS(129),
-    [aux_sym_statement_keyword_token11] = ACTIONS(129),
-    [aux_sym_statement_keyword_token12] = ACTIONS(129),
-    [aux_sym_statement_keyword_token13] = ACTIONS(129),
-    [aux_sym_statement_keyword_token14] = ACTIONS(129),
-    [aux_sym_statement_keyword_token15] = ACTIONS(129),
-    [aux_sym_statement_keyword_token16] = ACTIONS(129),
-    [aux_sym_statement_keyword_token17] = ACTIONS(129),
-    [aux_sym_statement_keyword_token18] = ACTIONS(129),
-    [aux_sym_statement_keyword_token19] = ACTIONS(129),
-    [aux_sym_statement_keyword_token20] = ACTIONS(129),
-    [aux_sym_statement_keyword_token21] = ACTIONS(129),
-    [aux_sym_statement_keyword_token22] = ACTIONS(129),
-    [aux_sym_statement_keyword_token23] = ACTIONS(129),
-    [aux_sym_statement_keyword_token24] = ACTIONS(129),
-    [aux_sym_statement_keyword_token25] = ACTIONS(129),
-    [aux_sym_statement_keyword_token26] = ACTIONS(129),
-    [aux_sym_statement_keyword_token27] = ACTIONS(129),
-    [aux_sym_statement_keyword_token28] = ACTIONS(129),
-    [aux_sym_statement_keyword_token29] = ACTIONS(129),
-    [aux_sym_statement_keyword_token30] = ACTIONS(129),
-    [aux_sym_statement_keyword_token31] = ACTIONS(129),
-    [aux_sym_statement_keyword_token32] = ACTIONS(129),
-    [aux_sym_statement_keyword_token33] = ACTIONS(129),
-    [aux_sym_statement_keyword_token34] = ACTIONS(129),
-    [aux_sym_statement_keyword_token35] = ACTIONS(129),
-    [aux_sym_statement_keyword_token36] = ACTIONS(129),
-    [aux_sym_statement_keyword_token37] = ACTIONS(129),
-    [aux_sym_statement_keyword_token38] = ACTIONS(129),
-    [aux_sym_statement_keyword_token39] = ACTIONS(129),
-    [aux_sym_control_keyword_token1] = ACTIONS(129),
-    [aux_sym_control_keyword_token2] = ACTIONS(129),
-    [aux_sym_control_keyword_token3] = ACTIONS(129),
-    [aux_sym_control_keyword_token4] = ACTIONS(129),
-    [aux_sym_control_keyword_token5] = ACTIONS(129),
-    [aux_sym_control_keyword_token6] = ACTIONS(129),
-    [aux_sym_control_keyword_token7] = ACTIONS(129),
-    [aux_sym_control_keyword_token8] = ACTIONS(129),
-    [aux_sym_control_keyword_token9] = ACTIONS(129),
-    [aux_sym_control_keyword_token10] = ACTIONS(129),
-    [aux_sym_control_keyword_token11] = ACTIONS(129),
-    [aux_sym_control_keyword_token12] = ACTIONS(129),
-    [aux_sym_control_keyword_token13] = ACTIONS(129),
-    [aux_sym_control_keyword_token14] = ACTIONS(129),
-    [aux_sym_control_keyword_token15] = ACTIONS(129),
-    [aux_sym_control_keyword_token16] = ACTIONS(129),
-    [aux_sym_control_keyword_token17] = ACTIONS(129),
-    [aux_sym_control_keyword_token18] = ACTIONS(129),
-    [aux_sym_control_keyword_token19] = ACTIONS(129),
-    [aux_sym_control_keyword_token20] = ACTIONS(129),
-    [aux_sym_control_keyword_token21] = ACTIONS(129),
-    [anon_sym_DOLLAR] = ACTIONS(127),
-    [aux_sym_wildcard_token1] = ACTIONS(127),
-    [aux_sym_wildcard_token2] = ACTIONS(127),
-    [anon_sym_QMARK_QMARK] = ACTIONS(129),
-    [anon_sym_QMARK] = ACTIONS(129),
-    [anon_sym_PLUS] = ACTIONS(127),
-    [anon_sym_DASH] = ACTIONS(127),
-    [anon_sym_STAR] = ACTIONS(129),
-    [anon_sym_SLASH] = ACTIONS(127),
-    [anon_sym_CARET] = ACTIONS(127),
-    [anon_sym_EQ] = ACTIONS(129),
-    [anon_sym_EQ_EQ] = ACTIONS(127),
-    [anon_sym_BANG_EQ] = ACTIONS(127),
-    [anon_sym_LT_GT] = ACTIONS(127),
-    [anon_sym_LT_EQ] = ACTIONS(127),
-    [anon_sym_GT_EQ] = ACTIONS(127),
-    [anon_sym_LT] = ACTIONS(129),
-    [anon_sym_GT] = ACTIONS(129),
-    [anon_sym_AMP_AMP] = ACTIONS(127),
-    [anon_sym_PIPE_PIPE] = ACTIONS(127),
-    [anon_sym_BANG] = ACTIONS(129),
-    [anon_sym_COMMA] = ACTIONS(127),
-    [anon_sym_COLON] = ACTIONS(129),
-    [anon_sym_COLON_COLON] = ACTIONS(127),
-    [anon_sym_DOT_DOT_DOT] = ACTIONS(127),
-    [anon_sym_LBRACK] = ACTIONS(127),
-    [anon_sym_RBRACK] = ACTIONS(127),
-    [anon_sym_LBRACE] = ACTIONS(127),
-    [anon_sym_RBRACE] = ACTIONS(127),
-    [sym_number] = ACTIONS(127),
-    [sym_string] = ACTIONS(127),
+    [ts_builtin_sym_end] = ACTIONS(140),
+    [sym_identifier] = ACTIONS(142),
+    [aux_sym__item_token1] = ACTIONS(140),
+    [sym_comment] = ACTIONS(142),
+    [anon_sym_POUND] = ACTIONS(140),
+    [anon_sym_DOT] = ACTIONS(142),
+    [anon_sym_LPAREN] = ACTIONS(140),
+    [anon_sym_RPAREN] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token1] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token2] = ACTIONS(142),
+    [aux_sym_declaration_keyword_token3] = ACTIONS(142),
+    [aux_sym_declaration_keyword_token4] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token5] = ACTIONS(142),
+    [aux_sym_declaration_keyword_token6] = ACTIONS(142),
+    [aux_sym_declaration_keyword_token7] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token8] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token9] = ACTIONS(142),
+    [aux_sym_declaration_keyword_token10] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token11] = ACTIONS(142),
+    [aux_sym_declaration_keyword_token12] = ACTIONS(142),
+    [aux_sym_declaration_keyword_token13] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token14] = ACTIONS(142),
+    [aux_sym_declaration_keyword_token15] = ACTIONS(142),
+    [aux_sym_declaration_keyword_token16] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token17] = ACTIONS(142),
+    [aux_sym_declaration_keyword_token18] = ACTIONS(142),
+    [aux_sym_declaration_keyword_token19] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token20] = ACTIONS(142),
+    [aux_sym_declaration_keyword_token21] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token22] = ACTIONS(142),
+    [aux_sym_declaration_keyword_token23] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token24] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token25] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token26] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token27] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token28] = ACTIONS(140),
+    [aux_sym_declaration_keyword_token29] = ACTIONS(140),
+    [aux_sym_statement_keyword_token1] = ACTIONS(140),
+    [aux_sym_statement_keyword_token2] = ACTIONS(140),
+    [aux_sym_statement_keyword_token3] = ACTIONS(142),
+    [aux_sym_statement_keyword_token4] = ACTIONS(142),
+    [aux_sym_statement_keyword_token5] = ACTIONS(140),
+    [aux_sym_statement_keyword_token6] = ACTIONS(142),
+    [aux_sym_statement_keyword_token7] = ACTIONS(140),
+    [aux_sym_statement_keyword_token8] = ACTIONS(140),
+    [aux_sym_statement_keyword_token9] = ACTIONS(140),
+    [aux_sym_statement_keyword_token10] = ACTIONS(140),
+    [aux_sym_statement_keyword_token11] = ACTIONS(140),
+    [aux_sym_statement_keyword_token12] = ACTIONS(140),
+    [aux_sym_statement_keyword_token13] = ACTIONS(140),
+    [aux_sym_statement_keyword_token14] = ACTIONS(140),
+    [aux_sym_statement_keyword_token15] = ACTIONS(140),
+    [aux_sym_statement_keyword_token16] = ACTIONS(140),
+    [aux_sym_statement_keyword_token17] = ACTIONS(140),
+    [aux_sym_statement_keyword_token18] = ACTIONS(142),
+    [aux_sym_statement_keyword_token19] = ACTIONS(140),
+    [aux_sym_statement_keyword_token20] = ACTIONS(140),
+    [aux_sym_statement_keyword_token21] = ACTIONS(140),
+    [aux_sym_statement_keyword_token22] = ACTIONS(140),
+    [aux_sym_statement_keyword_token23] = ACTIONS(142),
+    [aux_sym_statement_keyword_token24] = ACTIONS(140),
+    [aux_sym_statement_keyword_token25] = ACTIONS(140),
+    [aux_sym_statement_keyword_token26] = ACTIONS(140),
+    [aux_sym_statement_keyword_token27] = ACTIONS(140),
+    [aux_sym_statement_keyword_token28] = ACTIONS(140),
+    [aux_sym_statement_keyword_token29] = ACTIONS(140),
+    [aux_sym_statement_keyword_token30] = ACTIONS(140),
+    [aux_sym_statement_keyword_token31] = ACTIONS(140),
+    [aux_sym_statement_keyword_token32] = ACTIONS(140),
+    [aux_sym_statement_keyword_token33] = ACTIONS(140),
+    [aux_sym_statement_keyword_token34] = ACTIONS(140),
+    [aux_sym_statement_keyword_token35] = ACTIONS(140),
+    [aux_sym_statement_keyword_token36] = ACTIONS(140),
+    [aux_sym_statement_keyword_token37] = ACTIONS(140),
+    [aux_sym_statement_keyword_token38] = ACTIONS(140),
+    [aux_sym_statement_keyword_token39] = ACTIONS(140),
+    [aux_sym_control_keyword_token1] = ACTIONS(140),
+    [aux_sym_control_keyword_token2] = ACTIONS(142),
+    [aux_sym_control_keyword_token3] = ACTIONS(140),
+    [aux_sym_control_keyword_token4] = ACTIONS(140),
+    [aux_sym_control_keyword_token5] = ACTIONS(140),
+    [aux_sym_control_keyword_token6] = ACTIONS(140),
+    [aux_sym_control_keyword_token7] = ACTIONS(140),
+    [aux_sym_control_keyword_token8] = ACTIONS(140),
+    [aux_sym_control_keyword_token9] = ACTIONS(140),
+    [aux_sym_control_keyword_token10] = ACTIONS(140),
+    [aux_sym_control_keyword_token11] = ACTIONS(140),
+    [aux_sym_control_keyword_token12] = ACTIONS(140),
+    [aux_sym_control_keyword_token13] = ACTIONS(140),
+    [aux_sym_control_keyword_token14] = ACTIONS(140),
+    [aux_sym_control_keyword_token15] = ACTIONS(140),
+    [aux_sym_control_keyword_token16] = ACTIONS(140),
+    [aux_sym_control_keyword_token17] = ACTIONS(140),
+    [aux_sym_control_keyword_token18] = ACTIONS(140),
+    [aux_sym_control_keyword_token19] = ACTIONS(140),
+    [aux_sym_control_keyword_token20] = ACTIONS(140),
+    [aux_sym_control_keyword_token21] = ACTIONS(140),
+    [anon_sym_DOLLAR] = ACTIONS(140),
+    [aux_sym_wildcard_token1] = ACTIONS(140),
+    [aux_sym_wildcard_token2] = ACTIONS(140),
+    [anon_sym_QMARK_QMARK] = ACTIONS(142),
+    [anon_sym_QMARK] = ACTIONS(142),
+    [anon_sym_PLUS] = ACTIONS(140),
+    [anon_sym_DASH] = ACTIONS(140),
+    [anon_sym_STAR] = ACTIONS(142),
+    [anon_sym_SLASH] = ACTIONS(140),
+    [anon_sym_CARET] = ACTIONS(140),
+    [anon_sym_EQ] = ACTIONS(142),
+    [anon_sym_EQ_EQ] = ACTIONS(140),
+    [anon_sym_BANG_EQ] = ACTIONS(140),
+    [anon_sym_LT_GT] = ACTIONS(140),
+    [anon_sym_LT_EQ] = ACTIONS(140),
+    [anon_sym_GT_EQ] = ACTIONS(140),
+    [anon_sym_LT] = ACTIONS(142),
+    [anon_sym_GT] = ACTIONS(142),
+    [anon_sym_AMP_AMP] = ACTIONS(140),
+    [anon_sym_PIPE_PIPE] = ACTIONS(140),
+    [anon_sym_BANG] = ACTIONS(142),
+    [anon_sym_COMMA] = ACTIONS(140),
+    [anon_sym_COLON] = ACTIONS(142),
+    [anon_sym_COLON_COLON] = ACTIONS(140),
+    [anon_sym_DOT_DOT_DOT] = ACTIONS(140),
+    [anon_sym_LBRACK] = ACTIONS(140),
+    [anon_sym_RBRACK] = ACTIONS(140),
+    [anon_sym_LBRACE] = ACTIONS(140),
+    [anon_sym_RBRACE] = ACTIONS(140),
+    [sym_number] = ACTIONS(140),
+    [sym_string] = ACTIONS(140),
   },
   [STATE(12)] = {
-    [ts_builtin_sym_end] = ACTIONS(131),
-    [sym_identifier] = ACTIONS(133),
-    [aux_sym__item_token1] = ACTIONS(131),
-    [sym_comment] = ACTIONS(133),
-    [anon_sym_POUND] = ACTIONS(131),
-    [anon_sym_DOT] = ACTIONS(133),
-    [anon_sym_LPAREN] = ACTIONS(131),
-    [anon_sym_RPAREN] = ACTIONS(131),
-    [aux_sym_declaration_keyword_token1] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token2] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token3] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token4] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token5] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token6] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token7] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token8] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token9] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token10] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token11] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token12] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token13] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token14] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token15] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token16] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token17] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token18] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token19] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token20] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token21] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token22] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token23] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token24] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token25] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token26] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token27] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token28] = ACTIONS(133),
-    [aux_sym_declaration_keyword_token29] = ACTIONS(133),
-    [aux_sym_statement_keyword_token1] = ACTIONS(133),
-    [aux_sym_statement_keyword_token2] = ACTIONS(133),
-    [aux_sym_statement_keyword_token3] = ACTIONS(133),
-    [aux_sym_statement_keyword_token4] = ACTIONS(133),
-    [aux_sym_statement_keyword_token5] = ACTIONS(133),
-    [aux_sym_statement_keyword_token6] = ACTIONS(133),
-    [aux_sym_statement_keyword_token7] = ACTIONS(133),
-    [aux_sym_statement_keyword_token8] = ACTIONS(133),
-    [aux_sym_statement_keyword_token9] = ACTIONS(133),
-    [aux_sym_statement_keyword_token10] = ACTIONS(133),
-    [aux_sym_statement_keyword_token11] = ACTIONS(133),
-    [aux_sym_statement_keyword_token12] = ACTIONS(133),
-    [aux_sym_statement_keyword_token13] = ACTIONS(133),
-    [aux_sym_statement_keyword_token14] = ACTIONS(133),
-    [aux_sym_statement_keyword_token15] = ACTIONS(133),
-    [aux_sym_statement_keyword_token16] = ACTIONS(133),
-    [aux_sym_statement_keyword_token17] = ACTIONS(133),
-    [aux_sym_statement_keyword_token18] = ACTIONS(133),
-    [aux_sym_statement_keyword_token19] = ACTIONS(133),
-    [aux_sym_statement_keyword_token20] = ACTIONS(133),
-    [aux_sym_statement_keyword_token21] = ACTIONS(133),
-    [aux_sym_statement_keyword_token22] = ACTIONS(133),
-    [aux_sym_statement_keyword_token23] = ACTIONS(133),
-    [aux_sym_statement_keyword_token24] = ACTIONS(133),
-    [aux_sym_statement_keyword_token25] = ACTIONS(133),
-    [aux_sym_statement_keyword_token26] = ACTIONS(133),
-    [aux_sym_statement_keyword_token27] = ACTIONS(133),
-    [aux_sym_statement_keyword_token28] = ACTIONS(133),
-    [aux_sym_statement_keyword_token29] = ACTIONS(133),
-    [aux_sym_statement_keyword_token30] = ACTIONS(133),
-    [aux_sym_statement_keyword_token31] = ACTIONS(133),
-    [aux_sym_statement_keyword_token32] = ACTIONS(133),
-    [aux_sym_statement_keyword_token33] = ACTIONS(133),
-    [aux_sym_statement_keyword_token34] = ACTIONS(133),
-    [aux_sym_statement_keyword_token35] = ACTIONS(133),
-    [aux_sym_statement_keyword_token36] = ACTIONS(133),
-    [aux_sym_statement_keyword_token37] = ACTIONS(133),
-    [aux_sym_statement_keyword_token38] = ACTIONS(133),
-    [aux_sym_statement_keyword_token39] = ACTIONS(133),
-    [aux_sym_control_keyword_token1] = ACTIONS(133),
-    [aux_sym_control_keyword_token2] = ACTIONS(133),
-    [aux_sym_control_keyword_token3] = ACTIONS(133),
-    [aux_sym_control_keyword_token4] = ACTIONS(133),
-    [aux_sym_control_keyword_token5] = ACTIONS(133),
-    [aux_sym_control_keyword_token6] = ACTIONS(133),
-    [aux_sym_control_keyword_token7] = ACTIONS(133),
-    [aux_sym_control_keyword_token8] = ACTIONS(133),
-    [aux_sym_control_keyword_token9] = ACTIONS(133),
-    [aux_sym_control_keyword_token10] = ACTIONS(133),
-    [aux_sym_control_keyword_token11] = ACTIONS(133),
-    [aux_sym_control_keyword_token12] = ACTIONS(133),
-    [aux_sym_control_keyword_token13] = ACTIONS(133),
-    [aux_sym_control_keyword_token14] = ACTIONS(133),
-    [aux_sym_control_keyword_token15] = ACTIONS(133),
-    [aux_sym_control_keyword_token16] = ACTIONS(133),
-    [aux_sym_control_keyword_token17] = ACTIONS(133),
-    [aux_sym_control_keyword_token18] = ACTIONS(133),
-    [aux_sym_control_keyword_token19] = ACTIONS(133),
-    [aux_sym_control_keyword_token20] = ACTIONS(133),
-    [aux_sym_control_keyword_token21] = ACTIONS(133),
-    [anon_sym_DOLLAR] = ACTIONS(131),
-    [aux_sym_wildcard_token1] = ACTIONS(131),
-    [aux_sym_wildcard_token2] = ACTIONS(131),
-    [anon_sym_QMARK_QMARK] = ACTIONS(133),
-    [anon_sym_QMARK] = ACTIONS(133),
-    [anon_sym_PLUS] = ACTIONS(131),
-    [anon_sym_DASH] = ACTIONS(131),
-    [anon_sym_STAR] = ACTIONS(133),
-    [anon_sym_SLASH] = ACTIONS(131),
-    [anon_sym_CARET] = ACTIONS(131),
-    [anon_sym_EQ] = ACTIONS(133),
-    [anon_sym_EQ_EQ] = ACTIONS(131),
-    [anon_sym_BANG_EQ] = ACTIONS(131),
-    [anon_sym_LT_GT] = ACTIONS(131),
-    [anon_sym_LT_EQ] = ACTIONS(131),
-    [anon_sym_GT_EQ] = ACTIONS(131),
-    [anon_sym_LT] = ACTIONS(133),
-    [anon_sym_GT] = ACTIONS(133),
-    [anon_sym_AMP_AMP] = ACTIONS(131),
-    [anon_sym_PIPE_PIPE] = ACTIONS(131),
-    [anon_sym_BANG] = ACTIONS(133),
-    [anon_sym_COMMA] = ACTIONS(131),
-    [anon_sym_COLON] = ACTIONS(133),
-    [anon_sym_COLON_COLON] = ACTIONS(131),
-    [anon_sym_DOT_DOT_DOT] = ACTIONS(131),
-    [anon_sym_LBRACK] = ACTIONS(131),
-    [anon_sym_RBRACK] = ACTIONS(131),
-    [anon_sym_LBRACE] = ACTIONS(131),
-    [anon_sym_RBRACE] = ACTIONS(131),
-    [sym_number] = ACTIONS(131),
-    [sym_string] = ACTIONS(131),
+    [ts_builtin_sym_end] = ACTIONS(144),
+    [sym_identifier] = ACTIONS(146),
+    [aux_sym__item_token1] = ACTIONS(144),
+    [sym_comment] = ACTIONS(146),
+    [anon_sym_POUND] = ACTIONS(144),
+    [anon_sym_DOT] = ACTIONS(146),
+    [anon_sym_LPAREN] = ACTIONS(144),
+    [anon_sym_RPAREN] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token1] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token2] = ACTIONS(146),
+    [aux_sym_declaration_keyword_token3] = ACTIONS(146),
+    [aux_sym_declaration_keyword_token4] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token5] = ACTIONS(146),
+    [aux_sym_declaration_keyword_token6] = ACTIONS(146),
+    [aux_sym_declaration_keyword_token7] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token8] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token9] = ACTIONS(146),
+    [aux_sym_declaration_keyword_token10] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token11] = ACTIONS(146),
+    [aux_sym_declaration_keyword_token12] = ACTIONS(146),
+    [aux_sym_declaration_keyword_token13] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token14] = ACTIONS(146),
+    [aux_sym_declaration_keyword_token15] = ACTIONS(146),
+    [aux_sym_declaration_keyword_token16] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token17] = ACTIONS(146),
+    [aux_sym_declaration_keyword_token18] = ACTIONS(146),
+    [aux_sym_declaration_keyword_token19] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token20] = ACTIONS(146),
+    [aux_sym_declaration_keyword_token21] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token22] = ACTIONS(146),
+    [aux_sym_declaration_keyword_token23] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token24] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token25] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token26] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token27] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token28] = ACTIONS(144),
+    [aux_sym_declaration_keyword_token29] = ACTIONS(144),
+    [aux_sym_statement_keyword_token1] = ACTIONS(144),
+    [aux_sym_statement_keyword_token2] = ACTIONS(144),
+    [aux_sym_statement_keyword_token3] = ACTIONS(146),
+    [aux_sym_statement_keyword_token4] = ACTIONS(146),
+    [aux_sym_statement_keyword_token5] = ACTIONS(144),
+    [aux_sym_statement_keyword_token6] = ACTIONS(146),
+    [aux_sym_statement_keyword_token7] = ACTIONS(144),
+    [aux_sym_statement_keyword_token8] = ACTIONS(144),
+    [aux_sym_statement_keyword_token9] = ACTIONS(144),
+    [aux_sym_statement_keyword_token10] = ACTIONS(144),
+    [aux_sym_statement_keyword_token11] = ACTIONS(144),
+    [aux_sym_statement_keyword_token12] = ACTIONS(144),
+    [aux_sym_statement_keyword_token13] = ACTIONS(144),
+    [aux_sym_statement_keyword_token14] = ACTIONS(144),
+    [aux_sym_statement_keyword_token15] = ACTIONS(144),
+    [aux_sym_statement_keyword_token16] = ACTIONS(144),
+    [aux_sym_statement_keyword_token17] = ACTIONS(144),
+    [aux_sym_statement_keyword_token18] = ACTIONS(146),
+    [aux_sym_statement_keyword_token19] = ACTIONS(144),
+    [aux_sym_statement_keyword_token20] = ACTIONS(144),
+    [aux_sym_statement_keyword_token21] = ACTIONS(144),
+    [aux_sym_statement_keyword_token22] = ACTIONS(144),
+    [aux_sym_statement_keyword_token23] = ACTIONS(146),
+    [aux_sym_statement_keyword_token24] = ACTIONS(144),
+    [aux_sym_statement_keyword_token25] = ACTIONS(144),
+    [aux_sym_statement_keyword_token26] = ACTIONS(144),
+    [aux_sym_statement_keyword_token27] = ACTIONS(144),
+    [aux_sym_statement_keyword_token28] = ACTIONS(144),
+    [aux_sym_statement_keyword_token29] = ACTIONS(144),
+    [aux_sym_statement_keyword_token30] = ACTIONS(144),
+    [aux_sym_statement_keyword_token31] = ACTIONS(144),
+    [aux_sym_statement_keyword_token32] = ACTIONS(144),
+    [aux_sym_statement_keyword_token33] = ACTIONS(144),
+    [aux_sym_statement_keyword_token34] = ACTIONS(144),
+    [aux_sym_statement_keyword_token35] = ACTIONS(144),
+    [aux_sym_statement_keyword_token36] = ACTIONS(144),
+    [aux_sym_statement_keyword_token37] = ACTIONS(144),
+    [aux_sym_statement_keyword_token38] = ACTIONS(144),
+    [aux_sym_statement_keyword_token39] = ACTIONS(144),
+    [aux_sym_control_keyword_token1] = ACTIONS(144),
+    [aux_sym_control_keyword_token2] = ACTIONS(146),
+    [aux_sym_control_keyword_token3] = ACTIONS(144),
+    [aux_sym_control_keyword_token4] = ACTIONS(144),
+    [aux_sym_control_keyword_token5] = ACTIONS(144),
+    [aux_sym_control_keyword_token6] = ACTIONS(144),
+    [aux_sym_control_keyword_token7] = ACTIONS(144),
+    [aux_sym_control_keyword_token8] = ACTIONS(144),
+    [aux_sym_control_keyword_token9] = ACTIONS(144),
+    [aux_sym_control_keyword_token10] = ACTIONS(144),
+    [aux_sym_control_keyword_token11] = ACTIONS(144),
+    [aux_sym_control_keyword_token12] = ACTIONS(144),
+    [aux_sym_control_keyword_token13] = ACTIONS(144),
+    [aux_sym_control_keyword_token14] = ACTIONS(144),
+    [aux_sym_control_keyword_token15] = ACTIONS(144),
+    [aux_sym_control_keyword_token16] = ACTIONS(144),
+    [aux_sym_control_keyword_token17] = ACTIONS(144),
+    [aux_sym_control_keyword_token18] = ACTIONS(144),
+    [aux_sym_control_keyword_token19] = ACTIONS(144),
+    [aux_sym_control_keyword_token20] = ACTIONS(144),
+    [aux_sym_control_keyword_token21] = ACTIONS(144),
+    [anon_sym_DOLLAR] = ACTIONS(144),
+    [aux_sym_wildcard_token1] = ACTIONS(144),
+    [aux_sym_wildcard_token2] = ACTIONS(144),
+    [anon_sym_QMARK_QMARK] = ACTIONS(146),
+    [anon_sym_QMARK] = ACTIONS(146),
+    [anon_sym_PLUS] = ACTIONS(144),
+    [anon_sym_DASH] = ACTIONS(144),
+    [anon_sym_STAR] = ACTIONS(146),
+    [anon_sym_SLASH] = ACTIONS(144),
+    [anon_sym_CARET] = ACTIONS(144),
+    [anon_sym_EQ] = ACTIONS(146),
+    [anon_sym_EQ_EQ] = ACTIONS(144),
+    [anon_sym_BANG_EQ] = ACTIONS(144),
+    [anon_sym_LT_GT] = ACTIONS(144),
+    [anon_sym_LT_EQ] = ACTIONS(144),
+    [anon_sym_GT_EQ] = ACTIONS(144),
+    [anon_sym_LT] = ACTIONS(146),
+    [anon_sym_GT] = ACTIONS(146),
+    [anon_sym_AMP_AMP] = ACTIONS(144),
+    [anon_sym_PIPE_PIPE] = ACTIONS(144),
+    [anon_sym_BANG] = ACTIONS(146),
+    [anon_sym_COMMA] = ACTIONS(144),
+    [anon_sym_COLON] = ACTIONS(146),
+    [anon_sym_COLON_COLON] = ACTIONS(144),
+    [anon_sym_DOT_DOT_DOT] = ACTIONS(144),
+    [anon_sym_LBRACK] = ACTIONS(144),
+    [anon_sym_RBRACK] = ACTIONS(144),
+    [anon_sym_LBRACE] = ACTIONS(144),
+    [anon_sym_RBRACE] = ACTIONS(144),
+    [sym_number] = ACTIONS(144),
+    [sym_string] = ACTIONS(144),
   },
 };
 
 static const uint16_t ts_small_parse_table[] = {
-  [0] = 14,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(135), 1,
+  [0] = 13,
+    ACTIONS(148), 1,
       sym_identifier,
-    ACTIONS(138), 1,
+    ACTIONS(151), 1,
       anon_sym_SEMI,
-    ACTIONS(141), 1,
+    ACTIONS(154), 1,
       anon_sym_LPAREN,
-    ACTIONS(146), 1,
+    ACTIONS(159), 1,
       anon_sym_DOLLAR,
-    ACTIONS(161), 1,
+    ACTIONS(174), 1,
       anon_sym_COLON,
     STATE(35), 1,
       sym_expression_list,
-    ACTIONS(149), 2,
+    ACTIONS(162), 2,
       aux_sym_wildcard_token1,
       aux_sym_wildcard_token2,
-    ACTIONS(152), 2,
+    ACTIONS(165), 2,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
-    ACTIONS(164), 2,
+    ACTIONS(177), 2,
       sym_number,
       sym_string,
-    ACTIONS(158), 5,
-      anon_sym_STAR,
+    ACTIONS(171), 4,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
@@ -5305,7 +5331,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_operator,
       sym_punctuation,
       aux_sym_expression_list_repeat1,
-    ACTIONS(143), 8,
+    ACTIONS(156), 8,
       anon_sym_RPAREN,
       anon_sym_COMMA,
       anon_sym_COLON_COLON,
@@ -5314,9 +5340,10 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_RBRACK,
       anon_sym_LBRACE,
       anon_sym_RBRACE,
-    ACTIONS(155), 11,
+    ACTIONS(168), 12,
       anon_sym_PLUS,
       anon_sym_DASH,
+      anon_sym_STAR,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -5326,30 +5353,27 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_GT_EQ,
       anon_sym_AMP_AMP,
       anon_sym_PIPE_PIPE,
-  [73] = 13,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(25), 1,
+  [70] = 12,
+    ACTIONS(29), 1,
       anon_sym_DOLLAR,
-    ACTIONS(35), 1,
+    ACTIONS(39), 1,
       anon_sym_COLON,
-    ACTIONS(167), 1,
+    ACTIONS(180), 1,
       sym_identifier,
-    ACTIONS(169), 1,
+    ACTIONS(182), 1,
       anon_sym_SEMI,
     STATE(35), 1,
       sym_expression_list,
-    ACTIONS(27), 2,
+    ACTIONS(31), 2,
       aux_sym_wildcard_token1,
       aux_sym_wildcard_token2,
-    ACTIONS(29), 2,
+    ACTIONS(33), 2,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
-    ACTIONS(37), 2,
+    ACTIONS(41), 2,
       sym_number,
       sym_string,
-    ACTIONS(33), 5,
-      anon_sym_STAR,
+    ACTIONS(37), 4,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
@@ -5362,7 +5386,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_operator,
       sym_punctuation,
       aux_sym_expression_list_repeat1,
-    ACTIONS(17), 9,
+    ACTIONS(15), 9,
       anon_sym_LPAREN,
       anon_sym_RPAREN,
       anon_sym_COMMA,
@@ -5372,9 +5396,10 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_RBRACK,
       anon_sym_LBRACE,
       anon_sym_RBRACE,
-    ACTIONS(31), 11,
+    ACTIONS(35), 12,
       anon_sym_PLUS,
       anon_sym_DASH,
+      anon_sym_STAR,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -5384,30 +5409,27 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_GT_EQ,
       anon_sym_AMP_AMP,
       anon_sym_PIPE_PIPE,
-  [144] = 13,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(25), 1,
+  [138] = 12,
+    ACTIONS(29), 1,
       anon_sym_DOLLAR,
-    ACTIONS(35), 1,
+    ACTIONS(39), 1,
       anon_sym_COLON,
-    ACTIONS(167), 1,
+    ACTIONS(180), 1,
       sym_identifier,
-    ACTIONS(171), 1,
+    ACTIONS(184), 1,
       anon_sym_SEMI,
     STATE(34), 1,
       sym_expression_list,
-    ACTIONS(27), 2,
+    ACTIONS(31), 2,
       aux_sym_wildcard_token1,
       aux_sym_wildcard_token2,
-    ACTIONS(29), 2,
+    ACTIONS(33), 2,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
-    ACTIONS(37), 2,
+    ACTIONS(41), 2,
       sym_number,
       sym_string,
-    ACTIONS(33), 5,
-      anon_sym_STAR,
+    ACTIONS(37), 4,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
@@ -5420,7 +5442,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_operator,
       sym_punctuation,
       aux_sym_expression_list_repeat1,
-    ACTIONS(17), 9,
+    ACTIONS(15), 9,
       anon_sym_LPAREN,
       anon_sym_RPAREN,
       anon_sym_COMMA,
@@ -5430,68 +5452,10 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_RBRACK,
       anon_sym_LBRACE,
       anon_sym_RBRACE,
-    ACTIONS(31), 11,
+    ACTIONS(35), 12,
       anon_sym_PLUS,
       anon_sym_DASH,
-      anon_sym_SLASH,
-      anon_sym_CARET,
-      anon_sym_EQ_EQ,
-      anon_sym_BANG_EQ,
-      anon_sym_LT_GT,
-      anon_sym_LT_EQ,
-      anon_sym_GT_EQ,
-      anon_sym_AMP_AMP,
-      anon_sym_PIPE_PIPE,
-  [215] = 14,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(25), 1,
-      anon_sym_DOLLAR,
-    ACTIONS(35), 1,
-      anon_sym_COLON,
-    ACTIONS(167), 1,
-      sym_identifier,
-    ACTIONS(173), 1,
-      anon_sym_SEMI,
-    ACTIONS(175), 1,
-      anon_sym_RPAREN,
-    STATE(36), 1,
-      sym_expression_list,
-    ACTIONS(27), 2,
-      aux_sym_wildcard_token1,
-      aux_sym_wildcard_token2,
-    ACTIONS(29), 2,
-      anon_sym_QMARK_QMARK,
-      anon_sym_QMARK,
-    ACTIONS(177), 2,
-      sym_number,
-      sym_string,
-    ACTIONS(33), 5,
       anon_sym_STAR,
-      anon_sym_EQ,
-      anon_sym_LT,
-      anon_sym_GT,
-      anon_sym_BANG,
-    STATE(20), 7,
-      sym_function_call,
-      sym__atom,
-      sym_dollar_variable,
-      sym_wildcard,
-      sym_operator,
-      sym_punctuation,
-      aux_sym_expression_list_repeat1,
-    ACTIONS(17), 8,
-      anon_sym_LPAREN,
-      anon_sym_COMMA,
-      anon_sym_COLON_COLON,
-      anon_sym_DOT_DOT_DOT,
-      anon_sym_LBRACK,
-      anon_sym_RBRACK,
-      anon_sym_LBRACE,
-      anon_sym_RBRACE,
-    ACTIONS(31), 11,
-      anon_sym_PLUS,
-      anon_sym_DASH,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -5501,142 +5465,29 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_GT_EQ,
       anon_sym_AMP_AMP,
       anon_sym_PIPE_PIPE,
-  [288] = 12,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(25), 1,
+  [206] = 13,
+    ACTIONS(29), 1,
       anon_sym_DOLLAR,
-    ACTIONS(35), 1,
+    ACTIONS(39), 1,
       anon_sym_COLON,
-    ACTIONS(167), 1,
-      sym_identifier,
-    ACTIONS(179), 1,
-      anon_sym_SEMI,
-    ACTIONS(27), 2,
-      aux_sym_wildcard_token1,
-      aux_sym_wildcard_token2,
-    ACTIONS(29), 2,
-      anon_sym_QMARK_QMARK,
-      anon_sym_QMARK,
-    ACTIONS(181), 2,
-      sym_number,
-      sym_string,
-    ACTIONS(33), 5,
-      anon_sym_STAR,
-      anon_sym_EQ,
-      anon_sym_LT,
-      anon_sym_GT,
-      anon_sym_BANG,
-    STATE(18), 7,
-      sym_function_call,
-      sym__atom,
-      sym_dollar_variable,
-      sym_wildcard,
-      sym_operator,
-      sym_punctuation,
-      aux_sym_expression_list_repeat1,
-    ACTIONS(17), 9,
-      anon_sym_LPAREN,
-      anon_sym_RPAREN,
-      anon_sym_COMMA,
-      anon_sym_COLON_COLON,
-      anon_sym_DOT_DOT_DOT,
-      anon_sym_LBRACK,
-      anon_sym_RBRACK,
-      anon_sym_LBRACE,
-      anon_sym_RBRACE,
-    ACTIONS(31), 11,
-      anon_sym_PLUS,
-      anon_sym_DASH,
-      anon_sym_SLASH,
-      anon_sym_CARET,
-      anon_sym_EQ_EQ,
-      anon_sym_BANG_EQ,
-      anon_sym_LT_GT,
-      anon_sym_LT_EQ,
-      anon_sym_GT_EQ,
-      anon_sym_AMP_AMP,
-      anon_sym_PIPE_PIPE,
-  [356] = 12,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(183), 1,
+    ACTIONS(180), 1,
       sym_identifier,
     ACTIONS(186), 1,
       anon_sym_SEMI,
-    ACTIONS(191), 1,
-      anon_sym_DOLLAR,
-    ACTIONS(206), 1,
-      anon_sym_COLON,
-    ACTIONS(194), 2,
-      aux_sym_wildcard_token1,
-      aux_sym_wildcard_token2,
-    ACTIONS(197), 2,
-      anon_sym_QMARK_QMARK,
-      anon_sym_QMARK,
-    ACTIONS(209), 2,
-      sym_number,
-      sym_string,
-    ACTIONS(203), 5,
-      anon_sym_STAR,
-      anon_sym_EQ,
-      anon_sym_LT,
-      anon_sym_GT,
-      anon_sym_BANG,
-    STATE(18), 7,
-      sym_function_call,
-      sym__atom,
-      sym_dollar_variable,
-      sym_wildcard,
-      sym_operator,
-      sym_punctuation,
-      aux_sym_expression_list_repeat1,
-    ACTIONS(188), 9,
-      anon_sym_LPAREN,
-      anon_sym_RPAREN,
-      anon_sym_COMMA,
-      anon_sym_COLON_COLON,
-      anon_sym_DOT_DOT_DOT,
-      anon_sym_LBRACK,
-      anon_sym_RBRACK,
-      anon_sym_LBRACE,
-      anon_sym_RBRACE,
-    ACTIONS(200), 11,
-      anon_sym_PLUS,
-      anon_sym_DASH,
-      anon_sym_SLASH,
-      anon_sym_CARET,
-      anon_sym_EQ_EQ,
-      anon_sym_BANG_EQ,
-      anon_sym_LT_GT,
-      anon_sym_LT_EQ,
-      anon_sym_GT_EQ,
-      anon_sym_AMP_AMP,
-      anon_sym_PIPE_PIPE,
-  [424] = 13,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(25), 1,
-      anon_sym_DOLLAR,
-    ACTIONS(35), 1,
-      anon_sym_COLON,
-    ACTIONS(167), 1,
-      sym_identifier,
-    ACTIONS(175), 1,
+    ACTIONS(188), 1,
       anon_sym_RPAREN,
     STATE(36), 1,
       sym_expression_list,
-    ACTIONS(27), 2,
+    ACTIONS(31), 2,
       aux_sym_wildcard_token1,
       aux_sym_wildcard_token2,
-    ACTIONS(29), 2,
+    ACTIONS(33), 2,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
-    ACTIONS(177), 2,
+    ACTIONS(190), 2,
       sym_number,
       sym_string,
-    ACTIONS(33), 5,
-      anon_sym_STAR,
+    ACTIONS(37), 4,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
@@ -5649,7 +5500,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_operator,
       sym_punctuation,
       aux_sym_expression_list_repeat1,
-    ACTIONS(17), 8,
+    ACTIONS(15), 8,
       anon_sym_LPAREN,
       anon_sym_COMMA,
       anon_sym_COLON_COLON,
@@ -5658,9 +5509,10 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_RBRACK,
       anon_sym_LBRACE,
       anon_sym_RBRACE,
-    ACTIONS(31), 11,
+    ACTIONS(35), 12,
       anon_sym_PLUS,
       anon_sym_DASH,
+      anon_sym_STAR,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -5670,28 +5522,25 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_GT_EQ,
       anon_sym_AMP_AMP,
       anon_sym_PIPE_PIPE,
-  [494] = 12,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(25), 1,
+  [276] = 11,
+    ACTIONS(29), 1,
       anon_sym_DOLLAR,
-    ACTIONS(35), 1,
+    ACTIONS(39), 1,
       anon_sym_COLON,
-    ACTIONS(167), 1,
+    ACTIONS(180), 1,
       sym_identifier,
-    ACTIONS(212), 1,
-      anon_sym_RPAREN,
-    ACTIONS(27), 2,
+    ACTIONS(192), 1,
+      anon_sym_SEMI,
+    ACTIONS(31), 2,
       aux_sym_wildcard_token1,
       aux_sym_wildcard_token2,
-    ACTIONS(29), 2,
+    ACTIONS(33), 2,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
-    ACTIONS(181), 2,
+    ACTIONS(194), 2,
       sym_number,
       sym_string,
-    ACTIONS(33), 5,
-      anon_sym_STAR,
+    ACTIONS(37), 4,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
@@ -5704,8 +5553,9 @@ static const uint16_t ts_small_parse_table[] = {
       sym_operator,
       sym_punctuation,
       aux_sym_expression_list_repeat1,
-    ACTIONS(17), 8,
+    ACTIONS(15), 9,
       anon_sym_LPAREN,
+      anon_sym_RPAREN,
       anon_sym_COMMA,
       anon_sym_COLON_COLON,
       anon_sym_DOT_DOT_DOT,
@@ -5713,9 +5563,10 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_RBRACK,
       anon_sym_LBRACE,
       anon_sym_RBRACE,
-    ACTIONS(31), 11,
+    ACTIONS(35), 12,
       anon_sym_PLUS,
       anon_sym_DASH,
+      anon_sym_STAR,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -5725,19 +5576,178 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_GT_EQ,
       anon_sym_AMP_AMP,
       anon_sym_PIPE_PIPE,
-  [561] = 3,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(215), 8,
+  [341] = 11,
+    ACTIONS(196), 1,
+      sym_identifier,
+    ACTIONS(199), 1,
+      anon_sym_SEMI,
+    ACTIONS(204), 1,
+      anon_sym_DOLLAR,
+    ACTIONS(219), 1,
+      anon_sym_COLON,
+    ACTIONS(207), 2,
+      aux_sym_wildcard_token1,
+      aux_sym_wildcard_token2,
+    ACTIONS(210), 2,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
+    ACTIONS(222), 2,
+      sym_number,
+      sym_string,
+    ACTIONS(216), 4,
+      anon_sym_EQ,
+      anon_sym_LT,
+      anon_sym_GT,
+      anon_sym_BANG,
+    STATE(18), 7,
+      sym_function_call,
+      sym__atom,
+      sym_dollar_variable,
+      sym_wildcard,
+      sym_operator,
+      sym_punctuation,
+      aux_sym_expression_list_repeat1,
+    ACTIONS(201), 9,
+      anon_sym_LPAREN,
+      anon_sym_RPAREN,
+      anon_sym_COMMA,
+      anon_sym_COLON_COLON,
+      anon_sym_DOT_DOT_DOT,
+      anon_sym_LBRACK,
+      anon_sym_RBRACK,
+      anon_sym_LBRACE,
+      anon_sym_RBRACE,
+    ACTIONS(213), 12,
+      anon_sym_PLUS,
+      anon_sym_DASH,
       anon_sym_STAR,
+      anon_sym_SLASH,
+      anon_sym_CARET,
+      anon_sym_EQ_EQ,
+      anon_sym_BANG_EQ,
+      anon_sym_LT_GT,
+      anon_sym_LT_EQ,
+      anon_sym_GT_EQ,
+      anon_sym_AMP_AMP,
+      anon_sym_PIPE_PIPE,
+  [406] = 12,
+    ACTIONS(29), 1,
+      anon_sym_DOLLAR,
+    ACTIONS(39), 1,
+      anon_sym_COLON,
+    ACTIONS(180), 1,
+      sym_identifier,
+    ACTIONS(188), 1,
+      anon_sym_RPAREN,
+    STATE(36), 1,
+      sym_expression_list,
+    ACTIONS(31), 2,
+      aux_sym_wildcard_token1,
+      aux_sym_wildcard_token2,
+    ACTIONS(33), 2,
+      anon_sym_QMARK_QMARK,
+      anon_sym_QMARK,
+    ACTIONS(190), 2,
+      sym_number,
+      sym_string,
+    ACTIONS(37), 4,
+      anon_sym_EQ,
+      anon_sym_LT,
+      anon_sym_GT,
+      anon_sym_BANG,
+    STATE(20), 7,
+      sym_function_call,
+      sym__atom,
+      sym_dollar_variable,
+      sym_wildcard,
+      sym_operator,
+      sym_punctuation,
+      aux_sym_expression_list_repeat1,
+    ACTIONS(15), 8,
+      anon_sym_LPAREN,
+      anon_sym_COMMA,
+      anon_sym_COLON_COLON,
+      anon_sym_DOT_DOT_DOT,
+      anon_sym_LBRACK,
+      anon_sym_RBRACK,
+      anon_sym_LBRACE,
+      anon_sym_RBRACE,
+    ACTIONS(35), 12,
+      anon_sym_PLUS,
+      anon_sym_DASH,
+      anon_sym_STAR,
+      anon_sym_SLASH,
+      anon_sym_CARET,
+      anon_sym_EQ_EQ,
+      anon_sym_BANG_EQ,
+      anon_sym_LT_GT,
+      anon_sym_LT_EQ,
+      anon_sym_GT_EQ,
+      anon_sym_AMP_AMP,
+      anon_sym_PIPE_PIPE,
+  [473] = 11,
+    ACTIONS(29), 1,
+      anon_sym_DOLLAR,
+    ACTIONS(39), 1,
+      anon_sym_COLON,
+    ACTIONS(180), 1,
+      sym_identifier,
+    ACTIONS(225), 1,
+      anon_sym_RPAREN,
+    ACTIONS(31), 2,
+      aux_sym_wildcard_token1,
+      aux_sym_wildcard_token2,
+    ACTIONS(33), 2,
+      anon_sym_QMARK_QMARK,
+      anon_sym_QMARK,
+    ACTIONS(194), 2,
+      sym_number,
+      sym_string,
+    ACTIONS(37), 4,
+      anon_sym_EQ,
+      anon_sym_LT,
+      anon_sym_GT,
+      anon_sym_BANG,
+    STATE(18), 7,
+      sym_function_call,
+      sym__atom,
+      sym_dollar_variable,
+      sym_wildcard,
+      sym_operator,
+      sym_punctuation,
+      aux_sym_expression_list_repeat1,
+    ACTIONS(15), 8,
+      anon_sym_LPAREN,
+      anon_sym_COMMA,
+      anon_sym_COLON_COLON,
+      anon_sym_DOT_DOT_DOT,
+      anon_sym_LBRACK,
+      anon_sym_RBRACK,
+      anon_sym_LBRACE,
+      anon_sym_RBRACE,
+    ACTIONS(35), 12,
+      anon_sym_PLUS,
+      anon_sym_DASH,
+      anon_sym_STAR,
+      anon_sym_SLASH,
+      anon_sym_CARET,
+      anon_sym_EQ_EQ,
+      anon_sym_BANG_EQ,
+      anon_sym_LT_GT,
+      anon_sym_LT_EQ,
+      anon_sym_GT_EQ,
+      anon_sym_AMP_AMP,
+      anon_sym_PIPE_PIPE,
+  [537] = 2,
+    ACTIONS(228), 7,
+      anon_sym_QMARK_QMARK,
+      anon_sym_QMARK,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
       anon_sym_BANG,
       anon_sym_COLON,
-    ACTIONS(173), 27,
+    ACTIONS(186), 28,
       anon_sym_SEMI,
       anon_sym_LPAREN,
       anon_sym_RPAREN,
@@ -5746,6 +5756,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_wildcard_token2,
       anon_sym_PLUS,
       anon_sym_DASH,
+      anon_sym_STAR,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -5765,19 +5776,16 @@ static const uint16_t ts_small_parse_table[] = {
       sym_identifier,
       sym_number,
       sym_string,
-  [604] = 3,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(219), 8,
+  [577] = 2,
+    ACTIONS(232), 7,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
-      anon_sym_STAR,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
       anon_sym_BANG,
       anon_sym_COLON,
-    ACTIONS(217), 27,
+    ACTIONS(230), 28,
       anon_sym_SEMI,
       anon_sym_LPAREN,
       anon_sym_RPAREN,
@@ -5786,6 +5794,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_wildcard_token2,
       anon_sym_PLUS,
       anon_sym_DASH,
+      anon_sym_STAR,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -5805,19 +5814,16 @@ static const uint16_t ts_small_parse_table[] = {
       sym_identifier,
       sym_number,
       sym_string,
-  [647] = 3,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(223), 8,
+  [617] = 2,
+    ACTIONS(236), 7,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
-      anon_sym_STAR,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
       anon_sym_BANG,
       anon_sym_COLON,
-    ACTIONS(221), 27,
+    ACTIONS(234), 28,
       anon_sym_SEMI,
       anon_sym_LPAREN,
       anon_sym_RPAREN,
@@ -5826,6 +5832,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_wildcard_token2,
       anon_sym_PLUS,
       anon_sym_DASH,
+      anon_sym_STAR,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -5845,19 +5852,16 @@ static const uint16_t ts_small_parse_table[] = {
       sym_identifier,
       sym_number,
       sym_string,
-  [690] = 3,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(227), 8,
+  [657] = 2,
+    ACTIONS(240), 7,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
-      anon_sym_STAR,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
       anon_sym_BANG,
       anon_sym_COLON,
-    ACTIONS(225), 27,
+    ACTIONS(238), 28,
       anon_sym_SEMI,
       anon_sym_LPAREN,
       anon_sym_RPAREN,
@@ -5866,6 +5870,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_wildcard_token2,
       anon_sym_PLUS,
       anon_sym_DASH,
+      anon_sym_STAR,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -5885,19 +5890,16 @@ static const uint16_t ts_small_parse_table[] = {
       sym_identifier,
       sym_number,
       sym_string,
-  [733] = 3,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(231), 8,
+  [697] = 2,
+    ACTIONS(244), 7,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
-      anon_sym_STAR,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
       anon_sym_BANG,
       anon_sym_COLON,
-    ACTIONS(229), 27,
+    ACTIONS(242), 28,
       anon_sym_SEMI,
       anon_sym_LPAREN,
       anon_sym_RPAREN,
@@ -5906,6 +5908,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_wildcard_token2,
       anon_sym_PLUS,
       anon_sym_DASH,
+      anon_sym_STAR,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -5925,19 +5928,16 @@ static const uint16_t ts_small_parse_table[] = {
       sym_identifier,
       sym_number,
       sym_string,
-  [776] = 3,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(235), 8,
+  [737] = 2,
+    ACTIONS(248), 7,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
-      anon_sym_STAR,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
       anon_sym_BANG,
       anon_sym_COLON,
-    ACTIONS(233), 27,
+    ACTIONS(246), 28,
       anon_sym_SEMI,
       anon_sym_LPAREN,
       anon_sym_RPAREN,
@@ -5946,6 +5946,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_wildcard_token2,
       anon_sym_PLUS,
       anon_sym_DASH,
+      anon_sym_STAR,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -5965,19 +5966,16 @@ static const uint16_t ts_small_parse_table[] = {
       sym_identifier,
       sym_number,
       sym_string,
-  [819] = 3,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(239), 8,
+  [777] = 2,
+    ACTIONS(252), 7,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
-      anon_sym_STAR,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
       anon_sym_BANG,
       anon_sym_COLON,
-    ACTIONS(237), 27,
+    ACTIONS(250), 28,
       anon_sym_SEMI,
       anon_sym_LPAREN,
       anon_sym_RPAREN,
@@ -5986,6 +5984,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_wildcard_token2,
       anon_sym_PLUS,
       anon_sym_DASH,
+      anon_sym_STAR,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -6005,19 +6004,16 @@ static const uint16_t ts_small_parse_table[] = {
       sym_identifier,
       sym_number,
       sym_string,
-  [862] = 3,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(243), 8,
+  [817] = 2,
+    ACTIONS(256), 7,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
-      anon_sym_STAR,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
       anon_sym_BANG,
       anon_sym_COLON,
-    ACTIONS(241), 27,
+    ACTIONS(254), 28,
       anon_sym_SEMI,
       anon_sym_LPAREN,
       anon_sym_RPAREN,
@@ -6026,6 +6022,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_wildcard_token2,
       anon_sym_PLUS,
       anon_sym_DASH,
+      anon_sym_STAR,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -6045,21 +6042,18 @@ static const uint16_t ts_small_parse_table[] = {
       sym_identifier,
       sym_number,
       sym_string,
-  [905] = 4,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(247), 1,
+  [857] = 3,
+    ACTIONS(260), 1,
       anon_sym_LPAREN,
-    ACTIONS(249), 8,
+    ACTIONS(262), 7,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
-      anon_sym_STAR,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
       anon_sym_BANG,
       anon_sym_COLON,
-    ACTIONS(245), 26,
+    ACTIONS(258), 27,
       anon_sym_SEMI,
       anon_sym_RPAREN,
       anon_sym_DOLLAR,
@@ -6067,6 +6061,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_wildcard_token2,
       anon_sym_PLUS,
       anon_sym_DASH,
+      anon_sym_STAR,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -6086,19 +6081,16 @@ static const uint16_t ts_small_parse_table[] = {
       sym_identifier,
       sym_number,
       sym_string,
-  [950] = 3,
-    ACTIONS(3), 1,
-      sym_comment,
-    ACTIONS(253), 8,
+  [899] = 2,
+    ACTIONS(266), 7,
       anon_sym_QMARK_QMARK,
       anon_sym_QMARK,
-      anon_sym_STAR,
       anon_sym_EQ,
       anon_sym_LT,
       anon_sym_GT,
       anon_sym_BANG,
       anon_sym_COLON,
-    ACTIONS(251), 27,
+    ACTIONS(264), 28,
       anon_sym_SEMI,
       anon_sym_LPAREN,
       anon_sym_RPAREN,
@@ -6107,6 +6099,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_wildcard_token2,
       anon_sym_PLUS,
       anon_sym_DASH,
+      anon_sym_STAR,
       anon_sym_SLASH,
       anon_sym_CARET,
       anon_sym_EQ_EQ,
@@ -6126,197 +6119,185 @@ static const uint16_t ts_small_parse_table[] = {
       sym_identifier,
       sym_number,
       sym_string,
-  [993] = 2,
-    ACTIONS(255), 1,
+  [939] = 1,
+    ACTIONS(268), 1,
       sym_identifier,
-    ACTIONS(257), 1,
-      sym_comment,
-  [1000] = 2,
-    ACTIONS(257), 1,
-      sym_comment,
-    ACTIONS(259), 1,
+  [943] = 1,
+    ACTIONS(270), 1,
       anon_sym_SEMI,
-  [1007] = 2,
-    ACTIONS(257), 1,
-      sym_comment,
-    ACTIONS(261), 1,
+  [947] = 1,
+    ACTIONS(272), 1,
       ts_builtin_sym_end,
-  [1014] = 2,
-    ACTIONS(257), 1,
-      sym_comment,
-    ACTIONS(263), 1,
+  [951] = 1,
+    ACTIONS(274), 1,
       anon_sym_SEMI,
-  [1021] = 2,
-    ACTIONS(257), 1,
-      sym_comment,
-    ACTIONS(265), 1,
+  [955] = 1,
+    ACTIONS(276), 1,
       anon_sym_SEMI,
-  [1028] = 2,
-    ACTIONS(257), 1,
-      sym_comment,
-    ACTIONS(267), 1,
+  [959] = 1,
+    ACTIONS(278), 1,
       anon_sym_RPAREN,
-  [1035] = 2,
-    ACTIONS(257), 1,
-      sym_comment,
-    ACTIONS(269), 1,
+  [963] = 1,
+    ACTIONS(280), 1,
       sym_identifier,
-  [1042] = 2,
-    ACTIONS(257), 1,
-      sym_comment,
-    ACTIONS(271), 1,
+  [967] = 1,
+    ACTIONS(282), 1,
       sym_identifier,
 };
 
 static const uint32_t ts_small_parse_table_map[] = {
   [SMALL_STATE(13)] = 0,
-  [SMALL_STATE(14)] = 73,
-  [SMALL_STATE(15)] = 144,
-  [SMALL_STATE(16)] = 215,
-  [SMALL_STATE(17)] = 288,
-  [SMALL_STATE(18)] = 356,
-  [SMALL_STATE(19)] = 424,
-  [SMALL_STATE(20)] = 494,
-  [SMALL_STATE(21)] = 561,
-  [SMALL_STATE(22)] = 604,
-  [SMALL_STATE(23)] = 647,
-  [SMALL_STATE(24)] = 690,
-  [SMALL_STATE(25)] = 733,
-  [SMALL_STATE(26)] = 776,
-  [SMALL_STATE(27)] = 819,
-  [SMALL_STATE(28)] = 862,
-  [SMALL_STATE(29)] = 905,
-  [SMALL_STATE(30)] = 950,
-  [SMALL_STATE(31)] = 993,
-  [SMALL_STATE(32)] = 1000,
-  [SMALL_STATE(33)] = 1007,
-  [SMALL_STATE(34)] = 1014,
-  [SMALL_STATE(35)] = 1021,
-  [SMALL_STATE(36)] = 1028,
-  [SMALL_STATE(37)] = 1035,
-  [SMALL_STATE(38)] = 1042,
+  [SMALL_STATE(14)] = 70,
+  [SMALL_STATE(15)] = 138,
+  [SMALL_STATE(16)] = 206,
+  [SMALL_STATE(17)] = 276,
+  [SMALL_STATE(18)] = 341,
+  [SMALL_STATE(19)] = 406,
+  [SMALL_STATE(20)] = 473,
+  [SMALL_STATE(21)] = 537,
+  [SMALL_STATE(22)] = 577,
+  [SMALL_STATE(23)] = 617,
+  [SMALL_STATE(24)] = 657,
+  [SMALL_STATE(25)] = 697,
+  [SMALL_STATE(26)] = 737,
+  [SMALL_STATE(27)] = 777,
+  [SMALL_STATE(28)] = 817,
+  [SMALL_STATE(29)] = 857,
+  [SMALL_STATE(30)] = 899,
+  [SMALL_STATE(31)] = 939,
+  [SMALL_STATE(32)] = 943,
+  [SMALL_STATE(33)] = 947,
+  [SMALL_STATE(34)] = 951,
+  [SMALL_STATE(35)] = 955,
+  [SMALL_STATE(36)] = 959,
+  [SMALL_STATE(37)] = 963,
+  [SMALL_STATE(38)] = 967,
 };
 
 static const TSParseActionEntry ts_parse_actions[] = {
   [0] = {.entry = {.count = 0, .reusable = false}},
   [1] = {.entry = {.count = 1, .reusable = false}}, RECOVER(),
-  [3] = {.entry = {.count = 1, .reusable = false}}, SHIFT_EXTRA(),
-  [5] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_source_file, 0, 0, 0),
-  [7] = {.entry = {.count = 1, .reusable = false}}, SHIFT(13),
-  [9] = {.entry = {.count = 1, .reusable = true}}, SHIFT(3),
-  [11] = {.entry = {.count = 1, .reusable = false}}, SHIFT(3),
-  [13] = {.entry = {.count = 1, .reusable = true}}, SHIFT(38),
-  [15] = {.entry = {.count = 1, .reusable = false}}, SHIFT(37),
-  [17] = {.entry = {.count = 1, .reusable = true}}, SHIFT(21),
+  [3] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_source_file, 0, 0, 0),
+  [5] = {.entry = {.count = 1, .reusable = false}}, SHIFT(13),
+  [7] = {.entry = {.count = 1, .reusable = true}}, SHIFT(3),
+  [9] = {.entry = {.count = 1, .reusable = false}}, SHIFT(3),
+  [11] = {.entry = {.count = 1, .reusable = true}}, SHIFT(38),
+  [13] = {.entry = {.count = 1, .reusable = false}}, SHIFT(37),
+  [15] = {.entry = {.count = 1, .reusable = true}}, SHIFT(21),
+  [17] = {.entry = {.count = 1, .reusable = true}}, SHIFT(26),
   [19] = {.entry = {.count = 1, .reusable = false}}, SHIFT(26),
-  [21] = {.entry = {.count = 1, .reusable = false}}, SHIFT(22),
-  [23] = {.entry = {.count = 1, .reusable = false}}, SHIFT(25),
-  [25] = {.entry = {.count = 1, .reusable = true}}, SHIFT(31),
-  [27] = {.entry = {.count = 1, .reusable = true}}, SHIFT(23),
-  [29] = {.entry = {.count = 1, .reusable = false}}, SHIFT(23),
-  [31] = {.entry = {.count = 1, .reusable = true}}, SHIFT(24),
-  [33] = {.entry = {.count = 1, .reusable = false}}, SHIFT(24),
-  [35] = {.entry = {.count = 1, .reusable = false}}, SHIFT(21),
-  [37] = {.entry = {.count = 1, .reusable = true}}, SHIFT(17),
-  [39] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0),
-  [41] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(13),
-  [44] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(2),
-  [47] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(2),
-  [50] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(38),
-  [53] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(37),
-  [56] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(21),
-  [59] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(26),
-  [62] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(22),
-  [65] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(25),
-  [68] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(31),
-  [71] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(23),
-  [74] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(23),
-  [77] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(24),
-  [80] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(24),
-  [83] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(21),
-  [86] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(17),
-  [89] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_source_file, 1, 0, 0),
-  [91] = {.entry = {.count = 1, .reusable = true}}, SHIFT(2),
-  [93] = {.entry = {.count = 1, .reusable = false}}, SHIFT(2),
-  [95] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_dot_directive, 2, 0, 1),
-  [97] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_dot_directive, 2, 0, 1),
-  [99] = {.entry = {.count = 1, .reusable = false}}, SHIFT(6),
-  [101] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_preprocessor, 2, 0, 1),
-  [103] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_preprocessor, 2, 0, 1),
-  [105] = {.entry = {.count = 1, .reusable = false}}, SHIFT(10),
-  [107] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_dot_directive, 3, 0, 3),
-  [109] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_dot_directive, 3, 0, 3),
-  [111] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_statement, 2, 0, 2),
-  [113] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_statement, 2, 0, 2),
-  [115] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_statement, 3, 0, 5),
-  [117] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_statement, 3, 0, 5),
-  [119] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_bare_expression, 2, 0, 0),
-  [121] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_bare_expression, 2, 0, 0),
-  [123] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_preprocessor, 3, 0, 3),
-  [125] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_preprocessor, 3, 0, 3),
-  [127] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_declaration, 2, 0, 2),
-  [129] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_declaration, 2, 0, 2),
-  [131] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_declaration, 3, 0, 5),
-  [133] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_declaration, 3, 0, 5),
-  [135] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(29),
-  [138] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(7),
-  [141] = {.entry = {.count = 1, .reusable = true}}, SHIFT(16),
-  [143] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(21),
-  [146] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(31),
-  [149] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(23),
-  [152] = {.entry = {.count = 2, .reusable = false}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(23),
-  [155] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(24),
-  [158] = {.entry = {.count = 2, .reusable = false}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(24),
-  [161] = {.entry = {.count = 2, .reusable = false}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(21),
-  [164] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(17),
-  [167] = {.entry = {.count = 1, .reusable = true}}, SHIFT(29),
-  [169] = {.entry = {.count = 1, .reusable = true}}, SHIFT(7),
-  [171] = {.entry = {.count = 1, .reusable = true}}, SHIFT(11),
-  [173] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_punctuation, 1, 0, 0),
-  [175] = {.entry = {.count = 1, .reusable = true}}, SHIFT(28),
-  [177] = {.entry = {.count = 1, .reusable = true}}, SHIFT(20),
-  [179] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_expression_list, 1, 0, 0),
-  [181] = {.entry = {.count = 1, .reusable = true}}, SHIFT(18),
-  [183] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(29),
-  [186] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0),
-  [188] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(21),
-  [191] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(31),
-  [194] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(23),
-  [197] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(23),
-  [200] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(24),
-  [203] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(24),
-  [206] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(21),
-  [209] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(18),
-  [212] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym_expression_list, 1, 0, 0), SHIFT(21),
-  [215] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_punctuation, 1, 0, 0),
-  [217] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_statement_keyword, 1, 0, 0),
-  [219] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_statement_keyword, 1, 0, 0),
-  [221] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_wildcard, 1, 0, 0),
-  [223] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_wildcard, 1, 0, 0),
-  [225] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_operator, 1, 0, 0),
-  [227] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_operator, 1, 0, 0),
-  [229] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_control_keyword, 1, 0, 0),
-  [231] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_control_keyword, 1, 0, 0),
-  [233] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_declaration_keyword, 1, 0, 0),
-  [235] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_declaration_keyword, 1, 0, 0),
-  [237] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_dollar_variable, 2, 0, 0),
-  [239] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_dollar_variable, 2, 0, 0),
-  [241] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_function_call, 3, 0, 4),
-  [243] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_function_call, 3, 0, 4),
-  [245] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0),
-  [247] = {.entry = {.count = 1, .reusable = true}}, SHIFT(19),
-  [249] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym__atom, 1, 0, 0),
-  [251] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_function_call, 4, 0, 4),
-  [253] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_function_call, 4, 0, 4),
-  [255] = {.entry = {.count = 1, .reusable = true}}, SHIFT(27),
-  [257] = {.entry = {.count = 1, .reusable = true}}, SHIFT_EXTRA(),
-  [259] = {.entry = {.count = 1, .reusable = true}}, SHIFT(9),
-  [261] = {.entry = {.count = 1, .reusable = true}},  ACCEPT_INPUT(),
-  [263] = {.entry = {.count = 1, .reusable = true}}, SHIFT(12),
-  [265] = {.entry = {.count = 1, .reusable = true}}, SHIFT(8),
-  [267] = {.entry = {.count = 1, .reusable = true}}, SHIFT(30),
-  [269] = {.entry = {.count = 1, .reusable = true}}, SHIFT(4),
-  [271] = {.entry = {.count = 1, .reusable = true}}, SHIFT(5),
+  [21] = {.entry = {.count = 1, .reusable = true}}, SHIFT(22),
+  [23] = {.entry = {.count = 1, .reusable = false}}, SHIFT(22),
+  [25] = {.entry = {.count = 1, .reusable = true}}, SHIFT(25),
+  [27] = {.entry = {.count = 1, .reusable = false}}, SHIFT(25),
+  [29] = {.entry = {.count = 1, .reusable = true}}, SHIFT(31),
+  [31] = {.entry = {.count = 1, .reusable = true}}, SHIFT(23),
+  [33] = {.entry = {.count = 1, .reusable = false}}, SHIFT(23),
+  [35] = {.entry = {.count = 1, .reusable = true}}, SHIFT(24),
+  [37] = {.entry = {.count = 1, .reusable = false}}, SHIFT(24),
+  [39] = {.entry = {.count = 1, .reusable = false}}, SHIFT(21),
+  [41] = {.entry = {.count = 1, .reusable = true}}, SHIFT(17),
+  [43] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0),
+  [45] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(13),
+  [48] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(2),
+  [51] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(2),
+  [54] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(38),
+  [57] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(37),
+  [60] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(21),
+  [63] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(26),
+  [66] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(26),
+  [69] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(22),
+  [72] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(22),
+  [75] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(25),
+  [78] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(25),
+  [81] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(31),
+  [84] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(23),
+  [87] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(23),
+  [90] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(24),
+  [93] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(24),
+  [96] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(21),
+  [99] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2, 0, 0), SHIFT_REPEAT(17),
+  [102] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_source_file, 1, 0, 0),
+  [104] = {.entry = {.count = 1, .reusable = true}}, SHIFT(2),
+  [106] = {.entry = {.count = 1, .reusable = false}}, SHIFT(2),
+  [108] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_dot_directive, 2, 0, 1),
+  [110] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_dot_directive, 2, 0, 1),
+  [112] = {.entry = {.count = 1, .reusable = false}}, SHIFT(6),
+  [114] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_preprocessor, 2, 0, 1),
+  [116] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_preprocessor, 2, 0, 1),
+  [118] = {.entry = {.count = 1, .reusable = false}}, SHIFT(10),
+  [120] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_dot_directive, 3, 0, 3),
+  [122] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_dot_directive, 3, 0, 3),
+  [124] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_statement, 2, 0, 2),
+  [126] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_statement, 2, 0, 2),
+  [128] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_statement, 3, 0, 5),
+  [130] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_statement, 3, 0, 5),
+  [132] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_bare_expression, 2, 0, 0),
+  [134] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_bare_expression, 2, 0, 0),
+  [136] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_preprocessor, 3, 0, 3),
+  [138] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_preprocessor, 3, 0, 3),
+  [140] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_declaration, 2, 0, 2),
+  [142] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_declaration, 2, 0, 2),
+  [144] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_declaration, 3, 0, 5),
+  [146] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_declaration, 3, 0, 5),
+  [148] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(29),
+  [151] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(7),
+  [154] = {.entry = {.count = 1, .reusable = true}}, SHIFT(16),
+  [156] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(21),
+  [159] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(31),
+  [162] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(23),
+  [165] = {.entry = {.count = 2, .reusable = false}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(23),
+  [168] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(24),
+  [171] = {.entry = {.count = 2, .reusable = false}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(24),
+  [174] = {.entry = {.count = 2, .reusable = false}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(21),
+  [177] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0), SHIFT(17),
+  [180] = {.entry = {.count = 1, .reusable = true}}, SHIFT(29),
+  [182] = {.entry = {.count = 1, .reusable = true}}, SHIFT(7),
+  [184] = {.entry = {.count = 1, .reusable = true}}, SHIFT(11),
+  [186] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_punctuation, 1, 0, 0),
+  [188] = {.entry = {.count = 1, .reusable = true}}, SHIFT(28),
+  [190] = {.entry = {.count = 1, .reusable = true}}, SHIFT(20),
+  [192] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_expression_list, 1, 0, 0),
+  [194] = {.entry = {.count = 1, .reusable = true}}, SHIFT(18),
+  [196] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(29),
+  [199] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0),
+  [201] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(21),
+  [204] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(31),
+  [207] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(23),
+  [210] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(23),
+  [213] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(24),
+  [216] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(24),
+  [219] = {.entry = {.count = 2, .reusable = false}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(21),
+  [222] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_expression_list_repeat1, 2, 0, 0), SHIFT_REPEAT(18),
+  [225] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym_expression_list, 1, 0, 0), SHIFT(21),
+  [228] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_punctuation, 1, 0, 0),
+  [230] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_statement_keyword, 1, 0, 0),
+  [232] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_statement_keyword, 1, 0, 0),
+  [234] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_wildcard, 1, 0, 0),
+  [236] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_wildcard, 1, 0, 0),
+  [238] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_operator, 1, 0, 0),
+  [240] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_operator, 1, 0, 0),
+  [242] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_control_keyword, 1, 0, 0),
+  [244] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_control_keyword, 1, 0, 0),
+  [246] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_declaration_keyword, 1, 0, 0),
+  [248] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_declaration_keyword, 1, 0, 0),
+  [250] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_dollar_variable, 2, 0, 0),
+  [252] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_dollar_variable, 2, 0, 0),
+  [254] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_function_call, 3, 0, 4),
+  [256] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_function_call, 3, 0, 4),
+  [258] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__atom, 1, 0, 0),
+  [260] = {.entry = {.count = 1, .reusable = true}}, SHIFT(19),
+  [262] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym__atom, 1, 0, 0),
+  [264] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_function_call, 4, 0, 4),
+  [266] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_function_call, 4, 0, 4),
+  [268] = {.entry = {.count = 1, .reusable = true}}, SHIFT(27),
+  [270] = {.entry = {.count = 1, .reusable = true}}, SHIFT(9),
+  [272] = {.entry = {.count = 1, .reusable = true}},  ACCEPT_INPUT(),
+  [274] = {.entry = {.count = 1, .reusable = true}}, SHIFT(12),
+  [276] = {.entry = {.count = 1, .reusable = true}}, SHIFT(8),
+  [278] = {.entry = {.count = 1, .reusable = true}}, SHIFT(30),
+  [280] = {.entry = {.count = 1, .reusable = true}}, SHIFT(4),
+  [282] = {.entry = {.count = 1, .reusable = true}}, SHIFT(5),
 };
 
 #ifdef __cplusplus
