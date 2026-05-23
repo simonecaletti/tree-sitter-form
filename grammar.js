@@ -18,9 +18,7 @@ module.exports = grammar({
   name: "form",
 
   extras: $ => [
-    /[ \t\r\f]+/,
-    // Comments are NOT in extras: `*` is only a comment at the start of a line
-    // (_item level). Inside expressions it is multiplication.
+    /[ \t\r\f\n]+/,
   ],
 
   word: $ => $.identifier,
@@ -40,12 +38,13 @@ module.exports = grammar({
       $.declaration,
       $.statement,
       $.bare_expression,
-      /\n+/
     ),
 
-    // FORM: a line whose very first character is `*` is a comment.
-    // The regex uses the multiline ^ anchor.
-    comment: _ => token(/\*[^\n]*/),
+    // A comment is a `*` followed by the rest of the line.
+    // prec(2) ensures this beats the `*` operator token when both are valid.
+    // It is safe because `*` at _item level can only ever be a comment
+    // (bare_expression/statement never start with `*`).
+    comment: _ => token(prec(2, /\*[^\n]*/)),
 
     // #directive  (rest of line is free-form)
     preprocessor: $ => seq(
@@ -76,7 +75,14 @@ module.exports = grammar({
       ";"
     ),
 
-    bare_expression: $ => seq($.expression_list, ";"),
+    // A bare expression must start with an atom or function call, never an
+    // operator. This prevents `*` at column 0 from being consumed as an
+    // expression instead of as a comment.
+    bare_expression: $ => seq(
+      choice($.function_call, $._atom),
+      repeat(choice($.function_call, $._atom, $.operator, $.punctuation)),
+      ";"
+    ),
 
     expression_list: $ => repeat1(choice(
       $.function_call,
@@ -121,7 +127,7 @@ module.exports = grammar({
     statement_keyword: _ => choice(
       token(prec(1, ci("Local"))), token(prec(1, ci("Global"))),
       token(prec(1, ci("L"))), token(prec(1, ci("G"))),
-      token(prec(1, ci("Identify"))), token(prec(1, ci("Id"))),
+      token(prec(1, ci("Identify"))), token(prec(1, ci("IdNew"))), token(prec(1, ci("IdOld"))), token(prec(1, ci("Id"))),
       token(prec(1, ci("Also"))),
       token(prec(1, ci("AntiBracket"))),
       token(prec(1, ci("EndArgument"))), token(prec(1, ci("Argument"))),
@@ -138,13 +144,23 @@ module.exports = grammar({
       token(prec(1, ci("Sum"))),
       token(prec(1, ci("SplitArg"))), token(prec(1, ci("MergeArg"))),
       token(prec(1, ci("Select"))),
-      token(prec(1, ci("Replace"))),
+      token(prec(1, ci("Replace"))), token(prec(1, ci("ReplaceLoop"))),
       token(prec(1, ci("Normalize"))),
-      token(prec(1, ci("ToPolynomial"))),
-      token(prec(1, ci("FactArg"))),
+      token(prec(1, ci("ToPolynomial"))), token(prec(1, ci("FromPolynomial"))),
+      token(prec(1, ci("FactArg"))), token(prec(1, ci("FactDollar"))),
       token(prec(1, ci("ChainIn"))), token(prec(1, ci("ChainOut"))),
       token(prec(1, ci("Trace4"))), token(prec(1, ci("TraceN"))),
+      token(prec(1, ci("UnitTrace"))),
       token(prec(1, ci("Metric"))),
+      token(prec(1, ci("Contract"))),
+      token(prec(1, ci("Chisholm"))),
+      token(prec(1, ci("RCycleSymmetrize"))), token(prec(1, ci("CycleSymmetrize"))),
+      token(prec(1, ci("AntiSymmetrize"))), token(prec(1, ci("Symmetrize"))),
+      token(prec(1, ci("Disorder"))),
+      token(prec(1, ci("Denominators"))),
+      token(prec(1, ci("DropSymbols"))), token(prec(1, ci("DropCoefficient"))),
+      token(prec(1, ci("ArgToExtraSymbol"))), token(prec(1, ci("ArgImplode"))), token(prec(1, ci("ArgExplode"))),
+      token(prec(1, ci("Apply"))),
     ),
 
     control_keyword: _ => choice(
@@ -157,6 +173,7 @@ module.exports = grammar({
       token(prec(1, ci("EndWhile"))), token(prec(1, ci("While"))),
       token(prec(1, ci("EndInside"))), token(prec(1, ci("Inside"))),
       token(prec(1, ci("EndInExpression"))), token(prec(1, ci("InExpression"))),
+      token(prec(1, ci("EndTerm"))), token(prec(1, ci("Term"))),
       token(prec(1, ci("GoTo"))), token(prec(1, ci("Label"))),
       token(prec(1, ci("Exit"))),
     ),
